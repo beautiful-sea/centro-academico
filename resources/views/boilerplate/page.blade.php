@@ -68,7 +68,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Logo -->
             <a href="/" class="brand-link">
-                <span class="brand-text font-weight-light"><b>Laravel</b> Boilerplate</span>
+                <span class="brand-text font-weight-light"><b>CA</b> Painel</span>
             </a>
         
             <div class="sidebar">

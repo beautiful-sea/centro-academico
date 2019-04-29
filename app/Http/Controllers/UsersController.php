@@ -32,7 +32,7 @@ class UsersController extends Controller
     }
 
     public function index()
-    {
+    {   
         $this->authorize('index', User::class);
 
         $users = User::orderBy('name')->get();

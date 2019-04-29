@@ -6,7 +6,7 @@
                     <div class="card-header">{{titulo}}</div>
 
                     <div class="card-body">
-                        <teste></teste>
+                        
                     </div>
                 </div>
             </div>

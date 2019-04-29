@@ -22,6 +22,63 @@
 @php
     $class = '';
 
+    if ($controller == 'ProductsController') {
+        $class = 'active';
+    }
+@endphp
+
+
+<li class="nav-item">
+    <a href="{{ route('products.index') }}" class="nav-link {{ $class }}">
+        <i class="nav-icon fab fa-product-hunt"></i>
+        <p>Produtos</p>
+    </a>
+</li>
+
+<li class="nav-item has-treeview {{ $class }}">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-pager"></i>
+        <p>Páginas <i class="fa fa-angle-left right"></i></p>
+    </a>
+    
+    <ul class="nav nav-treeview">
+        @can('index', \App\User::class)    
+            @php
+                $class = '';
+            
+                if ($controller == 'UsersController' && $action <> 'profile') {
+                    $class = 'active';
+                }
+            @endphp
+
+            <li class="nav-item">
+                <a href="{{ route('users.index') }}" class="nav-link {{ $class }}">
+                    <i class="fa fa-users nav-icon"></i>
+                    <p>Usuários</p>
+                </a>
+            </li>
+        @endcan
+
+        @php
+            $class = '';
+        
+            if ($controller == 'UsersController' && $action == 'profile') {
+                $class = 'active';
+            }
+        @endphp
+
+        <li class="nav-item">
+            <a href="{{ route('users.profile') }}" class="nav-link {{ $class }}">
+                <i class="fa fa-user nav-icon"></i>
+                <p>Perfil</p>
+            </a>
+        </li>
+    </ul>
+</li>
+
+@php
+    $class = '';
+
     if ($controller == 'UsersController') {
         $class = 'menu-open';
     }

@@ -15,9 +15,12 @@
 
 @section('content')
     <div id='app'>
-    	<example-component texto = 'testetete' titulo="Teste de Componente">
-    		<slot></slot>
-    	</example-component> 	
+        <div class="row">
+        	<box-info number="{{count($users)}}" description="Total de Usuários" action="Mais informações" link="users" color="warning" icon="fa fa-user">
+            </box-info>
+            <box-info number="{{count($products)}}" description="Produtos Cadastrados" action="Mais informações" link="products" color="info" icon="fab fa-product-hunt">
+            </box-info>	
+        </div>
     </div>
 @stop
 
