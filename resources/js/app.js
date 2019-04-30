@@ -22,6 +22,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('box-info', require('./components/BoxInfo.vue').default);
+Vue.component('table-responsive', require('./components/TableResponsive.vue').default);
 
 
 /**

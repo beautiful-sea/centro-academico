@@ -1,6 +1,7 @@
-{{ Form::open(['url' => '/stock/input', 'method' => 'PUT']) }}
+{{ Form::open(['url' => '/stock/input', 'method' => 'POST']) }}
     <div class="card">
         <div class="card-body">
+            <input id="operation" name="operation" type="hidden" value="">
             <div class="form-group">
             	<label for="amount">Quantidade</label>
             	<input id="amount" class="form-control" name="amount" type="number" value="{{$stock->ammount}}">

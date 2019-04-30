@@ -27,7 +27,9 @@ Route::group(['prefix' => '/stock'], function () {
             Route::get('/', 'StockController@index')->name('stocks');
             Route::post('/store', 'StockController@store')->name('stocks.store');
             Route::get('/input','StockController@input')->name('stocks.input');
+            Route::post('/input','StockController@store')->name('stocks.input');
             Route::get('/output','StockController@output')->name('stocks.output');
+            Route::post('/output','StockController@store')->name('stocks.output');
 
         });
 

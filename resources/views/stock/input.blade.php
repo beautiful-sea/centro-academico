@@ -24,5 +24,6 @@
 
 @section('js')
     <script>
+    	$('#operation').val(0);
     </script>
 @stop

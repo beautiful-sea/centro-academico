@@ -21,12 +21,14 @@
 
     <div class="card">
         <div class="card-body">
-            <table class="table table-hover" id="users-list">
+            <table class="table table-hover" id="stock-list">
                 <thead>
                     <tr>
                         <th>Produto</th>
-                        <th>Quantidade</th>
+                        <th>Em estoque</th>
+                        <th>Mínimo</th>
                         <th>Valor de Venda</th>
+                        <th>Ultima atualização</th>
                         <th data-orderable="false"></th>
                     </tr>
                 </thead>
@@ -34,13 +36,18 @@
                     @foreach($stock as $s)
                         @php
                             $class = '';
-                        @endphp
+                            $class_minimum = '';
 
+                            if($s->amount <= $s->product[0]->minimum_stock){
+                                $class_minimum = 'bg-danger';
+                            }
+                        @endphp
                         <tr class="{{ $class }}">
-                            <td>{{$s->id_product}}</td>
+                            <td><a href="/products/{{$s->product[0]->id}}/edit" >{{$s->product[0]->name}}</a></td>
                             <td class="number-mask">{{$s->amount}}</td>
+                            <td class="number-mask {{$class_minimum}}">{{$s->product[0]->minimum_stock}}</td>
                             <td class="money-mask">{{$s->unitary_value}}</td>
-                            <td class="money-mask">{{$s->unitary_value}}</td>
+                            <td class="">{{date("d/m/Y h:m:i",strtoTime($s->updated_at))}}</td>
                             <td>
                                 <div class="table-actions">
                                     @can('edit', $s)
@@ -67,5 +74,6 @@
 
 @section('js')
     <script>
+        $('#stock-list').DataTable();
     </script>
 @stop

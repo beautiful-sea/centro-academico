@@ -18,7 +18,13 @@
         <p>Home</p>
     </a>
 </li>
+        @php
+            $class = '';
 
+            if ($controller == 'StockController' || $controller == 'ProductsController') {
+                $class = 'active menu-open';
+            }
+        @endphp
 
 <li class="nav-item has-treeview {{ $class }}">
     <a href="#" class="nav-link">

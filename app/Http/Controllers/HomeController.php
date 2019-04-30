@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\User;
+use App\OutputProducts;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,10 @@ class HomeController extends Controller
     {
         $products = new Product;
         $users    = new User;
-        return view('home',['products'  =>  $products->all(),'users'  =>  $users->all()]);
+        $output_products = new OutputProducts;
+        return view('home',[
+            'products'  =>  $products->all(),
+            'users'  =>  $users->all(),
+            'output_products'=>$output_products->all()]);
     }
 }

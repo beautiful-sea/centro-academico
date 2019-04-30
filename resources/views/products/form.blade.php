@@ -18,12 +18,12 @@
 
         <div class="form-group">
             <label for="value">Valor</label>
-            <input id="value" class="form-control" name="value" type="number" value="{{$product->value}}">
+            <input id="value" class="form-control money-mask" name="value" type="text" value="{{$product->value}}">
         </div>
 
         <div class="form-group">
             <label for="value_partner">Valor para sócios</label>
-            <input id="value_partner" class="form-control" name="value_partner" type="number" value="{{$product->value_partner}}">
+            <input id="value_partner" class="form-control money-mask" name="value_partner" type="text" value="{{$product->value_partner}}">
         </div>
 
         <div class="row">

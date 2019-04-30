@@ -49,18 +49,20 @@ class Product extends Authenticatable
     }
 
     public static function selectProducts(){
-
         $p = DB::table('products')->select('id', 'name')->get();
-
         $select = [];
-
         foreach ($p as $value) {
-            // dd($value);
             $select = Arr::prepend($select,$value->id.' - '.$value->name,$value->id);
-
         }
-
         return $select;
     }
 
+    public function stock()
+    {
+        return $this->belongsTo('Stock','id_product');
+    }
+    public function output_products()
+    {
+        return $this->belongsTo('OutputProduct','id_product');
+    }
 }

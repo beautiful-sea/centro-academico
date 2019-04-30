@@ -67,7 +67,8 @@ class StockController extends Controller
     }
 
     public function output(){
-        
+        $stock = new Stock;
+        return view('stock.output',['stock'=>$stock]);
     }
     /**
      * Display the specified resource.

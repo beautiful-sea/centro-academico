@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Authenticatable
 {
@@ -17,7 +18,7 @@ class Stock extends Authenticatable
      */
     protected $fillable = ['id_product','amount','unitary_value'
     ];
-
+    protected $with = ['product'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -26,5 +27,9 @@ class Stock extends Authenticatable
     protected $hidden = [
     ];
 
+    public function product()
+    {
+        return $this->hasMany('App\Product','id');
+    }
 
 }

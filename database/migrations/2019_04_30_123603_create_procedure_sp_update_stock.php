@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateProcedureSpUpdateStock extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        DB::unprepared("
+
+            CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UpdateStock` (IN `id_prod` INT, IN `amount_bought` INT, IN `unitary_value` DECIMAL(9,2))  BEGIN
+                declare counter int(11);
+             
+                SELECT count(*) into counter FROM stocks WHERE id_product = id_prod;
+             
+                IF counter > 0 THEN
+                    UPDATE stocks SET amount=amount + amount_bought, unitary_value= unitary_value,updated_at=NOW()
+                    WHERE id_product = id_prod;
+                ELSE
+                    INSERT INTO stocks (id_product, amount, unitary_value,created_at,updated_at) values (id_prod, amount_bought, unitary_value,NOW(),NOW());
+                END IF;
+            END
+            ");
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        DB::unprepared('DROP PROCEDURE IF EXISTS SP_UpdateStock');
+    }
+}
