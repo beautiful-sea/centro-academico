@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use Illuminate\Support\Facades\Hash;
 use Auth;
+use Illuminate\Support\Arr;
 
 class ProductsController extends Controller
 {
@@ -45,13 +46,16 @@ class ProductsController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
 
             $product->image_extension = $extension;
-        }
+        }  
+
+
+        Arr::pull($product,'image');
 
         $product->save();
 
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));
-        }
+        }        
 
         return redirect()->route('products.index')->with('flash.success', 'Produto cadastrado com sucesso');
     }
@@ -76,12 +80,15 @@ class ProductsController extends Controller
 
             $product->image_extension = $extension;
         }
-
+        
+        Arr::pull($product,'image');
         $product->save();
 
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));
         }
+
+      
 
         return redirect()->route('products.index')->with('flash.success', 'Produto salvo com sucesso');
     }

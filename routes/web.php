@@ -23,7 +23,16 @@ Route::group(['prefix' => '/products'], function () {
             Route::get('/block/{product}', 'ProductsController@block')->name('products.block');
             Route::get('/unblock/{product}', 'ProductsController@unblock')->name('products.unblock');
         });
+Route::group(['prefix' => '/stock'], function () {
+            Route::get('/', 'StockController@index')->name('stocks');
+            Route::post('/store', 'StockController@store')->name('stocks.store');
+            Route::get('/input','StockController@input')->name('stocks.input');
+            Route::get('/output','StockController@output')->name('stocks.output');
+
+        });
+
 Route::resource('/products', 'ProductsController');
+Route::resource('/stock', 'StockController');
 
 
 \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();

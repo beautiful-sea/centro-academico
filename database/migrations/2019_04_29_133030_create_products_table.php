@@ -19,7 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->float('value')->nullable();
             $table->float('value_partner')->nullable();
-            $table->string('image')->nullable();
+            $table->integer('minimum_stock')->nullable();
+            $table->integer('maximum_stock')->nullable();
             $table->string('image_extension')->nullable();
             $table->boolean('locked')->default(false);
             $table->timestamps();

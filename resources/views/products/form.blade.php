@@ -7,6 +7,16 @@
         {{ Form::bsTextarea('description', 'Descrição',['rows'  =>  '2','maxlength' => 190]) }}
 
         <div class="form-group">
+            <label for="minimum_stock">Quantidade Mínima</label>
+            <input id="minimum_stock" class="form-control" name="minimum_stock" type="number" value="{{$product->minimum_stock}}">
+        </div>
+ 
+        <div class="form-group">
+            <label for="maximum_stock">Quantidade Máxima</label>
+            <input id="maximum_stock" class="form-control" name="maximum_stock" type="number" value="{{$product->maximum_stock}}">
+        </div>
+
+        <div class="form-group">
             <label for="value">Valor</label>
             <input id="value" class="form-control" name="value" type="number" value="{{$product->value}}">
         </div>

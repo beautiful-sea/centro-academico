@@ -16,7 +16,7 @@
 @section('content')
     <div id='app'>
         <div class="row">
-        	<box-info number="{{count($users)}}" description="Total de Usuários" action="Mais informações" link="users" color="warning" icon="fa fa-user">
+        	<box-info number="{{count($users)}}" description="Usuários Cadastrados" action="Mais informações" link="users" color="warning" icon="fa fa-user">
             </box-info>
             <box-info number="{{count($products)}}" description="Produtos Cadastrados" action="Mais informações" link="products" color="info" icon="fab fa-product-hunt">
             </box-info>	

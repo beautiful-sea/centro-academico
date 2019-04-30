@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+
 
 class Product extends Authenticatable
 {
@@ -15,7 +18,7 @@ class Product extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['name','description','value','value','value_partner','image'
+    protected $fillable = ['name','description','minimum_stock','maximum_stock','value','value_partner','image'
     ];
 
     /**
@@ -43,6 +46,21 @@ class Product extends Authenticatable
 
             return '<div class="user-no-photo-avatar img-circle elevation-2">' . $initials . '</div>';
         }
+    }
+
+    public static function selectProducts(){
+
+        $p = DB::table('products')->select('id', 'name')->get();
+
+        $select = [];
+
+        foreach ($p as $value) {
+            // dd($value);
+            $select = Arr::prepend($select,$value->id.' - '.$value->name,$value->id);
+
+        }
+
+        return $select;
     }
 
 }
