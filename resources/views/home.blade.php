@@ -21,11 +21,13 @@
        <box-info number="{{count($products)}}" description="Produtos Cadastrados" action="Mais informações" link="products" color="info" icon="fab fa-product-hunt">
        </box-info>
        <box-info number="{{count($output_products)}}" description="Vendas" action="Mais informações" link="stock" color="success" icon="fa fa-shopping-cart">
-       </box-info> 
+       </box-info>
+       <box-info number="{{count($stock)}}" description="Produtos com estoque baixo" action="Mais informações" link="stock" color="danger" icon="fa fa-shopping-cart">
+       </box-info>
    </div>
    <div class="row">
         <div class="col-md-6 col-6">
-            <table-responsive title="Ultimas Vendas" txt_btn_footer="Ver todos" :items="{{$output_products}}"></table-responsive>
+            <table-responsive title="Ultimas Saídas" txt_btn_footer="Ver todos" :items="{{$output_products}}" limit="5"></table-responsive>
         </div>
     </div>
 @stop

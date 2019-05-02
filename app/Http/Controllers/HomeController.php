@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\User;
 use App\OutputProducts;
+use App\Stock;
 
 class HomeController extends Controller
 {
@@ -29,9 +30,13 @@ class HomeController extends Controller
         $products = new Product;
         $users    = new User;
         $output_products = new OutputProducts;
+        $stock = new Stock;
+
+        // dd($stock->getBelowStock($stock));
         return view('home',[
             'products'  =>  $products->all(),
             'users'  =>  $users->all(),
-            'output_products'=>$output_products->all()]);
+            'output_products'=>$output_products->all(),
+            'stock' =>  $stock->all()]);
     }
 }

@@ -44,25 +44,38 @@ class StockController extends Controller
         
         $products = ($operation == 0)? (new InputProducts) : (new OutputProducts);
         $data = $request->all();
+        //Remover 'R$' do valor recebido e converter em 'float'
         $data['unitary_value'] =  (float)str_replace(['R$ ',','], ['','.'], $data['unitary_value']) ;
-        dd($data);
         unset($data['operation']);
-        $input_products->fill($request->all());
-        $input_products->save();  
-        
+        //mesclar $request com a instância do produto
+        $products->fill($data);
+        $products->save();  
+
         return redirect()->route('stock.index')->with('flash.success',
-        'Produto '.(($operation == 0)? 'adicionado' : 'removido').' ao estoque com sucesso.');
+        'Produto '.(($operation == 0)? 'adicionado ao' : 'removido do').'  estoque com sucesso.');
     }
 
-    public function input(){
+    public function input(){//código 0
         $stock = new Stock;
+        $stock['operation'] = 0;
         return view('stock.input',['stock'=>$stock]);
     }
 
-    public function output(){
+    public function getInput($id){
         $stock = new Stock;
+        return $stock->find($id);
+    }
+
+    public function output(){//código 1
+        $stock = new Stock;
+        $stock['operation'] = 1;
         return view('stock.output',['stock'=>$stock]);
     }
+
+    public function getOutput(){
+
+    }
+
     /**
      * Display the specified resource.
      *

@@ -27,27 +27,25 @@
                         <th>Produto</th>
                         <th>Em estoque</th>
                         <th>Mínimo</th>
-                        <th>Valor de Venda</th>
                         <th>Ultima atualização</th>
                         <th data-orderable="false"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($stock as $s)
-                        @if(isset($s->product[0]))
+                        @if(isset($s->product))
                             @php
                                 $class = '';
-                                $class_minimum = '';
+                                $class_danger = '';
 
-                                if($s->amount <= $s->product[0]->minimum_stock){
-                                    $class_minimum = 'bg-danger';
+                                if($s->amount <= $s->product->minimum_stock){
+                                    $class_danger = 'bg-danger';
                                 }
                             @endphp
                             <tr class="{{ $class }}">
-                                <td><a href="/products/{{$s->product[0]->id}}/edit" >{{$s->product[0]->name}}</a></td>
-                                <td class="number-mask">{{$s->amount}}</td>
-                                <td class="number-mask {{$class_minimum}}">{{$s->product[0]->minimum_stock}}</td>
-                                <td class="money-mask">{{$s->unitary_value}}</td>
+                                <td><a href="/products/{{$s->product->id}}/edit" >{{$s->product->name}}</a></td>
+                                <td class="number-mask {{$class_danger}}">{{$s->amount}}</td>
+                                <td class="number-mask {{$class_danger}}">{{$s->product->minimum_stock}}</td>
                                 <td class="">{{date("d/m/Y h:m:i",strtoTime($s->updated_at))}}</td>
                                 <td>
                                     <div class="table-actions">

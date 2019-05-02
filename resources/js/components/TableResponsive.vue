@@ -25,7 +25,8 @@
           </thead>
           <tbody>
 
-            <tr v-for="(value) in items">
+            <tr v-for="(value,index) in items" v-if="index <= limit">
+
               <td><a href="pages/examples/invoice.html">{{value['id']}}</a></td>
               <td>{{value['product']['name']}}</td>
               <td class="date-mask">{{value['created_at']}}</td>
@@ -42,8 +43,9 @@
 </template>
 <script>
   export default{
-    props:['title','items','txt_btn_footer'],
+    props:['title','items','txt_btn_footer','limit'],
     mounted(){
+      this.limit -= 1;
     }
   }
 </script>

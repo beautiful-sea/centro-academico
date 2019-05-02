@@ -13,17 +13,10 @@
 @endsection
 
 @section('content')
-<div id="app">
-
-@include('stock.form')
-
-</div>
-
-
+	@include('stock.form')
 @stop
 
 @section('js')
     <script>
-    	$('#operation').val(0);
     </script>
 @stop
