@@ -40,17 +40,18 @@ class ProductsController extends Controller
     {
         $product = new Product;
 
-        $product->fill($request->all());
+        $data = $request->all();
+        //Formata o valor do produto de string para float
+        $data['value'] = (float)str_replace(['R$ ',','],['','.'], $data['value']);
+        $data['value_partner'] = (float)str_replace(['R$ ',','],['','.'], $data['value_partner']);          
+
+        $product->fill($data);      
 
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
-
             $product->image_extension = $extension;
         }  
-
-
         Arr::pull($product,'image');
-
         $product->save();
 
         if ($request->hasFile('image')) {

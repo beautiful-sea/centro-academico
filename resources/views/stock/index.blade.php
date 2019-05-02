@@ -34,33 +34,35 @@
                 </thead>
                 <tbody>
                     @foreach($stock as $s)
-                        @php
-                            $class = '';
-                            $class_minimum = '';
+                        @if(isset($s->product[0]))
+                            @php
+                                $class = '';
+                                $class_minimum = '';
 
-                            if($s->amount <= $s->product[0]->minimum_stock){
-                                $class_minimum = 'bg-danger';
-                            }
-                        @endphp
-                        <tr class="{{ $class }}">
-                            <td><a href="/products/{{$s->product[0]->id}}/edit" >{{$s->product[0]->name}}</a></td>
-                            <td class="number-mask">{{$s->amount}}</td>
-                            <td class="number-mask {{$class_minimum}}">{{$s->product[0]->minimum_stock}}</td>
-                            <td class="money-mask">{{$s->unitary_value}}</td>
-                            <td class="">{{date("d/m/Y h:m:i",strtoTime($s->updated_at))}}</td>
-                            <td>
-                                <div class="table-actions">
-                                    @can('edit', $s)
-                                        <a href="{{ route('users.edit', ['user' => $s]) }}" class="btn btn-default btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
-                                    @endcan
+                                if($s->amount <= $s->product[0]->minimum_stock){
+                                    $class_minimum = 'bg-danger';
+                                }
+                            @endphp
+                            <tr class="{{ $class }}">
+                                <td><a href="/products/{{$s->product[0]->id}}/edit" >{{$s->product[0]->name}}</a></td>
+                                <td class="number-mask">{{$s->amount}}</td>
+                                <td class="number-mask {{$class_minimum}}">{{$s->product[0]->minimum_stock}}</td>
+                                <td class="money-mask">{{$s->unitary_value}}</td>
+                                <td class="">{{date("d/m/Y h:m:i",strtoTime($s->updated_at))}}</td>
+                                <td>
+                                    <div class="table-actions">
+                                        @can('edit', $s)
+                                            <a href="{{ route('users.edit', ['user' => $s]) }}" class="btn btn-default btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                                        @endcan
 
 
-                                    @can('destroy', $s)
-                                            {{ Html::deleteLink('Excluir', route('users.destroy', ['user' => $s]), ['button_class' => 'btn btn-danger btn-sm confirmable', 'icon' => 'trash']) }}
-                                    @endcan
-                                </div>
-                            </td>
-                        </tr>
+                                        @can('destroy', $s)
+                                                {{ Html::deleteLink('Excluir', route('users.destroy', ['user' => $s]), ['button_class' => 'btn btn-danger btn-sm confirmable', 'icon' => 'trash']) }}
+                                        @endcan
+                                    </div>
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

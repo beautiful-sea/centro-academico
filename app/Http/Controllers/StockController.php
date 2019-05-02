@@ -41,24 +41,17 @@ class StockController extends Controller
     public function store(Request $request)
     {
         $operation = $request->operation;
-
-        $product = [];
-        if($operation == 0){//Input Products
-            $input_products = new InputProducts;
-            $data = $request->all();
-            unset($data['operation']);
-            $input_products->fill($request->all());
-            $input_products->save();
-            return redirect()->route('stock.index')->with('flash.success', 'Produto adicionado ao estoque com sucesso.');
-        }elseif($operation == 1){//Output
-            $output_products = new OutputProducts;
-            $data = $request->all();
-            unset($data['operation']);
-            $output_products->fill($request->all());
-            $output_products->save();
-            return redirect()->route('stock.index')->with('flash.success', 'Produto removido do estoque com sucesso.');
-        }
         
+        $products = ($operation == 0)? (new InputProducts) : (new OutputProducts);
+        $data = $request->all();
+        $data['unitary_value'] =  (float)str_replace(['R$ ',','], ['','.'], $data['unitary_value']) ;
+        dd($data);
+        unset($data['operation']);
+        $input_products->fill($request->all());
+        $input_products->save();  
+        
+        return redirect()->route('stock.index')->with('flash.success',
+        'Produto '.(($operation == 0)? 'adicionado' : 'removido').' ao estoque com sucesso.');
     }
 
     public function input(){
