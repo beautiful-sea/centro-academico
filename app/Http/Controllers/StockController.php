@@ -94,8 +94,8 @@ class StockController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Stock $stock)
-    {
-        //
+    {   
+        return view('stock.edit',['stock'=>$stock]);
     }
 
     /**

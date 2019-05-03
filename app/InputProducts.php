@@ -19,7 +19,7 @@ class InputProducts extends Authenticatable
     ];
 
     protected $table = "input_products";
-
+    protected $with = ['product'];
     protected $date = ['created_at','updated_at'];
     /**
      * The attributes that should be hidden for arrays.
@@ -29,5 +29,8 @@ class InputProducts extends Authenticatable
     protected $hidden = [
     ];
 
-
+    public function product()
+    {
+        return $this->hasOne('App\Product','id','id_product');
+    }
 }

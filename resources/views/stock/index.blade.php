@@ -44,19 +44,19 @@
                             @endphp
                             <tr class="{{ $class }}">
                                 <td><a href="/products/{{$s->product->id}}/edit" >{{$s->product->name}}</a></td>
-                                <td class="number-mask {{$class_danger}}">{{$s->amount}}</td>
-                                <td class="number-mask {{$class_danger}}">{{$s->product->minimum_stock}}</td>
-                                <td class="">{{date("d/m/Y h:m:i",strtoTime($s->updated_at))}}</td>
+                                <td class=" text-center {{$class_danger}}">{{$s->amount}}</td>
+                                <td class=" text-center {{$class_danger}}">{{$s->product->minimum_stock}}</td>
+                                <td class=" text-center">{{date("d/m/Y",strtoTime($s->updated_at))}}</td>
                                 <td>
                                     <div class="table-actions">
-                                        @can('edit', $s)
-                                            <a href="{{ route('users.edit', ['user' => $s]) }}" class="btn btn-default btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
-                                        @endcan
+                                        <!-- @can('edit', $s)
+                                            <a href="{{ route('stock.edit', ['stock' => $s]) }}" class="btn btn-default btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                                        @endcan -->
 
-
+<!-- 
                                         @can('destroy', $s)
                                                 {{ Html::deleteLink('Excluir', route('users.destroy', ['user' => $s]), ['button_class' => 'btn btn-danger btn-sm confirmable', 'icon' => 'trash']) }}
-                                        @endcan
+                                        @endcan -->
                                     </div>
                                 </td>
                             </tr>

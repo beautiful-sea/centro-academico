@@ -5,13 +5,15 @@
 
         <div class="form-group">
            <label for="amount">Quantidade</label>
-           <input id="amount" class="form-control" name="amount" type="number" value="{{$stock->ammount}}">
+           <input id="amount" class="form-control" name="amount" type="number" value="{{(Request::is('stock/*/edit')?(int)$stock->amount:'')}}">
        </div>
 
-       {{Form::bsSelect('id_product','Produto',\App\Product::selectProducts(),['placeholder'=>null]) }}
-
+       @if(Request::is("stock/*/edit"))
+       {{Form::bsText('id_product','Produto',['default'=>$stock->product->name,'disabled'=>true]) }}
+       @else
+        {{Form::bsSelect('id_product','Produto',\App\Product::selectProducts(),['placeholder'=>null]) }}
+       @endif
        {{Form::bsText('unitary_value','Valor Unitário',['placeholder'=>null,'class'=>'money-mask']) }}
-
    </div>
 </div>
 

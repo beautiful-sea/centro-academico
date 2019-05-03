@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card collapsed-card">
     <div class="card-header border-transparent">
       <h3 class="card-title">{{this.title}}</h3>
 
@@ -20,16 +20,18 @@
             <tr>
               <th>ID</th>
               <th>Item</th>
+              <th>Quantidade</th>
               <th>Data de Saída</th>
             </tr>
           </thead>
           <tbody>
 
-            <tr v-for="(value,index) in items" v-if="index <= limit">
+            <tr v-for="(value,index) in items" v-if="index <= newLimit">
 
-              <td><a href="pages/examples/invoice.html">{{value['id']}}</a></td>
+              <td>{{value['id']}}</td>
               <td>{{value['product']['name']}}</td>
-              <td class="date-mask">{{value['created_at']}}</td>
+              <td>{{value['amount']}}</td>
+              <td class="date-mask">{{value['created_at'] | moment("DD/MM/Y - H:mm")}}</td>
             </tr>
 
           </tbody>
@@ -37,15 +39,25 @@
       </div>
     </div>
     <div class="card-footer clearfix">
-      <a href="javascript:void(0)" v-if="txt_btn_footer" class="btn btn-sm btn-secondary float-right">{{this.txt_btn_footer}}</a>
+      <a :href="link_btn_footer" v-if="txt_btn_footer" class="btn btn-sm btn-secondary float-right">{{this.txt_btn_footer}}</a>
     </div>
   </div>
 </template>
 <script>
   export default{
-    props:['title','items','txt_btn_footer','limit'],
+    props:{
+      title: String,
+      items: Array,
+      txt_btn_footer: String,
+      link_btn_footer: String,
+      limit: Number
+    },
+    data(){
+      return {
+        newLimit : this.limit - 1
+      }
+    },
     mounted(){
-      this.limit -= 1;
     }
   }
 </script>

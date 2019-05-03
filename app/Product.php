@@ -59,10 +59,15 @@ class Product extends Authenticatable
 
     public function stock()
     {
-        return $this->belongsTo('Stock','id_product')->where('products.minimum_stock','<=','stock.amount');
+        return $this->belongsTo('Stock','id_product');
     }
     public function output_products()
     {
-        return $this->belongsTo('OutputProduct','id_product');
+        return $this->belongsTo('App\OutputProducts','id');
+    }
+
+    public function input_products()
+    {
+        return $this->belongsTo('InputProducts','id_product');
     }
 }

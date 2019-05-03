@@ -19,8 +19,6 @@
     export default {
         props:['number','description','action','link','color','icon'],
         mounted() {
-            console.log('Component mounted.');
-
         }
 
     }

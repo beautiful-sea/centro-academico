@@ -18,8 +18,6 @@
     export default {
         props:['texto','titulo'],
         mounted() {
-            console.log('Component mounted.');
-
         }
 
     }

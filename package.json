@@ -37,6 +37,7 @@
         "numeral": "^2.0.6",
         "select2": "^4.0.6",
         "summernote": "^0.8.11",
+        "vue-moment": "^4.0.0",
         "webpack-jquery-ui": "^2.0.1"
     }
 }

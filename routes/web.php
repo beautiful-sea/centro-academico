@@ -31,7 +31,6 @@ Route::group(['prefix' => '/stock'], function () {
             Route::post('/input','StockController@store')->name('stocks.input');
             Route::get('/output','StockController@output')->name('stocks.output');
             Route::post('/output','StockController@store')->name('stocks.output');
-
         });
 
 Route::resource('/products', 'ProductsController');
