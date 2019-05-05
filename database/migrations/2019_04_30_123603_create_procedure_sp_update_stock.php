@@ -17,7 +17,8 @@ class CreateProcedureSpUpdateStock extends Migration
 
             CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UpdateStock` (IN `id_prod` INT, IN `amount_bought` INT, IN `unitary_value` DECIMAL(9,2))  BEGIN
                 declare counter int(11);
-             
+                declare new_amount int(11);
+
                 SELECT count(*) into counter FROM stocks WHERE id_product = id_prod;
              
                 IF counter > 0 THEN
@@ -25,6 +26,12 @@ class CreateProcedureSpUpdateStock extends Migration
                     WHERE id_product = id_prod;
                 ELSE
                     INSERT INTO stocks (id_product, amount, unitary_value,created_at,updated_at) values (id_prod, amount_bought, unitary_value,NOW(),NOW());
+                END IF;
+
+                SELECT amount into new_amount FROM stocks WHERE id_product = id_prod;
+    
+                IF new_amount <=0 THEN
+                    DELETE FROM stocks WHERE id_product = id_prod;
                 END IF;
             END
             ");
