@@ -36,4 +36,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/stock', 'StockController');
 });
 
+Route::get("/",function(){
+    return view('home');
+});
 \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();
