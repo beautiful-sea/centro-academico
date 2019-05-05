@@ -54,11 +54,11 @@
                                         @can('unblock', $p)
                                                 <a href="{{ route('products.unblock', ['product' => $p]) }}" class="btn btn-default btn-sm confirmable"><i class="fa fa-lock-open"></i> Desbloquear</a>
                                         @endcan
-                                    @endif
+                                    @endif<!-- 
 
                                     @can('destroy', $p)
                                             {{ Html::deleteLink('Excluir', route('products.destroy', ['product' => $p]), ['button_class' => 'btn btn-danger btn-sm confirmable', 'icon' => 'trash']) }}
-                                    @endcan
+                                    @endcan -->
                                 </div>
                             </td>
                         </tr>
@@ -72,6 +72,8 @@
 
 @section('js')
     <script>
-        $('#products-list').DataTable();
+        $('#products-list').DataTable({
+            'order':[[2,"asc"]]
+        });
     </script>
 @stop
