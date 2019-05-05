@@ -1,4 +1,4 @@
-@extends('boilerplate.raw')
+@extends('admin.boilerplate.raw')
 
 @section('content')
     <div class="login-box">
