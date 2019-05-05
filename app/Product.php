@@ -57,9 +57,20 @@ class Product extends Authenticatable
         return $select;
     }
 
+    public static function selectProductsInStock(){
+        $p = Stock::with('product:id,name')->where('amount','>','0')->get();//Busca todos dados no estoque
+        
+        $atributes = $p->pluck('product')->map->only(['id','name']);//retorna todos produtos do estoque | pluck() serve para extratir somente o produto do relacionamento de stock + product
+
+        $select = [];
+        foreach ($atributes as $value) {
+            $select = Arr::prepend($select,$value['id'].' - '.$value['name'],$value['id']);
+        }        
+        return $select;
+    }
     public function stock()
     {
-        return $this->belongsTo('Stock','id_product');
+        return $this->belongsTo('App\Stock','id_product');
     }
     public function output_products()
     {

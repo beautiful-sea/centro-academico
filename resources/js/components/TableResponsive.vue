@@ -18,18 +18,16 @@
         <table class="table m-0">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Item</th>
               <th>Quantidade</th>
-              <th>Data de Saída</th>
+              <th>Data</th>
             </tr>
           </thead>
           <tbody>
 
-            <tr v-for="(value,index) in items" v-if="index <= newLimit">
+            <tr v-for="(value,index) in items" v-if="index <= newLimit && value['product'] != null">
 
-              <td>{{value['id']}}</td>
-              <td>{{value['product']['name']}}</td>
+              <td><a :href="'products/'+value['product']['id']+'/edit'">{{value['product']['name']}}</a></td>
               <td>{{value['amount']}}</td>
               <td class="date-mask">{{value['created_at'] | moment("DD/MM/Y - H:mm")}}</td>
             </tr>

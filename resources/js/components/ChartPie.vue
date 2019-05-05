@@ -13,9 +13,9 @@
 		<!-- /.card-header -->
 		<div class="card-body">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<div class="chart-responsive">
-						<canvas id="doughnutChart" height="162" width="145" style="width: 145px; height: 162px;"></canvas>
+						<canvas id="doughnutChart" height="70" width="100%" style="width: 145px; height: 162px;"></canvas>
 					</div>
 					<!-- ./chart-responsive -->
 				</div>
@@ -35,7 +35,6 @@
 			}
 		},
 		mounted(){
-			console.log(this.items)
 			var canvas =  $('#doughnutChart').get(0).getContext('2d')
 
 			var doughnutChart = new Chart(canvas, {

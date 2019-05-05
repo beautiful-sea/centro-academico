@@ -1,4 +1,4 @@
-{{ Form::open(['url' => '/stock/input', 'method' => 'POST','id' =>  'stock-form']) }}
+{{ Form::open(['url' => '/stock/store', 'method' => 'POST','id' =>  'stock-form']) }}
 <div class="card">
     <div class="card-body">
         <input id="operation" name="operation" type="hidden" value="{{$stock['operation']}}">
@@ -8,11 +8,11 @@
            <input id="amount" class="form-control" name="amount" type="number" value="{{(Request::is('stock/*/edit')?(int)$stock->amount:'')}}">
        </div>
 
-       @if(Request::is("stock/*/edit"))
-       {{Form::bsText('id_product','Produto',['default'=>$stock->product->name,'disabled'=>true]) }}
-       @else
+      @if($stock['operation'] == 0)
         {{Form::bsSelect('id_product','Produto',\App\Product::selectProducts(),['placeholder'=>null]) }}
-       @endif
+      @else
+        {{Form::bsSelect('id_product','Produto',\App\Product::selectProductsInStock(),['placeholder'=>null]) }}
+      @endif
        {{Form::bsText('unitary_value','Valor Unitário',['placeholder'=>null,'class'=>'money-mask']) }}
    </div>
 </div>
@@ -31,24 +31,29 @@
             operation = ($("#operation").val() == 0)? 'input': 'output';
 
             id_product = document.getElementsByName('id_product')[0].value;
-            $.get( '/stock/input/'+id_product, function( data ) {
-                amount_stock = data.amount;
+
+            $.get( id_product, function( data ) {
+
+                data = (data[0])?data[0]:undefined;
+
                 amount_form  = $("input[name='amount']").val();
 
-                if(amount_stock == null){
-                    confirm =  (confirm(
-                    '\nQuantidade em estoque antes: 0'+
-                    '\nQuantidade em estoque agora: '+amount_form+
-                    '\n\nDeseja confimar a ação?'));
-                }else{
+
+                if(data != undefined){//Se ja tem o produto no estoque
+                  amount_stock = (data.amount!= undefined)?data.amount:null;
+
                   calc = ((operation == 'input')?(parseInt(amount_form)+parseInt(amount_stock)):parseInt(amount_stock)-(parseInt(amount_form)));  
                   confirm =  (confirm(
                     '\nQuantidade em estoque antes: '+amount_stock+
                     '\nQuantidade em estoque agora: '+calc+
-                    '\n\nDeseja confimar a ação?'));
+                    '\n\nDeseja confimar a ação?'));                                
+                }else{
+                  confirm =  (confirm(
+                  '\nQuantidade em estoque antes: 0'+
+                  '\nQuantidade em estoque agora: '+amount_form+
+                  '\n\nDeseja confimar a ação?'));                
                 }
-                
-                confirm == true ? form.submit() : window.location.href = '/stock';
+                confirm == true ? form.submit() : window.location.href = 'input';    
           });
         },
         rules: {

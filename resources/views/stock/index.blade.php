@@ -27,7 +27,7 @@
                         <th>Produto</th>
                         <th>Em estoque</th>
                         <th>Mínimo</th>
-                        <th>Ultima atualização</th>
+                        <th class="text-center">Ultima atualização</th>
                         <th data-orderable="false"></th>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@
                                             <a href="{{ route('stock.edit', ['stock' => $s]) }}" class="btn btn-default btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
                                         @endcan -->
 
-<!-- 
+                                        <!-- 
                                         @can('destroy', $s)
                                                 {{ Html::deleteLink('Excluir', route('users.destroy', ['user' => $s]), ['button_class' => 'btn btn-danger btn-sm confirmable', 'icon' => 'trash']) }}
                                         @endcan -->

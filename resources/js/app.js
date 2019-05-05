@@ -9,7 +9,13 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.use(require('vue-moment'));
+const moment = require('moment')
+
+require('moment/locale/pt-br')
+
+Vue.use(require('vue-moment'),{
+	moment
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -25,6 +31,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('box-info', require('./components/BoxInfo.vue').default);
 Vue.component('table-responsive', require('./components/TableResponsive.vue').default);
 Vue.component('chart-pie', require('./components/ChartPie.vue').default);
+Vue.component('recently-added-products', require('./components/RecentlyAddedProducts.vue').default);
 
 
 /**

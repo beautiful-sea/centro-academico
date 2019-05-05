@@ -28,7 +28,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                {{ Form::bsFile('image', 'Imagem', ['default' => ($product->image_extension) ? sprintf('/files/products/%s.%s', $product->id, $product->image_extension) : null]) }}
+                {{ Form::bsFile('image', 'Imagem', ['default' => ($product->image_extension) ? sprintf('/files/products/%s.%s', $product->id, $product->image_extension) : null,'id'=>'image']) }}
             </div>
         </div>
 
@@ -51,29 +51,10 @@
 <script>
     $('#product-form').validate({
         rules: {
-            'name': 'required',
-            'email': {
-                'required': true,
-                'email': true,
-                'remote': {
-                    url: '{{ route("users.check-email") }}',
-                    type: 'post',
-                    data: {
-                        id: $('#id').val(),
-                        _token: '{{ csrf_token() }}'
-                    }
-                },
-            },
-            'password': 'required',
-            'confirm_password': {
-                'required': true,
-                'equalTo': '#password'
-            },
-            'role': 'required',
-            'confirm_new_password': {
-                'required': () => $('#new_password').val() !== '',
-                'equalTo': '#new_password'
-            }
+            'name':'required',
+            'minimum_stock':'required',
+            'value':'required',
+            'value_partner':'required'
         },
         messages: {
             'email': {

@@ -18,8 +18,9 @@ class StockController extends Controller
      */
     public function index()
     {
-        $stock = new Stock;
-        return view('stock.index',['stock'  =>  $stock->all()]);
+        $stock = Stock::all();
+
+        return view('stock.index',['stock'  =>  $stock]);
     }
 
     /**
@@ -49,6 +50,7 @@ class StockController extends Controller
         unset($data['operation']);
         //mesclar $request com a instância do produto
         $products->fill($data);
+
         $products->save();  
 
         return redirect()->route('stock.index')->with('flash.success',
@@ -61,19 +63,15 @@ class StockController extends Controller
         return view('stock.input',['stock'=>$stock]);
     }
 
-    public function getInput($id){
-        $stock = new Stock;
-        return $stock->find($id);
+    public function findById($id){
+        $stock = Stock::where('id_product',$id)->get();
+        return $stock;
     }
 
     public function output(){//código 1
         $stock = new Stock;
         $stock['operation'] = 1;
         return view('stock.output',['stock'=>$stock]);
-    }
-
-    public function getOutput(){
-
     }
 
     /**

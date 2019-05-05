@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = new Product;
+        $products = Product::orderBy('created_at','DESC')->get();
         $users    = new User;
         $output_products = new OutputProducts;
         $input_products = new InputProducts;
@@ -44,7 +44,7 @@ class HomeController extends Controller
             group by p.name,op.id_product order by op.amount DESC limit 5');
 
         return view('home',[
-            'products'  =>  $products->all(),
+            'products'  =>  $products,
             'users'  =>  $users->all(),
             'output_products'=>$output_products->all(),
             'stock' =>  $stock->all(),

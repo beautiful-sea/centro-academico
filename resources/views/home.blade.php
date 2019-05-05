@@ -24,26 +24,39 @@
    </box-info>
    <box-info number="{{count($output_products)}}" description="Vendas" action="Mais informações" link="stock" color="success" icon="fa fa-shopping-cart">
    </box-info>
-   <box-info number="{{count($bellowStock)}}" description="Produtos com estoque baixo" action="Mais informações" link="stock" color="danger" icon="fa fa-shopping-cart">
+   <box-info number="{{count($bellowStock)}}" description="Produtos com estoque baixo" action="Mais informações" link="stock" color="danger" icon="fa fa-exclamation-triangle">
    </box-info>
  </div>
 
-<!-- Chart de produtos mais vendidos -->
- <div class="row">
-  <div class="col-md-6 col-12">
-    <chart-pie :items="{{json_encode($bestSellers)}}"></chart-pie>
-  </div>
-</div>
+<div class="row" style="">
+  <!-- Chart de produtos mais vendidos -->
+  @if(count($bestSellers) >= 3)
+    <div class="col-md-4 col-4">
+      <chart-pie :items="{{json_encode($bestSellers)}}"></chart-pie>
+    </div>
+  @endif
 
-<!-- Tabelas de movimentação do estoque -->
- <div class="row">
-  <div class="col-md-12 col-12">
-    <table-responsive title="Ultimas Saídas" txt_btn_footer="Ver todos" :items="{{$last_outputs}}" link_btn_footer="/stock" :limit="5"></table-responsive>
+  <!-- Lista de ultimos produtos cadastrados -->
+    @if(count($products) >= 4)
+    <div class="col-md-5"> 
+      <recently-added-products title="Ultimos produtos adicionados" :items="{{$products}}" footer="Ver todos produtos" footer_link="/products" :limit="4"
+      ></recently-added-products>
+    </div>
+    @endif
+
+  <!-- Tabelas de movimentação do estoque -->
+    @if(count($last_outputs) >= 3)
+    <div class="col-md-4 col-4">
+      <table-responsive title="Ultimas Saídas" txt_btn_footer="Ver todos" :items="{{$last_outputs}}" link_btn_footer="/stock" :limit="5"></table-responsive>
+    </div>
+    @endif
+
+    @if(count($last_inputs) >= 3)
+    <div class="col-md-4 col-4">
+      <table-responsive title="Ultimas Entradas" txt_btn_footer="Ver todos" :items="{{$last_inputs}}" :limit="5" link_btn_footer="/stock"></table-responsive>
+    </div>
+    @endif
   </div>
-  <div class="col-md-12 col-12">
-    <table-responsive title="Ultimas Entradas" txt_btn_footer="Ver todos" :items="{{$last_inputs}}" :limit="5" link_btn_footer="/stock"></table-responsive>
-  </div>
-</div>
 </div>
 @stop
 

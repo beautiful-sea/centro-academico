@@ -16,9 +16,8 @@ class Stock extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['id_product','amount','unitary_value'
-];
-protected $with = ['product'];
+    protected $fillable = ['id_product','amount','unitary_value'];
+    protected $with = ['product'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -29,7 +28,7 @@ protected $with = ['product'];
 
     public function product()
     {
-        return $this->hasOne('App\Product','id');
+        return $this->hasOne('App\Product','id','id_product');
     }
 
     public function getBelowStock(Stock $stock){//Produtos abaixo do estoque
