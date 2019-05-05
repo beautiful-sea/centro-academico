@@ -39,4 +39,10 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
 Route::get("/",function(){
     return view('home');
 });
+
+Route::group(['prefix'=>'atletica'],function(){
+    Route::get('/',function(){
+        return view('atletica.home');
+    })->name("home");
+});
 \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();
