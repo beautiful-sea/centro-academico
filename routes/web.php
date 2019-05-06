@@ -43,10 +43,10 @@ Route::get("/",function(){
 Route::group(['prefix'=>'atletica'],function(){
     Route::get('/',function(){
         return view('atletica.home');
-    })->name("home");
+    })->name("atletica.home");
 
     Route::get('/loja',function(){
         return view('atletica.loja.index');
-    })->name("loja");
+    })->name("atletica.loja");
 });
 \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();

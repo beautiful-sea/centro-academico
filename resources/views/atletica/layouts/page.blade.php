@@ -178,11 +178,11 @@
 				<div class="collapse navbar-collapse" id="ms-navbar">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-							<a href="#" class="nav-link  animated fadeIn animation-delay-7">Home </a>
+							<a href="{{route('atletica.home')}}" class="nav-link  animated fadeIn animation-delay-7">Home </a>
 						</li>
 
 						<li class="nav-item">
-							<a href="{{route('loja')}}" class="nav-link animated fadeIn animation-delay-9" role="button">Produtos</a>
+							<a href="{{route('atletica.loja')}}" class="nav-link animated fadeIn animation-delay-9" role="button">Produtos</a>
 						</li>
 
 						<li class="nav-item">
