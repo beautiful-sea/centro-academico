@@ -46,18 +46,19 @@
 									</select>
 								</div>
 							</div>
-
-							<div id="itens_carrinho" v-for="(item,index) in cart">
+							<div id="itens_carrinho" v-model="cart" v-for="(item,index) in cart">
+								
 								<div class="card container col-md-12">
+
 									<a href="#" class="color-bordo ">{{item.name}}</a>
 									<div class="" style="margin-top: 0px!important">
 										<label>Quantidade:</label>
-										<input type="number" id="input_qntd_produto" min="0" max="10" style="margin-top: 0px!important" class=" form-control-number pull-right" pattern="[0-9]*"  value="">
+										<input type="number" id="input_qntd_produto" min="0" max="10" style="margin-top: 0px!important" class=" form-control-number pull-right" :value="item.amount_order" pattern="[0-9]*"  value="">
 									</div>
 									<div class="row d-inline">
 										<span class="color-bordo" style="cursor:pointer;padding-left:10px">Remover
 										</span>\
-										<span class="color-bordo" style="float:right;padding-right:10px">Valor: R$ ,00</span>
+										<span class="color-bordo" style="float:right;padding-right:10px">Valor: R$ {{(client.is_partner == 1)?item.value_partner.toFixed(2):item.value.toFixed(2)}}</span>
 									</div>
 								</div>
 							</div>
@@ -139,9 +140,10 @@
 	export default{
 		data: function(){
 			return {
-				cart:[],
+				cart:[
+				],
 				client:{
-					is_partner: 2,
+					is_partner: 1,
 					name: '',
 					email: ''
 				}
@@ -151,11 +153,15 @@
 		},
 		created(){
 			var vm = this;
-			eventBusCart.$on('updateCart',function(item){
-				var id_product = parseInt(item.id);
-				// console.log({id_product:item});
-				vm.cart[id_product][item];
-				console.log(vm.cart);
+			eventBusCart.$on('updateCart',function(product){
+				let index = vm.cart.findIndex(item => item.id == product.id);
+				if(index < 0){
+					product['amount_order'] = 1;
+					vm.cart.push(product);
+				}else{
+					vm.cart[index]['amount_order'] += 1;
+				}
+				// console.log(item_cart);
 			})
 		},
 		methods:{
