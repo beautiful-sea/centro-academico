@@ -68,10 +68,22 @@ class Product extends Authenticatable
         }        
         return $select;
     }
+
+    public static function productsInStock(){
+        // $p = Stock::with('product')->where('amount','>','0')->get();//Busca todos produtos no estoque
+        $p = Product::with('stockable')->get();//Busca todos produtos
+        return $p;
+    }
+
     public function stock()
     {
         return $this->belongsTo('App\Stock','id_product');
     }
+
+    public function stockable(){
+        return $this->hasOne('App\Stock','id_product');
+    }
+
     public function output_products()
     {
         return $this->belongsTo('App\OutputProducts','id');

@@ -18,15 +18,17 @@
 				<script src="../assets/js/html5shiv.min.js"></script>
 				<script src="../assets/js/respond.min.js"></script>
 			<![endif]-->
-</head>
+		</head>
 
-<body>
-  @yield('before_content')
-  @yield('body')
+		<body>
+			@yield('before_content')
+			@yield('body')
+			@yield('footer')
 
-  <script src="{{ asset('js/plugins.min.js') }}"></script>
-  <script src="{{ asset('js/app.min.js') }}"></script>
+			<script src="{{ asset('js/app.js') }}" ></script>
+			<script src="{{ asset('js/plugins.min.js') }}"></script>
+			<script src="{{ asset('js/app.min.js') }}" ></script>
 
-</body>
+		</body>
 
-</html>
+		</html>

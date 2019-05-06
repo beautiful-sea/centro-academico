@@ -1,0 +1,131 @@
+<template>
+	<div>
+		<!-- Modal confirmar pedido -->
+<!-- 		<div class="modal modal-info" id="modal-confirmar-pedido" tabindex="-1" role="dialog" aria-labelledby="modal-confirmar-pedido-label">
+			<div class="modal-dialog animated zoomIn animated-3x" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title color-white" id="modal-confirmar-pedido-label">Confirmação</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="zmdi zmdi-close"></i></span></button>
+					</div>
+					<div class="modal-body" id="body-modal-confirmar-pedido">
+						<h4><b>Deseja finalizar o pedido e realizar a reserva dos produtos escolhidos?</b></h4>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn  btn-primary"><a href="pedido-finalizado.php">Confirmar</a></button>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<!-- Fim modal -->
+		<a href="javascript:void(0)" id="btn_carrinho" class="ms-conf-btn ms-configurator-btn btn-circle btn-circle-raised btn-circle-primary animated rubberBand" style="right: 20px;"><i class="zmdi zmdi-shopping-cart"></i>
+		</a>
+		<div id="ms-configurator" class="ms-configurator">
+			<div class="ms-configurator-title">
+				<h3><i class="zmdi zmdi-shopping-cart"></i> Carrinho de Compras</h3>
+				<a href="javascript:void(0);" class="ms-conf-btn withripple"><i class="zmdi zmdi-close"></i><div class="ripple-container"></div></a>
+			</div>
+			<div class="panel-group" id="accordion_conf" role="tablist" aria-multiselectable="false">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab">
+						<h4 class="panel-title">
+							<a role="button" class="withripple" data-toggle="collapse" href="#ms-collapse-conf-1" aria-expanded="false" aria-controls="ms-collapse-conf-1">
+								<i class=""></i> Produtos 
+							</a>
+						</h4>
+					</div>
+					<div id="ms-collapse-conf-1" class="card-collapse collapse" role="tabpanel" >
+						<div class="panel-body" style="height: 400px;overflow: auto;">
+							<div class=" row justify-content-end">
+								<div class="col-lg-12">
+									<select id="tipo_cliente" class="color-white form-control"  data-dropup-auto="true">
+										<option class="color-black" disabled="" selected>SELECIONE UMA OPÇÃO</option>
+										<option class="color-bordo" value="1">Sou sócio da Atlética </option>
+										<option class="color-bordo" value="0">Não sou sócio da Atlética </option>
+									</select>
+								</div>
+							</div>
+
+							<div id="itens_carrinho">
+
+							</div>
+
+							<div id="grad-options" class="ms-color-shine total_compra">
+								<h4>Você ainda não adicionou produtos no carrinho.</h4>
+							</div>																	
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="panel-group" id="accordion_conf" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab">
+						<h4 class="panel-title">
+							<a role="button" class="withripple" data-toggle="collapse" href="#ms-collapse-conf-2" aria-expanded="true" aria-controls="ms-collapse-conf-2">
+								<i class=""></i> Comprador 
+							</a>
+						</h4>
+					</div>
+					<div id="ms-collapse-conf-2" class="card-collapse collapse" role="tabpanel" aria-labelledby="ms-conf-header-color" data-parent="#accordion_conf">
+						<div class="panel-body">
+							<div id="grad-options" class="ms-color-shine">
+								<h4>Preencha com seus dados</h4>
+							</div>										
+							<div class="form-group">
+								<label>Seu Nome: </label>
+								<input  type="text" class="form-control color-white" id="input_nome_comprador" name="nome" >
+							</div>
+							<div class="form-group">
+								<label>Seu Email: </label>
+								<input type="text" class="form-control color-white" id="input_email_comprador" name="nome">
+							</div>										
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="panel-group" id="accordion_conf" role="tablist" aria-multiselectable="true">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" >
+						<h4 class="panel-title">
+							<a role="button" class="withripple" data-toggle="collapse" href="#ms-collapse-conf-3" aria-expanded="true" aria-controls="ms-collapse-conf-3">
+								<i class=""></i> Resumo 
+							</a>
+						</h4>
+					</div>
+					<div id="ms-collapse-conf-3" class="card-collapse collapse" role="tabpanel" aria-labelledby="ms-conf-header-color" data-parent="#accordion_conf">
+						<div class="panel-body" style="height: 400px;overflow: auto;">
+							<div id="body-resumo-comprador">
+								<div class="card container ">
+									<h4 class="color-bordo"><b>Seus Dados:</b></h4>
+									<p class="color-bordo">Nome: <span id="resumo_nome_comprador"></span></p>
+									<p class="color-bordo">Email: <span id="resumo_email_comprador"></span> </p>
+								</div>
+							</div>
+							<hr>
+							<div>
+								<div class="card container ">
+									<h4 class="color-bordo"><b>Produtos:</b></h4>
+									<div id="body-resumo-produtos">
+										<p class="color-bordo">Seu carrinho está vazio, que tal adicionar algumas coisas!?</p>
+									</div>	
+								</div>
+							</div>
+							<h4>Total do pedido: R$ <span id="resumo-total-pedido">00,00</span></h4>
+							<button class="btn btn-raised btn-bordo" id="btn-finalizar-pedido">Finalizar Pedido</button>		
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default{
+
+};
+</script>

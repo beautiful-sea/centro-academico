@@ -1,5 +1,6 @@
 @extends('atletica.layouts.master')
 
+
 @section('before_content')
 	<div id="ms-preload" class="ms-preload">
 		<div id="status">
@@ -181,7 +182,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a href="loja.php" class="nav-link animated fadeIn animation-delay-9" role="button">Produtos</a>
+							<a href="{{route('loja')}}" class="nav-link animated fadeIn animation-delay-9" role="button">Produtos</a>
 						</li>
 
 						<li class="nav-item">
@@ -197,4 +198,14 @@
 			</div> <!-- container -->
 		</nav>
 	@yield('content')
+@endsection
+
+@section('footer')
+
+<footer class="ms-footer">
+	<div class="container">
+		<p>Copyright &copy; Material Style 2017</p>
+	</div>
+</footer>
+
 @endsection
