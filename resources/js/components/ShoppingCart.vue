@@ -120,9 +120,10 @@
 							<div>
 								<div class="card container ">
 									<h4 class="color-bordo"><b>Produtos:</b></h4>
-									<div id="body-resumo-produtos">
-										<p class="color-bordo">Seu carrinho está vazio, que tal adicionar algumas coisas!?</p>
+									<div id="body-resumo-produtos" v-for="item in cart">
+										<p class="color-bordo"><b>{{item.amount_order}}</b> - {{item.name}}</p>
 									</div>	
+									<p v-if="cart.length <= 0" class="color-bordo">Seu carrinho está vazio, que tal adicionar algumas coisas!?</p>
 								</div>
 							</div>
 							<h4>Total do pedido: R$ <span id="resumo-total-pedido">00,00</span></h4>
@@ -160,6 +161,9 @@
 					vm.cart.push(product);
 				}else{
 					vm.cart[index]['amount_order'] += 1;
+				}
+				if(product.stockable.amount){
+					console.log(product.stockable.amount);
 				}
 				// console.log(item_cart);
 			})

@@ -1,6 +1,7 @@
 <template>
 	<div style="display:contents;">
-		<div v-for="(item,index) in items" class="col-xl-4 col-md-6 " data-price="999.99" data-date="20160705">
+		<div v-for="(item,index) in items" v-if="item.stockable.amount > 0"  class="col-xl-4 col-md-6 " data-price="999.99" data-date="20160705">
+
 			<div class="card ms-feature">
 				<div class="card-body overflow-hidden text-center" >
 					<a :href="'/files/products/'+item['id']+'.'+item['image_extension']">

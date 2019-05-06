@@ -8918,7 +8918,6 @@ body,
   padding-right: 0.5rem;
   overflow-y: auto;
   height: calc(100% - 4rem);
-  background:#781E20;
 }
 
 .user-panel {
@@ -9047,7 +9046,7 @@ body,
 }
 
 .sidebar-dark-primary {
- background-color: black;
+  background-color: #343a40;
 }
 
 .sidebar-dark-primary .user-panel a:hover {
@@ -12282,7 +12281,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 .login-page,
 .register-page {
-   background: #802f2f;
+  background: #e9ecef;
 }
 
 .login-box,
