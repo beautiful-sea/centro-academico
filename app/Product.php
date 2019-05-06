@@ -71,7 +71,7 @@ class Product extends Authenticatable
 
     public static function productsInStock(){
         // $p = Stock::with('product')->where('amount','>','0')->get();//Busca todos produtos no estoque
-        $p = Product::with('stockable')->get();//Busca todos produtos
+        $p = Product::with('stockable')->where('locked','0')->get();//Busca todos produtos
         return $p;
     }
 

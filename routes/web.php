@@ -9,7 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
 
 
@@ -31,9 +30,12 @@ Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'a
             Route::get('/find/{id}','StockController@findById')->name('stocks.findbyid');
         });
 Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('admin.home');
     Route::resource('/products', 'ProductsController');
     Route::resource('/stock', 'StockController');
+    Auth::routes();
+    \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();
+
 });
 
 Route::get("/",function(){
@@ -49,4 +51,3 @@ Route::group(['prefix'=>'atletica'],function(){
         return view('atletica.loja.index');
     })->name("atletica.loja");
 });
-\AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();

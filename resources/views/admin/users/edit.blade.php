@@ -8,7 +8,7 @@
 @stop
 
 @section('header-breadcrumbs')
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
     <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Usuários</a></li>
     <li class="breadcrumb-item active">Editar</li>
 @endsection

@@ -13,7 +13,7 @@
 @endphp
 
 <li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link {{ $class }}">
+    <a href="{{ route('admin.home') }}" class="nav-link {{ $class }}">
         <i class="nav-icon fa fa-home"></i>
         <p>Home</p>
     </a>

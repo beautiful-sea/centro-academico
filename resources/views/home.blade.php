@@ -144,7 +144,7 @@
                   </a>
                 </div>
                 <div class="card-body overflow-hidden text-center">
-                  <a href="{{route('home')}}" class="btn btn-bordo btn-raised"><i class="zmdi  zmdi-play-for-work"></i> Entrar<div class="ripple-container"></div></a>
+                  <a href="{{route('atletica.home')}}" class="btn btn-bordo btn-raised"><i class="zmdi  zmdi-play-for-work"></i> Entrar<div class="ripple-container"></div></a>
                 </div>
               </div>
             </div>

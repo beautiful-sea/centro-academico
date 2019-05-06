@@ -4,14 +4,17 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import Vuex from 'vuex'
+
+
 
 require('./bootstrap');
 
 window.Vue = require('vue');
+Vue.use(Vuex);
+const moment = require('moment');
 
-const moment = require('moment')
-
-require('moment/locale/pt-br')
+require('moment/locale/pt-br');
 
 Vue.use(require('vue-moment'),{
 	moment
@@ -42,6 +45,38 @@ Vue.component('shopping-cart', require('./components/ShoppingCart.vue').default)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const store = new Vuex.Store({
+  state: {
+    cart: {
+    	products:{},
+    	client:{
+    		is_partner:0,
+    		name: '',
+    		email: ''	
+    	}
+    	
+    }
+  },
+  mutations: {
+    setProducts (val) {
+      state.cart.products;
+    },
+    setPartner(state,is_partner){
+    	state.cart.client.is_partner = is_partner;
+    },
+    setName(state,name){
+    	state.cart.client.name = name;
+    },
+    setEmail(state,email){
+    	state.cart.client.email = email;
+    }
+  }
+})
+window.eventBusCart = new Vue({});//transfere informações entre componente produto e carrinho
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });
+
+

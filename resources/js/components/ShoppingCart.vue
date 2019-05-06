@@ -21,7 +21,7 @@
 		<!-- Fim modal -->
 		<a href="javascript:void(0)" id="btn_carrinho" class="ms-conf-btn ms-configurator-btn btn-circle btn-circle-raised btn-circle-primary animated rubberBand" style="right: 20px;"><i class="zmdi zmdi-shopping-cart"></i>
 		</a>
-		<div id="ms-configurator" class="ms-configurator">
+		<div id="ms-configurator" class="ms-configurator" >
 			<div class="ms-configurator-title">
 				<h3><i class="zmdi zmdi-shopping-cart"></i> Carrinho de Compras</h3>
 				<a href="javascript:void(0);" class="ms-conf-btn withripple"><i class="zmdi zmdi-close"></i><div class="ripple-container"></div></a>
@@ -35,25 +35,36 @@
 							</a>
 						</h4>
 					</div>
-					<div id="ms-collapse-conf-1" class="card-collapse collapse" role="tabpanel" >
+					<div id="ms-collapse-conf-1" class="card-collapse collapse show" role="tabpanel" >
 						<div class="panel-body" style="height: 400px;overflow: auto;">
 							<div class=" row justify-content-end">
 								<div class="col-lg-12">
-									<select id="tipo_cliente" class="color-white form-control"  data-dropup-auto="true">
-										<option class="color-black" disabled="" selected>SELECIONE UMA OPÇÃO</option>
+									<select id="tipo_cliente" class="color-white form-control" v-model="client.is_partner"  data-dropup-auto="true">
+										<option class="color-black" disabled="" value="2" selected>SELECIONE UMA OPÇÃO</option>
 										<option class="color-bordo" value="1">Sou sócio da Atlética </option>
 										<option class="color-bordo" value="0">Não sou sócio da Atlética </option>
 									</select>
 								</div>
 							</div>
 
-							<div id="itens_carrinho">
-
+							<div id="itens_carrinho" v-for="(item,index) in cart">
+								<div class="card container col-md-12">
+									<a href="#" class="color-bordo ">{{item.name}}</a>
+									<div class="" style="margin-top: 0px!important">
+										<label>Quantidade:</label>
+										<input type="number" id="input_qntd_produto" min="0" max="10" style="margin-top: 0px!important" class=" form-control-number pull-right" pattern="[0-9]*"  value="">
+									</div>
+									<div class="row d-inline">
+										<span class="color-bordo" style="cursor:pointer;padding-left:10px">Remover
+										</span>\
+										<span class="color-bordo" style="float:right;padding-right:10px">Valor: R$ ,00</span>
+									</div>
+								</div>
 							</div>
 
-							<div id="grad-options" class="ms-color-shine total_compra">
-								<h4>Você ainda não adicionou produtos no carrinho.</h4>
-							</div>																	
+							<div id="grad-options" class="ms-color-shine total_compra" >
+								<h4 v-if="cart.length == 0">Você ainda não adicionou produtos no carrinho.</h4>
+							</div>															
 						</div>
 					</div>
 
@@ -75,11 +86,11 @@
 							</div>										
 							<div class="form-group">
 								<label>Seu Nome: </label>
-								<input  type="text" class="form-control color-white" id="input_nome_comprador" name="nome" >
+								<input v-model="client.name"  type="text" class="form-control color-white" id="input_nome_comprador" name="nome" >
 							</div>
 							<div class="form-group">
 								<label>Seu Email: </label>
-								<input type="text" class="form-control color-white" id="input_email_comprador" name="nome">
+								<input v-model="client.email" type="email" class="form-control color-white" id="input_email_comprador" name="nome">
 							</div>										
 						</div>
 
@@ -125,7 +136,43 @@
 </template>
 
 <script>
-export default{
+	export default{
+		data: function(){
+			return {
+				cart:[],
+				client:{
+					is_partner: 2,
+					name: '',
+					email: ''
+				}
 
-};
+
+			}
+		},
+		created(){
+			var vm = this;
+			eventBusCart.$on('updateCart',function(item){
+				var id_product = parseInt(item.id);
+				// console.log({id_product:item});
+				vm.cart[id_product][item];
+				console.log(vm.cart);
+			})
+		},
+		methods:{
+		},
+		watch:{
+			'client.is_partner': function(val){
+				this.$store.commit('setPartner',parseInt(this.client.is_partner));
+				console.log(this.$store.state.cart.client.is_partner);
+			},
+			'client.name': function(val){
+				this.$store.commit('setName',this.client.name);
+				$('#resumo_nome_comprador').html(val);
+			},
+			'client.email': function(val){
+				this.$store.commit('setEmail',this.client.email);
+				$('#resumo_email_comprador').html(val);
+			}
+		}
+	};
 </script>
