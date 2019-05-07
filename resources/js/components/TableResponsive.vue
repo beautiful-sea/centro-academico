@@ -27,7 +27,7 @@
 
             <tr v-for="(value,index) in items" v-if="index <= newLimit && value['product'] != null">
 
-              <td><a :href="'products/'+value['product']['id']+'/edit'">{{value['product']['name']}}</a></td>
+              <td><a :href="'admin/products/'+value['product']['id']+'/edit'">{{value['product']['name']}}</a></td>
               <td>{{value['amount']}}</td>
               <td class="date-mask">{{value['created_at'] | moment("DD/MM/Y - H:mm")}}</td>
             </tr>

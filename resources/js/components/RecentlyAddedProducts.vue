@@ -20,7 +20,7 @@
 	          <img :src="'/files/products/'+item.id+'.'+item.image_extension" alt="Product Image" class="img-size-50">
 	        </div>
 	        <div class="product-info">
-	          <a :href="'admin/products/'+item.id+'/edit'" class="product-title">{{item.name}}<small> {{item.created_at | moment("from","now")}}</small>
+	          <a :href="'/admin/products/'+item.id+'/edit'" class="product-title">{{item.name}}<small> {{item.created_at | moment("from","now")}}</small>
 	            <span class="badge badge-success float-right">R$ {{item.value.toFixed(2)}}</span></a>
 	          <span class="product-description">
 	            {{item.description}}
