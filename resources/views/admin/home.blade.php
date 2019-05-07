@@ -18,13 +18,13 @@
 
   <!-- Box's de Informações gerais do painel -->
   <div class="row">
-   <box-info number="{{count($users)}}" description="Usuários Cadastrados" action="Mais informações" link="users" color="warning" icon="fa fa-user">
+   <box-info number="{{count($users)}}" description="Usuários Cadastrados" action="Mais informações" link="admin/users" color="warning" icon="fa fa-user">
    </box-info>
-   <box-info number="{{count($products)}}" description="Produtos Cadastrados" action="Mais informações" link="products" color="info" icon="fab fa-product-hunt">
+   <box-info number="{{count($products)}}" description="Produtos Cadastrados" action="Mais informações" link="admin/products" color="info" icon="fab fa-product-hunt">
    </box-info>
-   <box-info number="{{count($output_products)}}" description="Vendas" action="Mais informações" link="stock" color="success" icon="fa fa-shopping-cart">
+   <box-info number="{{count($output_products)}}" description="Vendas" action="Mais informações" link="admin/stock" color="success" icon="fa fa-shopping-cart">
    </box-info>
-   <box-info number="{{count($bellowStock)}}" description="Produtos com estoque baixo" action="Mais informações" link="stock" color="danger" icon="fa fa-exclamation-triangle">
+   <box-info number="{{count($bellowStock)}}" description="Produtos com estoque baixo" action="Mais informações" link="admin/stock" color="danger" icon="fa fa-exclamation-triangle">
    </box-info>
  </div>
 
@@ -39,7 +39,7 @@
   <!-- Lista de ultimos produtos cadastrados -->
     @if(count($products) >= 4)
     <div class="col-md-5"> 
-      <recently-added-products title="Ultimos produtos adicionados" :items="{{$products}}" footer="Ver todos produtos" footer_link="/admin/products" :limit="4"
+      <recently-added-products title="Ultimos produtos adicionados" :items="{{$products}}" footer="Ver todos produtos" footer_link="admin/products" :limit="4"
       ></recently-added-products>
     </div>
     @endif
@@ -47,13 +47,13 @@
   <!-- Tabelas de movimentação do estoque -->
     @if(count($last_outputs) >= 3)
     <div class="col-md-4 col-4">
-      <table-responsive title="Ultimas Saídas" txt_btn_footer="Ver todos" :items="{{$last_outputs}}" link_btn_footer="/admin/stock" :limit="5"></table-responsive>
+      <table-responsive title="Ultimas Saídas" txt_btn_footer="Ver todos" :items="{{$last_outputs}}" link_btn_footer="admin/stock" :limit="5"></table-responsive>
     </div>
     @endif
 
     @if(count($last_inputs) >= 3)
     <div class="col-md-4 col-4">
-      <table-responsive title="Ultimas Entradas" txt_btn_footer="Ver todos" :items="{{$last_inputs}}" :limit="5" link_btn_footer="/admin/stock"></table-responsive>
+      <table-responsive title="Ultimas Entradas" txt_btn_footer="Ver todos" :items="{{$last_inputs}}" :limit="5" link_btn_footer="admin/stock"></table-responsive>
     </div>
     @endif
   </div>

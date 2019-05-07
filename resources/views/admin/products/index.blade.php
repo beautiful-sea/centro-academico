@@ -48,11 +48,11 @@
 
                                     @if (!$p->locked)
                                         @can('block', $p)
-                                                <a href="{{ route('products.block', ['product' => $p]) }}" class="btn btn-default btn-sm confirmable"><i class="fa fa-lock"></i> Bloquear</a>
+                                                <a href="{{ route('products.block', ['product' => $p]) }}" class="btn btn-danger btn-sm confirmable"><i class="fa fa-lock"></i> Bloquear</a>
                                         @endcan
                                     @else
                                         @can('unblock', $p)
-                                                <a href="{{ route('products.unblock', ['product' => $p]) }}" class="btn btn-default btn-sm confirmable"><i class="fa fa-lock-open"></i> Desbloquear</a>
+                                                <a href="{{ route('products.unblock', ['product' => $p]) }}" class="btn btn-success btn-sm confirmable"><i class="fa fa-lock-open"></i> Desbloquear</a>
                                         @endcan
                                     @endif<!-- 
 
