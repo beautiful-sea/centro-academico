@@ -19,6 +19,7 @@
 			</div>
 		</div> -->
 		<!-- Fim modal -->
+
 		<a href="javascript:void(0)" id="btn_carrinho" class="ms-conf-btn ms-configurator-btn btn-circle btn-circle-raised btn-circle-primary animated rubberBand" style="right: 20px;"><i class="zmdi zmdi-shopping-cart"></i>
 		</a>
 		<div id="ms-configurator" class="ms-configurator" >
@@ -50,15 +51,17 @@
 								
 								<div class="card container col-md-12">
 
-									<a href="#" class="color-bordo ">{{item.name}}</a>
+									<a href="javascript:void(0)" class="color-bordo ">{{item.name}}</a>
 									<div class="" style="margin-top: 0px!important">
 										<label>Quantidade:</label>
-										<input type="number" id="input_qntd_produto" min="0" max="10" style="margin-top: 0px!important" class=" form-control-number pull-right" :value="item.amount_order" pattern="[0-9]*"  value="">
+										<input type="number" min="0" disabled :max="item.stockable.amount" style="margin-top: 0px!important" class=" form-control-number pull-right" :value="item.amount_order" >
 									</div>
 									<div class="row d-inline">
-										<span class="color-bordo" style="cursor:pointer;padding-left:10px">Remover
-										</span>\
-										<span class="color-bordo" style="float:right;padding-right:10px">Valor: R$ {{(client.is_partner == 1)?item.value_partner.toFixed(2):item.value.toFixed(2)}}</span>
+										<span class="color-bordo" style="cursor:pointer;padding-left:10px" @click="removeProduct(item)">Remover
+										</span>
+										<span class="color-bordo" style="float:right;padding-right:10px">Valor: R$ {{(client.is_partner == 1)?
+											(item.value_partner* item.amount_order).toFixed(2):
+										(item.value* item.amount_order).toFixed(2)}}</span>
 									</div>
 								</div>
 							</div>
@@ -126,7 +129,7 @@
 									<p v-if="cart.length <= 0" class="color-bordo">Seu carrinho está vazio, que tal adicionar algumas coisas!?</p>
 								</div>
 							</div>
-							<h4>Total do pedido: R$ <span id="resumo-total-pedido">00,00</span></h4>
+							<h4>Total do pedido: R$ <span id="resumo-total-pedido">{{getTotalOrder()}}</span></h4>
 							<button class="btn btn-raised btn-bordo" id="btn-finalizar-pedido">Finalizar Pedido</button>		
 						</div>
 
@@ -166,9 +169,31 @@
 					console.log(product.stockable.amount);
 				}
 				// console.log(item_cart);
-			})
+			});
+		},
+		mounted(){
 		},
 		methods:{
+			removeProduct(product){
+				let index = this.cart.findIndex(item => item.id == product.id);
+				if(this.cart[index]['amount_order'] <= 1){
+					this.cart.splice(index,1);
+				}else{
+					this.cart[index]['amount_order'] -= 1;
+				}
+			},
+			getTotalOrder(){
+				let total_order = 0;
+				//Pega o valor de cada produto no carrinho e soma com o valor total
+				for (var i = this.cart.length - 1; i >= 0; i--) {
+					for (var i = this.cart.length - 1; i >= 0; i--) {
+						let value_product = (this.client.is_partner == 1)?
+							(this.cart[i].value_partner* this.cart[i].amount_order):(this.cart[i].value* this.cart[i].amount_order);
+						total_order += value_product;
+					}
+				}
+				return total_order.toFixed(2);
+			}
 		},
 		watch:{
 			'client.is_partner': function(val){

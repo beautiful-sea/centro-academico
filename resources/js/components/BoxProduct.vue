@@ -4,7 +4,7 @@
 
 			<div class="card ms-feature">
 				<div class="card-body overflow-hidden text-center" >
-					<a :href="'/files/products/'+item.id+'.'+item.image_extension">
+					<a @click="modalProduct(item)">
 						<img :src="'/files/products/'+item.id+'.'+item.image_extension" alt=""
 						class="img-fluid center-block" style="height:150px;">
 					</a>
@@ -21,7 +21,7 @@
 					<p>
 						R$ {{item.value.toFixed(2)}} para não sócios
 					</p>
-					<span v-if="(!item.stockable) || (item.stockable.amount  < 0)" class="badge badge-danger">INDISPONÍVEL</span>
+					<span v-if="(!item.stockable) || (item.stockable.amount  <= 0)" class="badge badge-danger">INDISPONÍVEL</span>
 					<span v-if="(item.stockable) && ((item.stockable.amount > 1) && (item.stockable.amount < item.minimum_stock))" class="badge badge-danger">{{item.stockable.amount}} ULTIMAS UNIDADES</span>
 					<span v-if="(item.stockable) && ((item.stockable.amount == 1) && (item.stockable.amount < item.minimum_stock))" class="badge badge-danger">ULTIMA UNIDADE</span>
 					<a href="javascript:void(0)"  v-on:click="updateCart(item)"  class="btn btn-bordo btn-sm btn-block btn-raised" v-if="(item.stockable) && (item.stockable.amount  > 0)">
@@ -44,7 +44,11 @@ export default{
 		updateCart(item){
 			eventBusCart.$emit('updateCart',item);
 			openConf();
+		},
+		modalProduct(item){
+			$('#modalProduct').show('modal');
 		}
+
 	}
 
 };

@@ -50,9 +50,9 @@ class StockController extends Controller
         unset($data['operation']);
         //mesclar $request com a instância do produto
         $products->fill($data);
-
-        $products->save();  
-
+        $products->amount         = (int)$products->amount;
+        $products->id_product     = (int)$products->id_product;
+        $products->save();
         return redirect()->route('stock.index')->with('flash.success',
         'Produto '.(($operation == 0)? 'adicionado ao' : 'removido do').'  estoque com sucesso.');
     }

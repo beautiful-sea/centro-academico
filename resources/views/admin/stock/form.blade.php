@@ -9,9 +9,9 @@
        </div>
 
       @if($stock['operation'] == 0)
-        {{Form::bsSelect('id_product','Produto',\App\Product::selectProducts(),['placeholder'=>null]) }}
+        {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdAllProducts(),['placeholder'=>null]) }}
       @else
-        {{Form::bsSelect('id_product','Produto',\App\Product::selectProductsInStock(),['placeholder'=>null]) }}
+        {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdProductsWithStock(),['placeholder'=>null]) }}
       @endif
        {{Form::bsText('unitary_value','Valor Unitário',['placeholder'=>null,'class'=>'money-mask']) }}
    </div>

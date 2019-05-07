@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
@@ -11,22 +9,8 @@ use Illuminate\Support\Arr;
 
 class Product extends Authenticatable
 {
-    use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = ['name','description','minimum_stock','maximum_stock','value','value_partner','image'
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
     ];
 
     public function getProductAttributeImage() {
@@ -48,7 +32,7 @@ class Product extends Authenticatable
         }
     }
 
-    public static function selectProducts(){
+    public static function getNameAndIdAllProducts(){
         $p = DB::table('products')->select('id', 'name')->get();
         $select = [];
         foreach ($p as $value) {
@@ -57,7 +41,7 @@ class Product extends Authenticatable
         return $select;
     }
 
-    public static function selectProductsInStock(){
+    public static function getNameAndIdProductsWithStock(){
         $p = Stock::with('product:id,name')->where('amount','>','0')->get();//Busca todos dados no estoque
         
         $atributes = $p->pluck('product')->map->only(['id','name']);//retorna todos produtos do estoque | pluck() serve para extratir somente o produto do relacionamento de stock + product
@@ -70,6 +54,7 @@ class Product extends Authenticatable
     }
 
     public static function productsInStock(){
+        // dd(session_id());
         // $p = Stock::with('product')->where('amount','>','0')->get();//Busca todos produtos no estoque
         $p = Product::with('stockable')->where('locked','0')->get();//Busca todos produtos
         return $p;
