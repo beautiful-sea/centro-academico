@@ -37,6 +37,7 @@ Vue.component('chart-pie', require('./components/ChartPie.vue').default);
 Vue.component('recently-added-products', require('./components/RecentlyAddedProducts.vue').default);
 Vue.component('box-product', require('./components/BoxProduct.vue').default);
 Vue.component('shopping-cart', require('./components/ShoppingCart.vue').default);
+Vue.component('form-options-product', require('./components/OptionsProduct.vue').default);
 
 
 /**

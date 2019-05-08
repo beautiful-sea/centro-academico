@@ -707,6 +707,7 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>    
     <script type="text/javascript" src="{{ asset('js/plugins.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/app.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/lead.js') }}"></script>

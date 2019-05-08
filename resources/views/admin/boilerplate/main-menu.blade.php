@@ -21,7 +21,7 @@
         @php
             $class = '';
 
-            if ($controller == 'StockController' || $controller == 'ProductsController') {
+            if ($controller == 'StockController' || ($controller == 'ProductsController'  && $action != 'config')) {
                 $class = 'active menu-open';
             }
         @endphp
@@ -54,7 +54,7 @@
         @php
             $class = '';
 
-            if ($controller == 'ProductsController') {
+            if ($controller == 'ProductsController' && $action != 'config') {
                 $class = 'active';
             }
         @endphp
@@ -73,7 +73,7 @@
 @php
     $class = '';
 
-    if ($controller == 'UsersController') {
+    if ($controller == 'UsersController' || $action == 'config') {
         $class = 'menu-open';
     }
 @endphp
@@ -116,5 +116,22 @@
                 <p>Perfil</p>
             </a>
         </li>
+
+        @php
+            $class = '';
+
+            if ($controller == 'ProductsController'&& $action == 'config') {
+                $class = 'active';
+            }
+        @endphp
+
+
+        <li class="nav-item">
+            <a href="{{ route('products.config') }}" class="nav-link {{ $class }}">
+                <i class="nav-icon fab fa-product-hunt"></i>
+                <p>Produtos</p>
+            </a>
+        </li>
+
     </ul>
 </li>

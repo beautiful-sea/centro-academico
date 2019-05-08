@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin/products','namespace'=>'Admin', 'middleware' =>
             Route::post('/create', 'ProductsController@store')->name('products.store');
             Route::get('/block/{product}', 'ProductsController@block')->name('products.block');
             Route::get('/unblock/{product}', 'ProductsController@unblock')->name('products.unblock');
+            Route::get('/config', 'ProductsController@config')->name('products.config');
         });
 Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'auth'], function () {
             Route::get('/', 'StockController@index')->name('stocks');

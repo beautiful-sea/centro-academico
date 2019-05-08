@@ -24,14 +24,33 @@
             <input id="value_partner" class="form-control money-mask" name="value_partner" type="text" value="{{$product->value_partner}}">
         </div>
 
+        <div class="form-group">
+            <label for="value_partner">Opções</label><small> Deixe em branco caso não queira utilizar</small>
+            <select class="form-control">
+                <option>Selecione uma opção</option>
+                <option>Tamanho</option>
+                <option>Cor</option>
+            </select>
+        </div>
+         <div class="form-group">
+            <label for="value_partner" >Escolha os Tamanhos</label>
+            <select class="form-control" multiple>
+                <option>M</option>
+                <option>P</option>
+                <option>GG</option>
+            </select>
+        </div>
+
        
 
         
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12 col-12">
                  {{ Form::bsFile('image', 'Imagem', ['default' => ($product->image_extension) ? sprintf('/files/products/%s.%s', $product->id, $product->image_extension) : null,'id'=>'image']) }}
                  @if(!$product->image_extension)
-                    <span class="alert alert-danger">Você não cadastrou imagem para esse produto ainda.</span>
+                 <div class="col-md-8">
+                    <span class="alert alert-danger" style="display: block">Você não cadastrou imagem para esse produto ainda.</span>
+                </div>
                 @endif
             </div>
         </div>

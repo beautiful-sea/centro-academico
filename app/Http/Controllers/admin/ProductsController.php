@@ -123,4 +123,9 @@ class ProductsController extends Controller
 
         return redirect()->route('products.index')->with('flash.success', 'Produto desbloqueado com sucesso');
     }
+
+    public function config(){
+        $products = Product::getNameAndIdAllProducts();
+        return view('admin.products.config');
+    }
 }
