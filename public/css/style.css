@@ -8950,6 +8950,7 @@ body,
 [class*="sidebar-dark"] .brand-link {
   color: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid #4b545c;
+  background-color: black  !important;
 }
 
 [class*="sidebar-light"] .brand-link {
