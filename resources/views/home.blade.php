@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{ asset('css/preload.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/plugins.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.bordo.min.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--[if lt IE 9]>
         <script src="assets/js/html5shiv.min.js"></script>
@@ -70,19 +72,19 @@
                             <ul class="dropdown-menu">
                                 <li><a target="_blank" class="dropdown-item"
                                         href="https://universidadedevassouras.edu.br/graduacao/engenhariasoftware"><i
-                                            class="zmdi zmdi-devices"></i> Engenharia de Software</a></li>
+                                            class="fas fa-laptop-code"></i> Engenharia de Software</a></li>
                                 <li><a target="_blank" class="dropdown-item"
                                         href="https://universidadedevassouras.edu.br/graduacao/engenhariacivil"><i
-                                            class="zmdi zmdi-city-alt"></i>Engenharia Civil</a></li>
+                                            class="fas fa-building"></i>Engenharia Civil</a></li>
                                 <li><a target="_blank" class="dropdown-item"
                                         href="https://universidadedevassouras.edu.br/graduacao/engenhariaproducao"><i
-                                            class="zmdi zmdi-assignment-o"></i> Engenharia de Produção</a></li>
+                                            class="fas fa-industry"></i>Engenharia de Produção</a></li>
                                 <li><a target="_blank" class="dropdown-item"
                                         href="https://universidadedevassouras.edu.br/graduacao/engenhariaquimica"><i
-                                            class="zmdi zmdi-gradient"></i> Engenharia Química</a></li>
+                                            class="fa fa-flask"></i> Engenharia Química</a></li>
                                 <li><a target="_blank" class="dropdown-item"
                                         href="https://universidadedevassouras.edu.br/graduacao/engenhariaeletrica"><i
-                                            class="zmdi zmdi-flash"></i>Engenharia Elétrica</a></li>
+                                            class="fas fa-lightbulb"></i>Engenharia Elétrica</a></li>
                             </ul>
                         </li>
                         <!-- Contato -->
@@ -196,10 +198,12 @@
                             <div class="col-lg-6">
                                 <h3 class="wow fadeInUp animation-delay-2"><strong>Nossas engenharias!</strong></h3>
                                 <p class="wow fadeInUp animation-delay-3">
-                                É com imenso prazer que disponibilizamos este canal de relacionamento com você ingresso
-                                ingresso ou discente dos cursos de engenharia ao lado você pode encontrar uma breve descriçao Sobre
-                                cada curso e sua respectivas notas na classificaçao do MEC atualmente nossa institução e uma das melhores em
-                                toda a região sul fluminense.</p>
+                                    É com imenso prazer que disponibilizamos este canal de relacionamento com você
+                                    ingresso ou discente dos cursos de engenharia ao lado você pode encontrar uma breve
+                                    descriçao Sobre
+                                    cada curso e sua respectivas notas na classificaçao do MEC atualmente nossa
+                                    institução e uma das melhores em
+                                    toda a região sul fluminense.</p>
                             </div>
                             <div class="col-lg-6">
                                 <div class="ms-collapse" id="accordion2" role="tablist" aria-multiselectable="true">
@@ -230,111 +234,214 @@
                                                     excelência em nossa região. </p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-0 card card-info wow fadeInUp animation-delay-5">
-                                        <div class="card-header" role="tab" id="headingTwo2">
-                                            <h4 class="card-title">
-                                                <a class="collapsed withripple" role="button" data-toggle="collapse"
-                                                    href="#collapseTwo2" aria-expanded="false"
-                                                    aria-controls="collapseTwo2">
-                                                    <i class="fa fa-desktop"></i>Engenharia de Software</a>
-                                            </h4>
+                                        <div class="mb-0 card card-info wow fadeInUp animation-delay-5">
+                                            <div class="card-header" role="tab" id="headingTwo2">
+                                                <h4 class="card-title">
+                                                    <a class="collapsed withripple" role="button" data-toggle="collapse"
+                                                        href="#collapseTwo2" aria-expanded="false"
+                                                        aria-controls="collapseTwo2">
+                                                        <i class="fas fa-laptop-code"></i>Engenharia de Software</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo2" class="card-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingTwo2" data-parent="#accordion2">
+                                                <div class="card-body color-dark">
+                                                    <p>A Engenharia de Software é uma grande área da computação voltada,
+                                                        mais precisamente, para o âmbito do desenvolvimento,
+                                                        gerenciamento e manutenção de software. Para isso, o Curso de
+                                                        Engenharia de Software da Universidade de Vassouras forma
+                                                        engenheiros de software aptos a atuar em todos os processos que
+                                                        envolvem a criação de software. Além disso, o profissional
+                                                        também trabalha na criação de aplicativos, jogos e outros tipos
+                                                        de ferramentas computacionais. O foco do curso está na formação
+                                                        de profissionais inovadores e aptos para empreender criando
+                                                        novos modelos de negócios que demandem o uso de software, tais
+                                                        como aplicativos móveis, sejam eles na plataforma Android, IOS
+                                                        ou híbridos, sites dinâmicos, entre outros. Para isso, conta uma
+                                                        formação ampla e com foco em gestão, de maneira
+                                                        que gere oportunidades para o futuro profissional empreender
+                                                        criando o seu próprio negócio.</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div id="collapseTwo2" class="card-collapse collapse" role="tabpanel"
-                                            aria-labelledby="headingTwo2" data-parent="#accordion2">
-                                            <div class="card-body color-dark">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit
-                                                    dignissimos inventore
-                                                    cupiditate expedita saepe enim nobis nostrum? Laborum, laudantium,
-                                                    maiores, cupiditate,
-                                                    perspiciatis at ad accusamus.</p>
-                                                <p>Incidunt, harum itaque voluptatum asperiores recusandae explicabo
-                                                    maiores. Alias, quos, ex
-                                                    impedit at error id laborum fugit architecto qui beatae molestiae
-                                                    dolorum rem veritatis quia
-                                                    aliquam totam.</p>
+                                        <div class="mb-0 card card-info wow fadeInUp animation-delay-7">
+                                            <div class="card-header" role="tab" id="headingTwo2">
+                                                <h4 class="card-title">
+                                                    <a class="collapsed withripple" role="button" data-toggle="collapse"
+                                                        href="#collapseThree2" aria-expanded="false"
+                                                        aria-controls="collapseThree2">
+                                                        <i class="fa fa-industry"></i> Engenharia de Produção </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree2" class="card-collapse collapse" role="collapse"
+                                                aria-labelledby="headingThree2" data-parent="#accordion2">
+                                                <div class="card-body color-dark">
+                                                    <p>O engenheiro de produção é peça fundamental em indústrias e
+                                                        empresas de quase todos os setores. Este profissional gerencia
+                                                        os recursos humanos, financeiros e materiais de uma empresa, com
+                                                        o objetivo de aumentar sua produtividade e rentabilidade. Por
+                                                        apresentar matriz multidisciplinar, com foco em gestão e na
+                                                        sólida formação em disciplinas como Física e Matemática - estas
+                                                        últimas com o objetivo de levar ao raciocínio rápido e a
+                                                        respostas e dinâmicas - há destaques em nosso curso para áreas
+                                                        como Gestão de Pessoas, Tecnologia de Informação e Inovação
+                                                        Tecnológica, Qualidade, Marketing, Econômica e Finanças,
+                                                        Logística, Organizacional, Pesquisa Operacional, Engenharia de
+                                                        Métodos, Planejamento e Controle da Produção, Desenvolvimentos
+                                                        de Novos Produtos, Arranjos Físicos de Fábricas,
+                                                        Empreendedorismo, Administração Estratégica, Processos de
+                                                        Fabricação, entre outras.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-0 card card-info wow fadeInUp animation-delay-7">
+                                            <div class="card-header" role="tab" id="headingFour2">
+                                                <h4 class="card-title">
+                                                    <a class="collapsed withripple" role="button" data-toggle="collapse"
+                                                        href="#collapseFour2" aria-expanded="false"
+                                                        aria-controls="collapseFour2">
+                                                        <i class="fa fa-flask"></i>Engenharia Química</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseFour2" class="card-collapse collapse" role="collapse">
+                                                <div class="card-body color-dark">
+                                                    <p>O curso de Engenharia Química da Universidade de Vassouras tem
+                                                        por
+                                                        objetivo formar o profissional com conhecimentos necessários
+                                                        para o
+                                                        exercício amplo e completo de sua profissão, fornecendo
+                                                        condições
+                                                        para que os mesmos possam adquirir competências e habilidades
+                                                        gerais. A matriz curricular ora proposta forma profissionais
+                                                        aptos a
+                                                        atuar no desenvolvimento de processos, mediante operações
+                                                        unitárias,
+                                                        para a produção de diversos produtos em escala industrial.
+                                                        Projetar,
+                                                        supervisionar, elaborar e coordenar processos industriais;
+                                                        identificar, formular e resolver problemas de engenharia
+                                                        relacionados à indústria química; supervisionar a manutenção e
+                                                        operação de sistemas. Desenvolver tecnologias limpas, processos
+                                                        de
+                                                        reciclagem e de aproveitamento dos resíduos da indústria química
+                                                        que
+                                                        contribuirão para a redução do impacto ambiental. Coordenar e
+                                                        supervisionar equipes de trabalho, realizar estudos de
+                                                        viabilidade
+                                                        técnico-econômica, executar e fiscalizar obras e serviços
+                                                        técnicos e
+                                                        efetuar vistorias, perícias e avaliações, emitindo laudos e
+                                                        pareceres técnicos.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-0 card card-info wow fadeInUp animation-delay-7">
+                                                <div class="card-header" role="tab" id="headingFive2">
+                                                    <h4 class="card-title">
+                                                        <a class="collapsed withripple" role="button"
+                                                            data-toggle="collapse" href="#collapseFive2"
+                                                            aria-expanded="false" aria-controls="collapseFive2">
+                                                            <i class="fa fa-building"></i>Engenharia Civil</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseFive2" class="card-collapse collapse" role="tabpanel"
+                                                    aria-labelledby="headingFive2" data-parent="#accordion2">
+                                                    <div id="collapseFive2" class="card-collapse collapse"
+                                                        role="collapse">
+                                                        <div class="card-body color-dark">
+                                                            <p>O curso de Engenharia Civil da Universidade de Vassouras
+                                                                é nota 4
+                                                                no
+                                                                MEC (escala de 1 a 5).
+
+                                                                O Curso de Engenharia Civil da Universidade de Vassouras
+                                                                tem
+                                                                como
+                                                                objetivo dotar o discente de visão sistêmica e
+                                                                analítica, a fim
+                                                                de
+                                                                torná-lo profissional capacitado para analisar e
+                                                                maximizar
+                                                                sistemas
+                                                                e processos novos ou existentes com qualidade, segurança
+                                                                e
+                                                                respeito
+                                                                ao ambiente e à sociedade, mediante uso efetivo de
+                                                                recursos
+                                                                financeiros, humanos e tecnológicos e pelo emprego das
+                                                                melhores
+                                                                técnicas, ferramentas e conhecimento tácito para que
+                                                                haja a
+                                                                maximização da rentabilidade dos investimentos e do
+                                                                crescimento
+                                                                sustentável das organizações nos diversos setores da
+                                                                produção.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="mb-0 card card-info wow fadeInUp animation-delay-7">
-                                        <div class="card-header" role="tab" id="headingThree3">
-                                            <h4 class="card-title">
-                                                <a class="collapsed withripple" role="button" data-toggle="collapse"
-                                                    href="#collapseThree2" aria-expanded="false"
-                                                    aria-controls="collapseThree2">
-                                                    <i class="fa fa-user"></i> Engenharia de Produção </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseThree2" class="card-collapse collapse" role="tabpanel"
-                                            aria-labelledby="headingThree2" data-parent="#accordion2">
-                                            <div class="card-body color-dark">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia,
-                                                    rerum unde doloribus
-                                                    accusamus pariatur non expedita quibusdam velit totam obcaecati.
-                                                    Consequatur, deserunt,
-                                                    asperiores quam nisi earum voluptates.</p>
-                                                <p>Dolorum, aliquam, totam labore saepe error a eum culpa assumenda sint
-                                                    laudantium ipsa iure
-                                                    ullam et dicta nesciunt repellendus optio voluptatibus reprehenderit
-                                                    odit officia fugiat
-                                                    necessitatibus recusandae architecto.</p>
+                                         <!--   <div class="mt-6 color-dark">
+                                                <h2 class="color-white text-center mb-4 wow fadeInUp animation-delay-2">
+                                                    Some
+                                                    numerical
+                                                    data
+                                                </h2>
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-6 col-sm-6">
+                                                        <div
+                                                            class="card card-royal-inverse card-body overflow-hidden text-center wow zoomInUp animation-delay-2">
+                                                            <h2 class="counter">450</h2>
+                                                            <i class="fa fa-4x fa-coffee"></i>
+                                                            <p class="mt-2 no-mb lead small-caps">cups of coffee</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-6 col-sm-6">
+                                                        <div
+                                                            class="card card-success-inverse card-body overflow-hidden text-center wow zoomInUp animation-delay-5">
+                                                            <h2 class="counter">64</h2>
+                                                            <i class="fa fa-4x fa-briefcase"></i>
+                                                            <p class="mt-2 no-mb lead small-caps">projects done</p>
+                                                        </div>
+                                         -         </div>
+                                                    <div class="col-lg-3 col-md-6 col-sm-6">
+                                                        <div
+                                                            class="card card-danger-inverse card-body overflow-hidden text-center wow zoomInUp animation-delay-4">
+                                                            <h2 class="counter">600</h2>
+                                                            <i class="fa fa-4x fa-comments-o"></i>
+                                                            <p class="mt-2 no-mb lead small-caps">comments</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-6 col-sm-6">
+                                                        <div
+                                                            class="card card-warning-inverse card-body overflow-hidden text-center wow zoomInUp animation-delay-3">
+                                                            <h2 class="counter">3500</h2>
+                                                            <i class="fa fa-4x fa-group"></i>
+                                                            <p class="mt-2 no-mb lead small-caps">happy clients</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center color-white mw-800 center-block mt-4">
+                                                    <p class="lead lead-lg wow fadeInUp animation-delay-2">Discover our
+                                                        projects and
+                                                        the
+                                                        rigorous process of
+                                                        creation. Our principles are creativity, design, experience and
+                                                        knowledge.
+                                                        We
+                                                        are
+                                                        backed by 20 years
+                                                        of research.</p>
+                                          -->          <a href="javascript:void(0)"
+                                                        class="btn btn-raised btn-xlg btn-white color-bordo wow flipInX animation-delay-5"><i></i>
+                                                        Tenho um
+                                                        projeto!</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-6 color-dark">
-                            <h2 class="color-white text-center mb-4 wow fadeInUp animation-delay-2">Some numerical data
-                            </h2>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                    <div
-                                        class="card card-royal-inverse card-body overflow-hidden text-center wow zoomInUp animation-delay-2">
-                                        <h2 class="counter">450</h2>
-                                        <i class="fa fa-4x fa-coffee"></i>
-                                        <p class="mt-2 no-mb lead small-caps">cups of coffee</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                    <div
-                                        class="card card-success-inverse card-body overflow-hidden text-center wow zoomInUp animation-delay-5">
-                                        <h2 class="counter">64</h2>
-                                        <i class="fa fa-4x fa-briefcase"></i>
-                                        <p class="mt-2 no-mb lead small-caps">projects done</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                    <div
-                                        class="card card-danger-inverse card-body overflow-hidden text-center wow zoomInUp animation-delay-4">
-                                        <h2 class="counter">600</h2>
-                                        <i class="fa fa-4x fa-comments-o"></i>
-                                        <p class="mt-2 no-mb lead small-caps">comments</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                    <div
-                                        class="card card-warning-inverse card-body overflow-hidden text-center wow zoomInUp animation-delay-3">
-                                        <h2 class="counter">3500</h2>
-                                        <i class="fa fa-4x fa-group"></i>
-                                        <p class="mt-2 no-mb lead small-caps">happy clients</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center color-white mw-800 center-block mt-4">
-                                <p class="lead lead-lg wow fadeInUp animation-delay-2">Discover our projects and the
-                                    rigorous process of
-                                    creation. Our principles are creativity, design, experience and knowledge. We are
-                                    backed by 20 years
-                                    of research.</p>
-                                <a href="javascript:void(0)"
-                                    class="btn btn-raised btn-xlg btn-white color-bordo wow flipInX animation-delay-5"><i></i>
-                                    Tenho um
-                                    projeto!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
             <section id="portfolio" class="">
                 <div class="wrap ms-hero-bg-dark ms-hero-img-keyboard ms-bg-fixed">
@@ -390,12 +497,12 @@
                                                 <a href="javascript:void(0)" class="btn btn-raised btn-danger"><i
                                                         class="zmdi zmdi-eye"></i>
                                                     View more</a>
-                                                </div>
+                                            </div>
                                         </figcaption>
-                               </figure>
+                                    </figure>
                                 </div>
                             </div>
- <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                                 <div class="ms-thumbnail-container wow fadeInUp">
                                     <figure class="ms-thumbnail ms-thumbnail-top ms-thumbnail-info">
                                         <img src="{{asset('images/demo/port7.jpg')}}" alt="" class="img-fluid">
@@ -573,11 +680,19 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="card mt-4 card-success wow zoomInUp animation-delay-7">
                                 <div class="ms-hero-bg-success ms-hero-img-city">
-                                    <img src="{{asset('images/demo/Avatar22.jpg')}}" alt="..." class="img-avatar-circle">
+                                    <img src="{{asset('images/demo/Avatar22.jpg')}}" alt="..."
+                                        class="img-avatar-circle">
                                 </div>
                                 <div class="card-body pt-6 text-center">
                                     <h3 class="color-success">Miguel Rascado Fraguas Neto</h3>
-                                    <p>Possui graduação em Engenharia Química pela Universidade Federal Rural do Rio de Janeiro (1993) e mestrado em Química pela Universidade Federal Rural do Rio de Janeiro (1997). Atualmente coordena cursos de graduação e é professor titular da Universidade Severino Sombra. Tem experiência na área de Química, com ênfase em Síntese Orgânica, atuando principalmente nos seguintes temas: segurança em química, descritores moleculares, acronicina, modelagem molecular e fitoquímica. Atua como Pró-Reitor de Ciências Tecnológicas e Sociais Aplicadas na Universidade de Vassouras.</p>
+                                    <p>Possui graduação em Engenharia Química pela Universidade Federal Rural do Rio de
+                                        Janeiro (1993) e mestrado em Química pela Universidade Federal Rural do Rio de
+                                        Janeiro (1997). Atualmente coordena cursos de graduação e é professor titular da
+                                        Universidade Severino Sombra. Tem experiência na área de Química, com ênfase em
+                                        Síntese Orgânica, atuando principalmente nos seguintes temas: segurança em
+                                        química, descritores moleculares, acronicina, modelagem molecular e fitoquímica.
+                                        Atua como Pró-Reitor de Ciências Tecnológicas e Sociais Aplicadas na
+                                        Universidade de Vassouras.</p>
                                     <a href="javascript:void(0)"
                                         class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
                                             class="zmdi zmdi-facebook"></i></a>
@@ -590,7 +705,7 @@
                                 </div>
                             </div>
                         </div>
-                   </div>
+                    </div>
                 </div>
             </section>
             <section id="contact" class="mt-6">
@@ -707,7 +822,7 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>    
+    <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/plugins.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/app.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/lead.js') }}"></script>
