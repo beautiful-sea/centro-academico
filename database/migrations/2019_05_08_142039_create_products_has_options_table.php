@@ -14,7 +14,7 @@ class CreateProductsHasOptionsTable extends Migration
     public function up()
     {
         Schema::create('products_has_options', function (Blueprint $table) {
-            $table->integer('id');
+            $table->bigIncrements('id');
             $table->integer('id_product');
             $table->integer('id_option');
         });

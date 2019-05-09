@@ -14,5 +14,7 @@
 @endsection
 
 @section('content')
+<div id="app">
     @include('admin.products.form')
+</div>
 @stop

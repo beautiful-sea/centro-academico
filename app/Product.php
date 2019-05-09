@@ -13,6 +13,8 @@ class Product extends Authenticatable
     protected $fillable = ['name','description','minimum_stock','maximum_stock','value','value_partner','image'
     ];
 
+    protected $with = "products_options";
+
     public function getProductAttributeImage() {
         if ($this->avatar_extension) {
             $image = sprintf('/files/users/%s.%s', $this->id, $this->avatar_extension);
@@ -76,6 +78,9 @@ class Product extends Authenticatable
 
     public function input_products()
     {
-        return $this->belongsTo('InputProducts','id_product');
+        return $this->belongsTo('App\InputProducts','id_product');
+    }
+    public function products_options(){
+        return $this->hasMany('App\ProductsOptions','id');
     }
 }
