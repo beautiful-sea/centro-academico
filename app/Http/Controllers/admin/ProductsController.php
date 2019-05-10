@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Product;
 use App\ProductsOptions;
+use App\ProductsOptionsTypes;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Illuminate\Support\Arr;
+
 
 class ProductsController extends Controller
 {
@@ -21,7 +23,7 @@ class ProductsController extends Controller
     {
         $this->authorize('index', Product::class);
 
-        $products = Product::with('products_options')->orderBy('name')->get();
+        $products = Product::with('types')->orderBy('name')->get();
         return view('admin.products.index',[
             'products' => $products]);
     }
@@ -32,9 +34,10 @@ class ProductsController extends Controller
 
         $product = new Product;
 
+        $options =  ProductsOptions::with('products_options_types')->get();
         return view('admin.products.create', [
             'product' => $product,
-            'options' => ProductsOptions::all()
+            'options' => $options
         ]);
     }
 
@@ -44,22 +47,24 @@ class ProductsController extends Controller
         
         $data = $request->all();
 
-        $options = $request->products_options;
+        $products_options       = $request->products_options;
+        $products_options_types = $request->products_options_types;
 
-        dd($data);
         //Formata o valor do produto de string para float
         $data['value'] = (float)str_replace(['R$ ',','],['','.'], $data['value']);
         $data['value_partner'] = (float)str_replace(['R$ ',','],['','.'], $data['value_partner']);          
 
         $product->fill($data);      
-         dd($product);
+
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
             $product->image_extension = $extension;
         }  
-        Arr::pull($product,'image');
-        // $product->save();
 
+        Arr::pull($product,'image');
+        $product->save();
+
+        Product::insertOptionsTypesToProduct($product->id,$products_options_types);
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));
         }        
@@ -71,10 +76,13 @@ class ProductsController extends Controller
     {
         $this->authorize('edit', $product);
 
+        $options = ProductsOptions::with('products_options_types')->get();
+        
         return view('admin.products.edit', [
             'product' => $product,
-            'options' => ProductsOptions::all()
+            'options' => $options
         ]);
+
     }
 
     public function update(Request $request)
@@ -88,10 +96,9 @@ class ProductsController extends Controller
 
             $product->image_extension = $extension;
         }
-        dd($request);
         Arr::pull($product,'image');
         // $product->save();
-
+        dd($product->types()->sync($product->types));
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));
         }

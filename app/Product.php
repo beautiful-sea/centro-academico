@@ -10,10 +10,9 @@ use Illuminate\Support\Arr;
 class Product extends Authenticatable
 {
 
-    protected $fillable = ['name','description','minimum_stock','maximum_stock','value','value_partner','image'
-    ];
+    protected $fillable = ['name','description','minimum_stock','maximum_stock','value','value_partner','image'];
 
-    protected $with = "products_options";
+    protected $with = "types";
 
     public function getProductAttributeImage() {
         if ($this->avatar_extension) {
@@ -23,7 +22,7 @@ class Product extends Authenticatable
         } else {
             $buffer = explode(' ', $this->name);
             $initials = '';
-    
+
             if (!empty($buffer[1])) {
                 $initials = strtoupper($buffer[0][0].$buffer[1][0]);
             } else {
@@ -56,12 +55,30 @@ class Product extends Authenticatable
     }
 
     public static function productsInStock(){
-        // dd(session_id());
         // $p = Stock::with('product')->where('amount','>','0')->get();//Busca todos produtos no estoque
         $p = Product::with('stockable')->where('locked','0')->get();//Busca todos produtos
         return $p;
     }
 
+    //Insere os tipos de opçoes escolhidas para cada produto
+    public static function insertOptionsTypesToProduct($id_product,$products_options_types){
+
+        $types = [];
+
+        foreach ($products_options_types as $value) {
+            $types[] = [
+                "id_product"        => $id_product,
+                "id_options_types"  => $value
+            ];
+        }
+        DB::table('products_has_options_types')->insert($types);
+    }
+
+
+
+
+
+    //RELACIONAMENTOS 
     public function stock()
     {
         return $this->belongsTo('App\Stock','id_product');
@@ -80,7 +97,7 @@ class Product extends Authenticatable
     {
         return $this->belongsTo('App\InputProducts','id_product');
     }
-    public function products_options(){
-        return $this->hasMany('App\ProductsOptions','id');
+    public function types(){
+        return $this->belongsToMany('App\ProductsOptionsTypes','products_has_options_types','id_product','id_options_types');
     }
 }

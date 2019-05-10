@@ -6,8 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductsOptionsTypes extends Model
 {	
-    protected $visible = ['id','name'];
-    public function options(){
-    	return $this->belongsToMany('App\ProductsOptions','id_options');
+    protected $visible 		= ['id','name','option'];
+
+    protected $primaryKey 	= 'id';
+
+    protected $table 		= "products_options_types";
+
+    protected $with			= "option";
+
+    public function option(){
+    	return $this->belongsTo('App\ProductsOptions','id_option');
     }
 }

@@ -8,10 +8,8 @@ class ProductsOptions extends Model
 {
 	protected $table = "products_options";
 
-	protected $with = "products_options_types";
-
     public function products(){
-    	return $this->belongsToMany('App\Products','products_has_options','id');
+    	return $this->belongsToMany('App\Products','products_has_options_types','id_product');
     }
 
     public function products_options_types(){
