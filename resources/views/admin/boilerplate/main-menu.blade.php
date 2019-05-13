@@ -73,7 +73,7 @@
 @php
     $class = '';
 
-    if ($controller == 'UsersController' || $action == 'config') {
+    if ($controller == 'UsersController' || $controller == 'ProductsOptionsTypesController') {
         $class = 'menu-open';
     }
 @endphp
@@ -120,7 +120,7 @@
         @php
             $class = '';
 
-            if ($controller == 'ProductsController'&& $action == 'config') {
+            if ($controller == 'ProductsOptionsTypesController') {
                 $class = 'active';
             }
         @endphp

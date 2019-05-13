@@ -74,6 +74,8 @@
 
 @section('js')
     <script>
-        $('#stock-list').DataTable();
+        $('#stock-list').DataTable({
+            'order':[[2,"asc"]]
+        });
     </script>
 @stop

@@ -67,13 +67,13 @@
             </table>
         </div>
     </div>
+    
 </div>
 @stop
 
 @section('js')
     <script>
         $('#products-list').DataTable({
-            'order':[[2,"asc"]]
         });
     </script>
 @stop

@@ -38,8 +38,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="input-group">
-                        <select class="form-control" v-if="item.options.types.length > 0" multiple>
-                            <option  v-for="type in item.options.types">
+                        <select class="form-control" name="options_types[]" readonly="readonly" v-if="item.options.types.length > 0" multiple>
+                            <option  v-for="type in item.options.types" selected>
                                 {{type.name}}
                             </option>
                         </select>
@@ -76,8 +76,8 @@
         methods:{
             addOption(){
                 let name_option = $('#name').val();
+                $("#name").prop('readonly',true);
                 if(name_option != '' && name_option != ' ') this.item.options.name = name_option;
-                $('#name').val('');
             },
             addType(){
                 if($('#type_name').val() != '' && $('#type_name').val() != ' '){
@@ -88,7 +88,17 @@
             resetOptionForm(){
                 this.item.options.types = [];
                 this.item.options.name = '';
+                $("#name").removeAttr('readonly');
+
             }
         }
     }
 </script>
+<style type="text/css">
+    select[readonly] 
+    {
+        background: #eee; /*Simular campo inativo*/
+        pointer-events: none;
+        touch-action: none;
+    }
+</style>

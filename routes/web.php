@@ -11,27 +11,36 @@
 */
 
 
+Route::group(['prefix' => 'admin/config/products','namespace'=>'Admin', 'middleware' => 'auth'], function () {
+    Route::get('/', 'ProductsOptionsTypesController@index')->name('products.config');
+    Route::post('/', 'ProductsOptionsTypesController@store')->name('config.products.create');
+    Route::delete('/{id}', 'ProductsOptionsController@destroy')->name('products.option.destroy');
+});
 
-        
+
 Route::group(['prefix' => 'admin/products','namespace'=>'Admin', 'middleware' => 'auth'], function () {
-            Route::get('/', 'ProductsController@index')->name('products');
-            Route::get('/create', 'ProductsController@create')->name('products.create');
-            Route::post('/create', 'ProductsController@store')->name('products.store');
-            Route::get('/block/{product}', 'ProductsController@block')->name('products.block');
-            Route::get('/unblock/{product}', 'ProductsController@unblock')->name('products.unblock');
-            Route::get('/config', 'ProductsController@config')->name('products.config');
-        });
+    Route::get('/', 'ProductsController@index')->name('products');
+    Route::get('/create', 'ProductsController@create')->name('products.create');
+    Route::post('/create', 'ProductsController@store')->name('products.store');
+    Route::get('/block/{product}', 'ProductsController@block')->name('products.block');
+    Route::get('/unblock/{product}', 'ProductsController@unblock')->name('products.unblock');
+});
+
+
+
+
 Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'auth'], function () {
-            Route::get('/', 'StockController@index')->name('stocks');
-            Route::post('/store', 'StockController@store')->name('stocks.store');
-            Route::get('/input','StockController@input')->name('stocks.input');
-            Route::post('/input','StockController@store')->name('stocks.input');
-            Route::get('/output','StockController@output')->name('stocks.output');
-            Route::post('/output','StockController@store')->name('stocks.output');
-            Route::get('/find/{id}','StockController@findById')->name('stocks.findbyid');
-        });
+    Route::get('/', 'StockController@index')->name('stocks');
+    Route::post('/store', 'StockController@store')->name('stocks.store');
+    Route::get('/input','StockController@input')->name('stocks.input');
+    Route::post('/input','StockController@store')->name('stocks.input');
+    Route::get('/output','StockController@output')->name('stocks.output');
+    Route::post('/output','StockController@store')->name('stocks.output');
+    Route::get('/find/{id}','StockController@findById')->name('stocks.findbyid');
+});
 Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin.home');
+    Route::resource('/products/config', 'ProductsOptionsTypesController');
     Route::resource('/products', 'ProductsController');
     Route::resource('/stock', 'StockController');
     Auth::routes();

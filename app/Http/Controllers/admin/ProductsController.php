@@ -65,6 +65,7 @@ class ProductsController extends Controller
         $product->save();
 
         Product::insertOptionsTypesToProduct($product->id,$products_options_types);
+
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));
         }        
@@ -89,6 +90,7 @@ class ProductsController extends Controller
     {
         $product = Product::find($request->id);
 
+
         $product->fill($request->all());
 
         if ($request->hasFile('image')) {
@@ -97,8 +99,9 @@ class ProductsController extends Controller
             $product->image_extension = $extension;
         }
         Arr::pull($product,'image');
-        // $product->save();
-        dd($product->types()->sync($product->types));
+
+        $product->types()->sync($request->products_options_types);
+        $product->save();
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));
         }
@@ -138,8 +141,4 @@ class ProductsController extends Controller
         return redirect()->route('products.index')->with('flash.success', 'Produto desbloqueado com sucesso');
     }
 
-    public function config(){
-        $products = Product::getNameAndIdAllProducts();
-        return view('admin.products.config');
-    }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductsOptionsTypes extends Model
 {	
-    protected $visible 		= ['id','name','option'];
+    protected $visible 		= ['id','name','option','id_option'];
 
     protected $primaryKey 	= 'id';
 
