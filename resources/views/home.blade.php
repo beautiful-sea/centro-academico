@@ -383,7 +383,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                         <!--   <div class="mt-6 color-dark">
+                                    <!--   <div class="mt-6 color-dark">
                                                 <h2 class="color-white text-center mb-4 wow fadeInUp animation-delay-2">
                                                     Some
                                                     numerical
@@ -434,14 +434,14 @@
                                                         are
                                                         backed by 20 years
                                                         of research.</p>
-                                          -->          <a href="javascript:void(0)"
-                                                        class="btn btn-raised btn-xlg btn-white color-bordo wow flipInX animation-delay-5"><i></i>
-                                                        Tenho um
-                                                        projeto!</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                          --> <a href="javascript:void(0)"
+                                        class="btn btn-raised btn-xlg btn-white color-bordo wow flipInX animation-delay-5"><i></i>
+                                        Tenho um
+                                        projeto!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </section>
             <section id="portfolio" class="">
                 <div class="wrap ms-hero-bg-dark ms-hero-img-keyboard ms-bg-fixed">
@@ -557,23 +557,28 @@
 
             <section id="team">
                 <div class="container pt-6">
-                    <h1 class="color-bordo text-center wow fadeInUp animation-delay-2">Our Team</h1>
+                    <h1 class="color-bordo text-center wow fadeInUp animation-delay-2">Nosso Time!</h1>
                     <div class="row">
                         <div class="col-lg-4 col-sm-6">
                             <div class="card mt-4 card-danger wow zoomInUp animation-delay-7">
-                                <div class="ms-hero-bg-danger ms-hero-img-city">
+                                <div class="ms-hero-bg-warning ms-hero-img-city">
                                     <img src="{{asset('images/demo/Enilson-Civil.png')}}" alt="..."
                                         class="img-avatar-circle">
                                 </div>
                                 <div class="card-body pt-6 text-center">
-                                    <h3 class="color-danger">Enilson Salino Braga</h3>
-                                    <p> Possui Mestrado em Ciências Ambientais pela Universidade de Vassouras (2014),
-                                        com Especialização em Gestão de Negócios pela Pontifícia Universidade Católica
-                                        de Minas Gerais e Fundação Dom Cabral (2007), Especialista em Engenharia de
-                                        Segurança do Trabalho (1996) e Graduação em Engenharia Civil (1994) pela
-                                        Fundação Educacional Rosemar Pimentel.
+                                    <h3 class="color-warning">Enilson Salino Braga</h3>
+                                    <p>Possuo Mestrado em Ciências Ambientais pela Universidade de Vassouras(2014),
+                                        Especialização em Gestão de Negócios pela PUC - MG/ Fundação Dom Cabral (2007),
+                                        Graduação em Engenharia Civil (1994) e Pós Graduação em Segurança do Trabalho
+                                        (1996) pela Fundação Educacional Rosemar Pimentel. Atualmente Coordenador do
+                                        Curso de Engenharia Civil e Professor da Universidade de Vassouras no curso de
+                                        Pós Graduação em Engenharia de Segurança do Trabalho, Graduação em Engenharia
+                                        Civil e Engenharia Ambiental e, também nos cursos Técnicos de Edificações,
+                                        Eletrotécnica e Segurança do Trabalho, onde também atuo como Coordenador dos
+                                        Cursos Técnicos de Edificações e Segurança do Trabalho.<a
+                                            href=" http://lattes.cnpq.br/8791565047879602">Veja Mais</a>
                                     </p>
-                                    <a href="javascript:void(0)"
+                                    <a href="https://www.facebook.com/enilson.braga"
                                         class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
                                             class="zmdi zmdi-facebook"></i></a>
                                     <a href="javascript:void(0)"
@@ -587,25 +592,21 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="card mt-4 card-info wow zoomInUp animation-delay-7">
-                                <div class="ms-hero-bg-info ms-hero-img-city">
+                                <div class="ms-hero-bg-warning ms-hero-img-city">
                                     <img src="{{asset('images/demo/Avatar2.jpg')}}" alt="..." class="img-avatar-circle">
                                 </div>
                                 <div class="card-body pt-6 text-center">
                                     <h3 class="color-info">Anrafel Fernandes Pereira</h3>
-                                    <p>
-                                        Mestre em Ciência da Computação pela Universidade Federal de Juiz de Fora, MBA
+                                    <p>Mestre em Ciência da Computação pela Universidade Federal de Juiz de Fora, MBA
                                         Executivo em Gerenciamento de Projetos, pós-graduado em Engenharia de Sistemas,
-                                        graduado em Sistemas de Informação. Atualmente cursa especialização em Pedagogia
-                                        Digital e Inovações Tecnológicas. Leciona na Universidade de Vassouras -
-                                        Vassouras/RJ, onde também atua como coordenador do curso de Engenharia de
-                                        Software. Tem experiência (cerca de 14 anos) em desenvolvimento e implantação de
-                                        software empresarial, atuando ainda como consultor em Tecnologia da Informação e
-                                        Comunicação. Suas principais áreas de interesse estão relacionadas a Algoritmos,
-                                        Engenharia de Software, Banco de Dados, Gerência de Projetos, Linha de Produtos
-                                        de Software, Sistemas Colaborativos, utilização da Tecnologia da Informação na
-                                        Educação, Educação à Distância, Inovação e Startups. Tem publicações e
-                                        apresentações realizadas em simpósios e conferências nacionais e internacionais.
-                                    </p>
+                                        graduado em Sistemas de Informação. Cursando especialização em Pedagogia Digital
+                                        e Inovações Tecnológicas. Atualmente é Coordenador do Curso de Graduação em
+                                        Engenharia de Software e Professor na Universidade de Vassouras, nos cursos de
+                                        Engenharia de Software, Engenharia de Computação, Engenharia de Produção,
+                                        Engenharia Elétrica e Administração e no Centro Universitário Redentor
+                                        (UniRedentor), atuando nos cursos de Engenharia Civil, Engenharia Mecânica e
+                                        Engenharia de Produção.
+                                        <a href=" http://lattes.cnpq.br/6711819845096632">Veja Mais</a></p>
                                     <a href="javascript:void(0)"
                                         class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
                                             class="zmdi zmdi-facebook"></i></a>
@@ -625,10 +626,18 @@
                                 </div>
                                 <div class="card-body pt-6 text-center">
                                     <h3 class="color-warning">Adaurir Junior</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse
-                                        inse voluptates
-                                        officia repudiandae beatae magni es magnam autem molestias.</p>
-                                    <a href="javascript:void(0)"
+                                    <p>Atua desde 2010 como professor universitário no ensino superior (experiência de
+                                        09 anos) ministrando as disciplinas de Desenho Técnico (com utilização de
+                                        softwares o AutoCAD® e Solid Works®), Fenômenos de Transporte, Hidráulica,
+                                        Projeto de Fábrica e Instalações Industriais, Mecânica Básica, Introdução a
+                                        Engenharia de Produção, Resistência dos Materiais, Física Mecânica e Engenharia
+                                        de Processos e Produtos, Engenharia de Pessoas no Trabalho, Gestão e Inovação
+                                        Tecnológica. Atuou como coordenador do Curso de Engenharia de Produção na
+                                        Universidade de Vassouras, curso avaliado pelo MEC como Nota 4 (em escala 1 à 5)
+                                        obteve (experiência de 03 anos na função no período de NOV-2015 à JAN-2019).
+                                        <a href="http://lattes.cnpq.br/2829715941269034">Veja Mais</a>
+                                    </p>
+                                    <a href="https://www.facebook.com/adauri.junior"
                                         class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
                                             class="zmdi zmdi-facebook"></i></a>
                                     <a href="javascript:void(0)"
@@ -665,7 +674,7 @@
                                         de pesquisa “Qualidade e Conservação de Energia” com projeto titulado de
                                         “Gerador Síncrono com Ímãs Permanentes no Rotor: uma Abordagem Constitutiva e
                                         sob o Aspecto da Qualidade de Energia Gerada</p>
-                                    <a href="javascript:void(0)"
+                                    <a href="https://www.facebook.com/leandro.casanova.96558"
                                         class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
                                             class="zmdi zmdi-facebook"></i></a>
                                     <a href="javascript:void(0)"
@@ -679,7 +688,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="card mt-4 card-success wow zoomInUp animation-delay-7">
-                                <div class="ms-hero-bg-success ms-hero-img-city">
+                                <div class="ms-hero-bg-warning ms-hero-img-city">
                                     <img src="{{asset('images/demo/Avatar22.jpg')}}" alt="..."
                                         class="img-avatar-circle">
                                 </div>
@@ -687,13 +696,15 @@
                                     <h3 class="color-success">Miguel Rascado Fraguas Neto</h3>
                                     <p>Possui graduação em Engenharia Química pela Universidade Federal Rural do Rio de
                                         Janeiro (1993) e mestrado em Química pela Universidade Federal Rural do Rio de
-                                        Janeiro (1997). Atualmente coordena cursos de graduação e é professor titular da
-                                        Universidade Severino Sombra. Tem experiência na área de Química, com ênfase em
-                                        Síntese Orgânica, atuando principalmente nos seguintes temas: segurança em
-                                        química, descritores moleculares, acronicina, modelagem molecular e fitoquímica.
-                                        Atua como Pró-Reitor de Ciências Tecnológicas e Sociais Aplicadas na
-                                        Universidade de Vassouras.</p>
-                                    <a href="javascript:void(0)"
+                                        Janeiro (1997). Atualmente é professor titular da Universidade de Vassouras e
+                                        coordena os cursos de Engenharia Química e Engenharia Ambiental. Atuou como
+                                        Pró-Reitor de Ciências Tecnológicas, Sociais Aplicadas e Humanas da Universidade
+                                        de Vassouras. Tem experiência na área de Química, com ênfase em síntese
+                                        orgânica, atuando principalmente nos seguintes temas: segurança em química,
+                                        descritores moleculares, acronicina, modelagem molecular e fitoquímica. Atua nas
+                                        linhas de pesquisa sobre biocombustível, química verde, resíduos
+                                        agroindustriais, meio ambiente e simulação de processos.<a href=" http://lattes.cnpq.br/9222953104245071">Veja Mais</a></p>
+                                    <a href="https://www.facebook.com/engenharia.quimica.37604"
                                         class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
                                             class="zmdi zmdi-facebook"></i></a>
                                     <a href="javascript:void(0)"
@@ -769,7 +780,7 @@
             </section>
             <footer class="ms-footer">
                 <div class="container">
-                    <p>Copyright &copy; xxy</p>
+                    <p>E-POINT &copy; Desenvolvido em 2019</p>
                 </div>
             </footer>
             <div class="btn-back-top">
