@@ -20,8 +20,9 @@ class ProductsOptionsTypesController extends Controller
         $products_options_types = ProductsOptionsTypes::all();
         $products_options = ProductsOptions::all();
         return view('admin.products.config',[
-            'products_options_types' => $products_options_types,
-            'products_options' => $products_options
+            'all_products_options_types' => $products_options_types,
+            'product_option_type'   =>  (new ProductsOptionsTypes),
+            'all_products_options' => $products_options
         ]);
     }
 
@@ -43,29 +44,12 @@ class ProductsOptionsTypesController extends Controller
      */
     public function store(Request $request)
     {
-        $products_options = new ProductsOptions;
-        $data = $request->all();
-        $products_options->name = $data['name'];
+        $data = [];
+        $data["name"]       = $request->name;
+        $data["id_option"]  = $request->id_option;
+        ProductsOptionsTypes::insert($data);
 
-        //Insere a Opçao
-        $products_options->save();
-
-        //Para cada tipo de opção, criar um array com o nome do tipo e o id da Opção criada
-        $types = [];
-        foreach ($data['options_types'] as $value) {
-            array_push($types, [
-                "id_option" =>  $products_options->id,
-                "name"      =>  $value,
-                "created_at"=>  date("Y-m-d H:i:s"),
-                "updated_at"=>  date("Y-m-d H:i:s")
-            ]);
-        }
-
-        //Insere os tipos de opção relacionados com a opção
-        ProductsOptionsTypes::insert($types);
-
-        return redirect()->route('products.config');
-
+        return redirect()->route('products.config')->with('flash.success','Opção de produto cadastrada com sucesso.');
     }
 
     /**
@@ -85,9 +69,11 @@ class ProductsOptionsTypesController extends Controller
      * @param  \App\ProductsOptionsTypes  $productsOptionsTypes
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductsOptionsTypes $productsOptionsTypes)
+    public function edit(ProductsOptionsTypes $productsOptionsTypes,$id)
     {
-        //
+        return view('admin.products.edit-options-types',[
+            'products_options_types' => $productsOptionsTypes->find($id)
+        ]);
     }
 
     /**
@@ -97,9 +83,15 @@ class ProductsOptionsTypesController extends Controller
      * @param  \App\ProductsOptionsTypes  $productsOptionsTypes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductsOptionsTypes $productsOptionsTypes)
+    public function update(Request $request)
     {
-        //
+        $products_options_types = ProductsOptionsTypes::find($request->id);
+
+        $products_options_types->name = $request->name;
+
+        $products_options_types->save();
+
+        return redirect()->route('products.config')->with('flash.success', 'Tipo de opção editada com sucesso');
     }
 
     /**
@@ -113,6 +105,6 @@ class ProductsOptionsTypesController extends Controller
         $this->authorize('destroy', $productsOptionsTypes);
 
         $productsOptionsTypes::find($id)->delete();
-        return redirect()->route('products.config')->with('flash.success', 'Tipo de Opção excluída com sucesso');
+        return redirect()->route('products.config')->with('flash.success', 'Tipo de opção excluída com sucesso');
     }
 }

@@ -52,6 +52,22 @@
 								<div class="card container col-md-12">
 
 									<a href="javascript:void(0)" class="color-bordo ">{{item.name}}</a>
+									<div >
+										
+									</div>
+
+									<div>
+										<div class="" v-for="option in returnOptions(item.types)">
+											<label>{{option.name}}:</label>
+											<select class="pull-right">
+												<option v-for="type in item.types" v-if="type.option.id == option.id">
+													{{type.name}}
+												</option>
+											</select>
+										</div>
+									</div>
+									
+
 									<div class="" style="margin-top: 0px!important">
 										<label>Quantidade:</label>
 										<input type="number" min="0" disabled :max="item.stockable.amount" style="margin-top: 0px!important" class=" form-control-number pull-right" :value="item.amount_order" >
@@ -188,11 +204,24 @@
 				for (var i = this.cart.length - 1; i >= 0; i--) {
 					for (var i = this.cart.length - 1; i >= 0; i--) {
 						let value_product = (this.client.is_partner == 1)?
-							(this.cart[i].value_partner* this.cart[i].amount_order):(this.cart[i].value* this.cart[i].amount_order);
+						(this.cart[i].value_partner* this.cart[i].amount_order):(this.cart[i].value* this.cart[i].amount_order);
 						total_order += value_product;
 					}
 				}
 				return total_order.toFixed(2);
+			},
+			returnOptions(types){
+				let options = [];
+
+				for (var i = types.length - 1; i >= 0; i--) {
+					let index = options.findIndex(item => item.id == types[i].option.id)
+					console.log(index);
+					if(index < 0){
+						options.push(types[i].option);
+					}
+				}
+
+				return options;
 			}
 		},
 		watch:{

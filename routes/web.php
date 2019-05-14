@@ -9,12 +9,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::group(['prefix' => 'admin/config/products','namespace'=>'Admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'ProductsOptionsTypesController@index')->name('products.config');
-    Route::post('/', 'ProductsOptionsTypesController@store')->name('config.products.create');
+    Route::post('/', 'ProductsOptionsController@store')->name('config.products.create');
     Route::delete('/{id}', 'ProductsOptionsController@destroy')->name('products.option.destroy');
+    Route::put('/type/{id}', 'ProductsOptionsTypesController@update')->name('productsoptionstypes.update');
+    Route::get('/option/edit/{id}', 'ProductsOptionsController@edit')->name('productsoptions.edit');
+    Route::put('/option/edit', 'ProductsOptionsController@update')->name('productsoptions.update');
+    Route::post('/create_type','ProductsOptionsTypesController@store')->name('productsoptionstypes.store');
 });
 
 
@@ -27,8 +29,6 @@ Route::group(['prefix' => 'admin/products','namespace'=>'Admin', 'middleware' =>
 });
 
 
-
-
 Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'StockController@index')->name('stocks');
     Route::post('/store', 'StockController@store')->name('stocks.store');
@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'a
     Route::post('/output','StockController@store')->name('stocks.output');
     Route::get('/find/{id}','StockController@findById')->name('stocks.findbyid');
 });
+
+
 Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::resource('/products/config', 'ProductsOptionsTypesController');
@@ -48,9 +50,11 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
 
 });
 
+
 Route::get("/",function(){
     return view('home');
 });
+
 
 Route::group(['prefix'=>'atletica'],function(){
     Route::get('/',function(){
