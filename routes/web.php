@@ -10,7 +10,7 @@
 |
 */
 Route::group(['prefix' => 'admin/config/products','namespace'=>'Admin', 'middleware' => 'auth'], function () {
-    Route::get('/', 'ProductsOptionsTypesController@index')->name('products.config');
+    Route::get('/', 'ProductsOptionsController@index')->name('products.config');
     Route::post('/', 'ProductsOptionsController@store')->name('config.products.create');
     Route::delete('/{id}', 'ProductsOptionsController@destroy')->name('products.option.destroy');
     Route::put('/type/{id}', 'ProductsOptionsTypesController@update')->name('productsoptionstypes.update');

@@ -17,13 +17,7 @@ class ProductsOptionsTypesController extends Controller
      */
     public function index()
     {
-        $products_options_types = ProductsOptionsTypes::all();
-        $products_options = ProductsOptions::all();
-        return view('admin.products.config',[
-            'all_products_options_types' => $products_options_types,
-            'product_option_type'   =>  (new ProductsOptionsTypes),
-            'all_products_options' => $products_options
-        ]);
+     
     }
 
     /**
@@ -44,10 +38,9 @@ class ProductsOptionsTypesController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [];
-        $data["name"]       = $request->name;
-        $data["id_option"]  = $request->id_option;
-        ProductsOptionsTypes::insert($data);
+        $type = new ProductsOptionsTypes;
+        $type->name = $request->name;
+        ProductsOptions::find($request->id_option)->types()->save($type);
 
         return redirect()->route('products.config')->with('flash.success','Opção de produto cadastrada com sucesso.');
     }

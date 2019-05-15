@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\ProductsOptions;
 use App\ProductsOptionsTypes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsOptionsController extends Controller
 {
@@ -15,7 +16,16 @@ class ProductsOptionsController extends Controller
      */
     public function index()
     {
+        $products_options_types = ProductsOptionsTypes::all();
+        $products_options = ProductsOptions::all();
+        return view('admin.products.config',[
+            'all_products_options_types' => $products_options_types,
+            'product_option_type'   =>  (new ProductsOptionsTypes),
+            'all_products_options' => $products_options,
+            'options'   =>  ProductsOptions::with('types')->get()
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,33 +45,29 @@ class ProductsOptionsController extends Controller
      */
     public function store(Request $request)
     {
-        $products_options = new ProductsOptions;
-        $data = $request->all();
-        $products_options->name = $data['name'];
+        $request = $request->all();
 
-        //Insere a Opçao
-        $products_options->save();
+        if(isset($request['options_types'])){
+             $options = new ProductsOptions;
+             $options->name = $request['name'];
+             $options->save();
 
-        //Para cada tipo de opção, criar um array com o nome do tipo e o id da Opção criada
-        if(isset($data['options_types'])){
-
-            $types = [];
-            foreach ($data['options_types'] as $value) {
-                array_push($types, [
-                    "id_option" =>  $products_options->id,
-                    "name"      =>  $value,
-                    "created_at"=>  date("Y-m-d H:i:s"),
-                    "updated_at"=>  date("Y-m-d H:i:s")
-                ]);
+            foreach ($request['options_types'] as $value) {
+                $types = new ProductsOptionsTypes;
+                $types->name = $value;
+                ProductsOptions::find($options->id)->types()->save($types);
             }
+        
+        }else{
+           $options = new ProductsOptions;
+           $options->name = $request['name'];
+           $options->save();
+       }
+       return redirect()->route('products.config')->with('flash.success', 'Opção cadastrada com sucesso');
 
-        //Insere os tipos de opção relacionados com a opção
-            ProductsOptionsTypes::insert($types);            
-        }
-
-
-        return redirect()->route('products.config')->with('flash.success', 'Opção cadastrada com sucesso');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -113,8 +119,8 @@ class ProductsOptionsController extends Controller
     public function destroy(ProductsOptions $productsOptions,$id)
     {
         $this->authorize('destroy', $productsOptions);
-
-        $productsOptions::find($id)->delete();
+        $productsOptions->find($id)->types()->delete();
+        $productsOptions->find($id)->delete();
         return redirect()->route('products.config')->with('flash.success', 'Opção excluída com sucesso');
     }
 }

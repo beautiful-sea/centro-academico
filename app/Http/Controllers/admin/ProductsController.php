@@ -23,7 +23,8 @@ class ProductsController extends Controller
     {
         $this->authorize('index', Product::class);
 
-        $products = Product::with('types')->orderBy('name')->get();
+        $products = Product::with('options')->orderBy('name')->get();
+
         return view('admin.products.index',[
             'products' => $products]);
     }
@@ -75,14 +76,15 @@ class ProductsController extends Controller
 
     public function edit(Product $product)
     {
-        $this->authorize('edit', $product);
+        // $this->authorize('edit', $product);
 
-        $options = ProductsOptions::with('products_options_types')->get();
+        $options = ProductsOptions::with('types')->get();
         
-        return view('admin.products.edit', [
-            'product' => $product,
-            'options' => $options
-        ]);
+        dd($options);
+        // return view('admin.products.edit', [
+        //     'product' => $product,
+        //     'options' => $options
+        // ]);
 
     }
 
