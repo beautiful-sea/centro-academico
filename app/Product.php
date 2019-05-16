@@ -98,7 +98,7 @@ class Product extends Authenticatable
         return $this->belongsTo('App\InputProducts','id_product');
     }
     public function types(){
-        return $this->belongsToMany('App\ProductsOptionsTypes','products_has_options_types','id_product','id_options_types');
+        return $this->belongsToMany('App\ProductsOptionsTypes','products_has_options_types','id_product_option','id_options_types');
     }
 
     public function options(){

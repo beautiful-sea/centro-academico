@@ -76,15 +76,14 @@ class ProductsController extends Controller
 
     public function edit(Product $product)
     {
-        // $this->authorize('edit', $product);
+        $this->authorize('edit', $product);
 
         $options = ProductsOptions::with('types')->get();
-        
-        dd($options);
-        // return view('admin.products.edit', [
-        //     'product' => $product,
-        //     'options' => $options
-        // ]);
+        dd($product->with('options.products_types')->get());
+        return view('admin.products.edit', [
+            'product' => $product,
+            'options' => $options
+        ]);
 
     }
 
@@ -101,6 +100,7 @@ class ProductsController extends Controller
             $product->image_extension = $extension;
         }
         Arr::pull($product,'image');
+
 
         $product->types()->sync($request->products_options_types);
         $product->save();
