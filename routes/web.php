@@ -39,12 +39,19 @@ Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'a
     Route::get('/find/{id}','StockController@findById')->name('stocks.findbyid');
 });
 
+Route::group(['prefix' => 'admin/minutes','namespace'=>'Admin', 'middleware' => 'auth'], function () {
+    Route::get('/', 'MinutesController@index')->name('minutes');
+});
+
 
 Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::resource('/products/config', 'ProductsOptionsTypesController');
     Route::resource('/products', 'ProductsController');
     Route::resource('/stock', 'StockController');
+    Route::resource('/minutes', 'MinutesController');
+    Route::resource('/minutes/participants', 'ParticipantsController');
+    
     Auth::routes();
     \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();
 

@@ -8,10 +8,10 @@
 
             <div class="row">
                 <div class="col-md-12">
-                 <label for="options_types">Opção </label>
+                   <label for="options_types">Opção </label>
 
-                 <div class="input-group">
-                     <select class="form-control" id="options_types" name="id_option" @change="addOption()" >
+                   <div class="input-group">
+                       <select class="form-control" id="options_types" name="id_option" @change="addOption()" >
                         <option value="0">Selecione uma opção</option>
                         <option  v-for="option in all_options" :value="option.id">
                             {{option.name}}
@@ -23,23 +23,23 @@
 
         <div class="row" v-if="option_selected != ''">
             <div class="col-md-12">
-             <label for="type_name">Nome para o tipo de {{option_selected}} </label>
+               <label for="type_name">Nome para o tipo de {{option_selected}} </label>
 
-             <div class="input-group">
-                 <input type="text" name="name" id="type_name" class="form-control">
-             </div>
-         </div>
-     </div>
+               <div class="input-group">
+                   <input type="text" name="name" id="type_name" class="form-control">
+               </div>
+           </div>
+       </div>
 
-     <br>
-     <div v-if="option_selected != ''">
+       <br>
+       <div v-if="option_selected != ''">
         <div class="form-group">
             <div class="col-md-12">
-             <!--  <button v-if="item.options.types.length > 0 || item.options.name != ''" class="btn btn-danger" type="button" @click="resetOptionForm()"> <i class="fa fa-refresh" ></i>Redefinir</button> -->
-             <button type="submit" class="btn btn-success">Salvar</button>
-         </div>
-     </div>
- </div>
+               <!--  <button v-if="item.options.types.length > 0 || item.options.name != ''" class="btn btn-danger" type="button" @click="resetOptionForm()"> <i class="fa fa-refresh" ></i>Redefinir</button> -->
+               <button type="submit" class="btn btn-success">Salvar</button>
+           </div>
+       </div>
+   </div>
 </div>
 </div>
 </template>
@@ -58,14 +58,14 @@
             addOption(){
                 let id_name_option = parseInt($('#options_types').val());
                 if(id_name_option != 0){
-                   let option = this.all_options.find(opt => opt.id == id_name_option )
-                   this.option_selected = option.name.toLowerCase();   
-               }else{
-                    this.option_selected = ''
-               }
+                 let option = this.all_options.find(opt => opt.id == id_name_option )
+                 this.option_selected = option.name.toLowerCase();   
+             }else{
+                this.option_selected = ''
+            }
 
-           },
-           resetOptionForm(){
+        },
+        resetOptionForm(){
             this.item.options.types = [];
             this.item.options.name = '';
             $("#name").removeAttr('readonly');
