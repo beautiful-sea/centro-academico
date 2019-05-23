@@ -8,8 +8,6 @@ class ProductsOptionsTypes extends Model
 {	
     protected $visible 		= ['id','name','option','id_option'];
 
-    protected $primaryKey 	= 'id';
-
     protected $table 		= "products_options_types";
 
     // protected $with			= "option";

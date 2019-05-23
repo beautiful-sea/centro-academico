@@ -14,15 +14,14 @@ class CreateProductsHasOptionsTypesTable extends Migration
     public function up()
     {
         Schema::create('products_has_options_types', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_product_has_option');
-            $table->foreign('id_product_has_option')
-                  ->references('id')->on('products_has_options')
+            $table->unsignedBigInteger('id_products_options');
+            $table->foreign('id_products_options')
+                  ->references('id')->on('products_options')
                   ->onDelete('cascade');
             
 
-            $table->unsignedBigInteger('id_options_types');
-            $table->foreign('id_options_types')
+            $table->unsignedBigInteger('id_products_options_types');
+            $table->foreign('id_products_options_types')
                   ->references('id')->on('products_options_types')
                   ->onDelete('cascade');
         });

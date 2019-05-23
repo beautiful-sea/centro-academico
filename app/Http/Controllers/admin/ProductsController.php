@@ -7,6 +7,7 @@ use App\Product;
 use App\ProductsOptions;
 use App\ProductsOptionsTypes;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Support\Arr;
 
@@ -23,7 +24,7 @@ class ProductsController extends Controller
     {
         $this->authorize('index', Product::class);
 
-        $products = Product::with('options')->orderBy('name')->get();
+        $products = Product::with('options.products_has_types')->orderBy('name')->get();
 
         return view('admin.products.index',[
             'products' => $products]);
@@ -79,7 +80,7 @@ class ProductsController extends Controller
         $this->authorize('edit', $product);
 
         $options = ProductsOptions::with('types')->get();
-        dd($product->with('options.products_types')->get());
+
         return view('admin.products.edit', [
             'product' => $product,
             'options' => $options
@@ -91,7 +92,6 @@ class ProductsController extends Controller
     {
         $product = Product::find($request->id);
 
-
         $product->fill($request->all());
 
         if ($request->hasFile('image')) {
@@ -99,10 +99,19 @@ class ProductsController extends Controller
 
             $product->image_extension = $extension;
         }
+
         Arr::pull($product,'image');
 
+        $product->options()->sync($request->products_options);
 
-        $product->types()->sync($request->products_options_types);
+        foreach ($request->products_options as $value) {
+            $product_options = ProductsOptions::find($value);
+
+            $product_options->types()->syncWithoutDetaching($request->products_options_types);
+
+
+        }
+        
         $product->save();
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));

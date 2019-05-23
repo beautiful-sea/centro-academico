@@ -14,6 +14,7 @@ class Product extends Authenticatable
 
     protected $with = "options";
 
+
     public function getProductAttributeImage() {
         if ($this->avatar_extension) {
             $image = sprintf('/files/users/%s.%s', $this->id, $this->avatar_extension);
@@ -98,10 +99,13 @@ class Product extends Authenticatable
         return $this->belongsTo('App\InputProducts','id_product');
     }
     public function types(){
-        return $this->belongsToMany('App\ProductsOptionsTypes','products_has_options_types','id_product_option','id_options_types');
+        return $this->belongsToMany('App\ProductsOptionsTypes','products_has_options_types','id_products_options','id_products_options_types');
+        
     }
 
     public function options(){
         return $this->belongsToMany('App\ProductsOptions','products_has_options','id_product','id_option');
     }
+
+
 }
