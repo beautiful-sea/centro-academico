@@ -24,6 +24,12 @@ class CreateProductsHasOptionsTypesTable extends Migration
             $table->foreign('id_products_options_types')
                   ->references('id')->on('products_options_types')
                   ->onDelete('cascade');
+
+
+            $table->unsignedBigInteger('id_product');
+            $table->foreign('id_product')
+                  ->references('id')->on('products')
+                  ->onDelete('cascade');
         });
     }
 

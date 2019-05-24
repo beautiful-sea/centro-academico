@@ -98,9 +98,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($options as $opt)
-
-								@foreach ($opt->types as $type)
+								@foreach ($all_products_options_types as $type)
 								<tr class="">
 									<td>{{$type->name }}</td>
 									<td>
@@ -116,7 +114,6 @@
 										</div>
 									</td>
 								</tr>
-								@endforeach
 								@endforeach
 							</tbody>
 						</table>

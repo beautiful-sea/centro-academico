@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductsOptions;
 use App\ProductsOptionsTypes;
+use App\ProductsHasOptionsTypes;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Auth;
@@ -88,7 +89,7 @@ class ProductsController extends Controller
 
     }
 
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
         $product = Product::find($request->id);
 
@@ -104,13 +105,15 @@ class ProductsController extends Controller
 
         $product->options()->sync($request->products_options);
 
-        foreach ($request->products_options as $value) {
-            $product_options = ProductsOptions::find($value);
+        $product_options = ProductsOptions::find($id);
 
-            $product_options->types()->syncWithoutDetaching($request->products_options_types);
-
-
+        foreach ($request->products_options_types as $value) {
+            $option_type = explode(',',$value);
+            dd(Product::find($product->id)->options->find($value)->products_has_types()->toSql());
+            dd(Product::find($product->id)->options->find($value)->products_has_types()->sync($option_type[1]));
         }
+        
+
         
         $product->save();
         if ($request->hasFile('image')) {

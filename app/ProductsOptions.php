@@ -15,7 +15,7 @@ class ProductsOptions extends Model
     }
 
     public function products_has_types(){
-        return $this->belongsToMany('App\ProductsOptionsTypes','products_has_options_types','id_products_options','id_products_options_types');
+        return $this->belongsToMany('App\ProductsOptionsTypes','App\ProductsHasOptionsTypes','id_product','id_products_options','id_products_options_types','id','id','id','ids','asdas');
     }
 
 }

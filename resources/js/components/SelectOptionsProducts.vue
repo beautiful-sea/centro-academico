@@ -10,7 +10,7 @@
 			<label for="value_partner" v-if="options.length > 0" >Opções de {{option.name}} </label>
 			<select class="form-control select_type_option" multiple="multiple" name="products_options_types[]">
 				<option v-for="(type) in option.types"
-				 :selected="(option.products_has_types.findIndex(item => item.id == type.id) >=0)?true:false" :value="type.id">{{type.name}}</option>
+				 :selected="(option.products_has_types.findIndex(item => item.id == type.id) >=0)?true:false" :value="[option.id,type.id]">{{type.name}}</option>
 			</select>
 			
 		</div>

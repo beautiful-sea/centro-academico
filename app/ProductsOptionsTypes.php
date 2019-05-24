@@ -10,6 +10,8 @@ class ProductsOptionsTypes extends Model
 
     protected $table 		= "products_options_types";
 
+    
+
     // protected $with			= "option";
 
     public function option(){
