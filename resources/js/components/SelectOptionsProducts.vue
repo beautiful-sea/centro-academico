@@ -7,7 +7,7 @@
 				<option value="colors">Cor</option>
 			</select>
 		</div>
-		<div class="form-group" v-show="options.length > 0" v-for="option in options">
+		<div class="form-group" v-for="option in options">
 			<label for="value_partner" v-if="options.length > 0" >Opções de {{option.name}} </label>
 			<select class="form-control select_type_option" multiple="multiple" name="products_options_types[]">
 
@@ -29,24 +29,25 @@
 			}
 		},
 		methods:{
-			addOption(){//Adiciona as opçoes				
+			addOption(){//Adiciona as opçoes	
 				this.clearSelect();
 				let option_selected = $('#select_option').val();
 
 				if(option_selected.length > 0){
 					for (var i = option_selected.length - 1; i >= 0; i--) {
-						//Pega o id da opção selecionada e procura essa opção na lista de all_options
-						let index = this.all_options.findIndex(item => item.id == option_selected[i]);
 
-						//Se o index for >=0 é porque encontrou o id do produto selecionado
-						if(index >=0){
-							this.options.push(this.all_options[index]);
+						if(option_selected.length >=0){
+							this.options.push(this.option_selected[i]);
 						}else{
+					console.log('limpado2');
+
 							this.clearSelect();
 						}
 					}
 					
 				}else{
+					console.log('limpado1');
+
 					this.clearSelect();
 				}
 				this.$nextTick(() => {
@@ -55,6 +56,7 @@
 
 			},
 			clearSelect(){//Limpa os dados dos Selects
+				console.log('limpado');
 				this.options = [];
 				this.name_option_selected = '';
 				$('.select_type_option').val(null).trigger('change');
@@ -66,17 +68,17 @@
 			});
 		},
 		mounted(){
-			this.addOption();
-			$('#select_option').select2({'theme':'classic'});
-			console.log(this.all_options)
+			// this.addOption();
+			// $('#select_option').select2({'theme':'classic'});
+			// console.log(this.all_options)
 		},
 		created(){
-			for (var i = this.product_options.length - 1; i >= 0; i--) {
-				if(this.product_options){
-					this.selecteds.push(this.product_options[i].pivot.id_option);
-				}
+			// for (var i = this.product_options.length - 1; i >= 0; i--) {
+			// 	if(this.product_options){
+			// 		this.selecteds.push(this.product_options[i].pivot.id_option);
+			// 	}
 				
-			}
+			// }
 		}
 	};
 </script>

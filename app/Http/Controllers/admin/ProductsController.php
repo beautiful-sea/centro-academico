@@ -36,7 +36,9 @@ class ProductsController extends Controller
         $product = new Product;
 
         return view('admin.products.create', [
-            'product' => $product
+            'product'       => $product,
+            'all_colors'    => (Colors::all()),
+            'all_sizes'     => (Sizes::all())
         ]);
     }
 
@@ -63,7 +65,9 @@ class ProductsController extends Controller
         Arr::pull($product,'image');
         $product->save();
 
-        Product::insertOptionsTypesToProduct($product->id,$products_options_types);
+        if(isset($request->colors) || isset($request->sizes)){
+            Product::insertOptionsTypesToProduct($product->id,$products_options_types);
+        }
 
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));

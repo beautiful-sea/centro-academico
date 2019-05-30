@@ -12,9 +12,6 @@ class Product extends Authenticatable
 
     protected $fillable = ['name','description','minimum_stock','maximum_stock','value','value_partner','image'];
 
-    protected $with = "options";
-
-
     public function getProductAttributeImage() {
         if ($this->avatar_extension) {
             $image = sprintf('/files/users/%s.%s', $this->id, $this->avatar_extension);
