@@ -61,21 +61,6 @@ class Product extends Authenticatable
         return $p;
     }
 
-    //Insere os tipos de opçoes escolhidas para cada produto
-    public static function insertOptionsTypesToProduct($id_product,$products_options_types){
-
-        $types = [];
-
-        foreach ($products_options_types as $value) {
-            $types[] = [
-                "id_product"        => $id_product,
-                "id_options_types"  => $value
-            ];
-        }
-        DB::table('products_has_options_types')->insert($types);
-    }
-
-
 
 
 

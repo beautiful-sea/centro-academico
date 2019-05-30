@@ -3,14 +3,14 @@
 		<div class="form-group">
 			<label for="value_partner">Opções</label><small> Deixe em branco caso não queira utilizar</small>
 			<select multiple="multiple" v-model="selecteds" class="form-control" @change="addOption()" id="select_option" name="products_options[]">
-				<option v-for="item in all_options" :value="item.id">{{item.name}}</option>
+				<option value="sizes">Tamanho</option>
+				<option value="colors">Cor</option>
 			</select>
 		</div>
 		<div class="form-group" v-show="options.length > 0" v-for="option in options">
 			<label for="value_partner" v-if="options.length > 0" >Opções de {{option.name}} </label>
 			<select class="form-control select_type_option" multiple="multiple" name="products_options_types[]">
-				<option v-for="(type) in option.types"
-				 :selected="(option.products_has_types.findIndex(item => item.id == type.id) >=0)?true:false" :value="[option.id,type.id]">{{type.name}}</option>
+
 			</select>
 			
 		</div>
@@ -19,8 +19,8 @@
 <script>
 	export default{
 		props:{
-			all_options: Array,
-			product_options: Array
+			all_colors: Array,
+			all_sizes: Array
 		},
 		data(){
 			return {
@@ -67,7 +67,8 @@
 		},
 		mounted(){
 			this.addOption();
-			console.log(this.options)
+			$('#select_option').select2({'theme':'classic'});
+			console.log(this.all_options)
 		},
 		created(){
 			for (var i = this.product_options.length - 1; i >= 0; i--) {
@@ -81,7 +82,7 @@
 </script>
 
 <style type="text/css">
-    .select2-results__option[aria-selected=true] {
-        display: none;
-    }
+	.select2-results__option[aria-selected=true] {
+		display: none;
+	}
 </style>

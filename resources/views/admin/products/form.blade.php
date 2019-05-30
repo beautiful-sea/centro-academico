@@ -24,7 +24,7 @@
             <input id="value_partner" class="form-control money-mask" name="value_partner" type="text" value="{{$product->value_partner}}">
         </div>  
         
-        <select-options-products :all_options="{{$options}}" :product_options="{{$product->options}}"></select-options-products>      
+        <select-options-products></select-options-products>      
         <div class="row">
             <div class="col-md-12 col-12">
                  {{ Form::bsFile('image', 'Imagem', ['default' => ($product->image_extension) ? sprintf('/files/products/%s.%s', $product->id, $product->image_extension) : null,'id'=>'image']) }}

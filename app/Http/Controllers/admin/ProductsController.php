@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Product;
-use App\ProductsOptions;
-use App\ProductsOptionsTypes;
-use App\ProductsHasOptionsTypes;
+use App\Colors;
+use App\Sizes;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Auth;
@@ -25,8 +24,7 @@ class ProductsController extends Controller
     {
         $this->authorize('index', Product::class);
 
-        $products = Product::with('options.products_has_types')->orderBy('name')->get();
-
+        $products = Product::all();
         return view('admin.products.index',[
             'products' => $products]);
     }
@@ -37,10 +35,8 @@ class ProductsController extends Controller
 
         $product = new Product;
 
-        $options =  ProductsOptions::with('products_options_types')->get();
         return view('admin.products.create', [
-            'product' => $product,
-            'options' => $options
+            'product' => $product
         ]);
     }
 
@@ -93,6 +89,7 @@ class ProductsController extends Controller
     {
         $product = Product::find($request->id);
 
+
         $product->fill($request->all());
 
         if ($request->hasFile('image')) {
@@ -107,11 +104,19 @@ class ProductsController extends Controller
 
         $product_options = ProductsOptions::find($id);
 
+
         foreach ($request->products_options_types as $value) {
             $option_type = explode(',',$value);
-            dd(Product::find($product->id)->options->find($value)->products_has_types()->toSql());
-            dd(Product::find($product->id)->options->find($value)->products_has_types()->sync($option_type[1]));
+            dd(Product::find($product->id)->get());
+
         }
+
+        if(isset($request->products_options_types)){
+            dd(Product::find($product->id)->options->find($value)->products_has_types()->sync($option_type[1]));
+
+        }
+
+        
         
 
         
@@ -153,6 +158,34 @@ class ProductsController extends Controller
         $product->save();
 
         return redirect()->route('products.index')->with('flash.success', 'Produto desbloqueado com sucesso');
+    }
+
+    public function config(){
+
+        return view('admin.products.config',[
+            'colors' => (Colors::all()),
+            'sizes' => (Sizes::all())
+        ]);
+    }
+
+    public function defineTypeToStore(Request $request){
+
+        if($request->option == 'sizes'){
+            $size = new Sizes;
+
+            $size->name = $request->name;
+
+            $size->save();
+        }elseif($request->option == 'colors'){
+            $color = new Colors;
+
+            $color->name = $request->name;
+
+            $color->save();
+        }
+
+        $type_name = ($request->option == 'sizes')?'Tamanho':'Cor';
+        return redirect()->route('products.config')->with('flash.success', "$type_name cadastrado(a) com sucesso.");
     }
 
 }

@@ -10,13 +10,14 @@
 |
 */
 Route::group(['prefix' => 'admin/config/products','namespace'=>'Admin', 'middleware' => 'auth'], function () {
-    Route::get('/', 'ProductsOptionsController@index')->name('products.config');
-    Route::post('/', 'ProductsOptionsController@store')->name('config.products.create');
-    Route::delete('/{id}', 'ProductsOptionsController@destroy')->name('products.option.destroy');
-    Route::put('/type/{id}', 'ProductsOptionsTypesController@update')->name('productsoptionstypes.update');
-    Route::get('/option/edit/{id}', 'ProductsOptionsController@edit')->name('productsoptions.edit');
-    Route::put('/option/edit', 'ProductsOptionsController@update')->name('productsoptions.update');
-    Route::post('/create_type','ProductsOptionsTypesController@store')->name('productsoptionstypes.store');
+    Route::get('/', 'ProductsController@config')->name('products.config');
+    Route::get('/sizes/edit/{id}', 'SizesController@edit')->name('config.sizes.edit');
+    Route::put('/sizes/edit/{id}', 'SizesController@update')->name('sizes.update');
+    Route::put('/colors/edit/{id}', 'ColorsController@update')->name('colors.update');
+    Route::get('/colors/edit/{id}', 'ColorsController@edit')->name('config.colors.edit');
+    Route::post('/types/create', 'ProductsController@defineTypeToStore')->name('config.products.types.create');
+
+
 });
 
 
