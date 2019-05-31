@@ -38,7 +38,9 @@ class ProductsController extends Controller
         return view('admin.products.create', [
             'product'       => $product,
             'all_colors'    => (Colors::all()),
-            'all_sizes'     => (Sizes::all())
+            'all_sizes'     => (Sizes::all()),
+            'sizes'         => '[]',
+            'colors'        => '[]'
         ]);
     }
 
@@ -47,9 +49,6 @@ class ProductsController extends Controller
         $product = new Product;
         
         $data = $request->all();
-
-        $products_options       = $request->products_options;
-        $products_options_types = $request->products_options_types;
 
         //Formata o valor do produto de string para float
         $data['value'] = (float)str_replace(['R$ ',','],['','.'], $data['value']);
@@ -66,7 +65,8 @@ class ProductsController extends Controller
         $product->save();
 
         if(isset($request->colors) || isset($request->sizes)){
-            Product::insertOptionsTypesToProduct($product->id,$products_options_types);
+            $product->colors()->sync($request->colors);
+            $product->sizes()->sync($request->sizes);
         }
 
         if ($request->hasFile('image')) {
@@ -80,11 +80,12 @@ class ProductsController extends Controller
     {
         $this->authorize('edit', $product);
 
-        $options = ProductsOptions::with('types')->get();
-
         return view('admin.products.edit', [
-            'product' => $product,
-            'options' => $options
+            'product'       => $product,
+            'all_colors'    => (Colors::all()),
+            'all_sizes'     => (Sizes::all()),
+            'sizes'         => $product->sizes()->get(),
+            'colors'        => $product->colors()->get()
         ]);
 
     }
@@ -92,7 +93,6 @@ class ProductsController extends Controller
     public function update(Request $request,$id)
     {
         $product = Product::find($request->id);
-
 
         $product->fill($request->all());
 
@@ -104,32 +104,17 @@ class ProductsController extends Controller
 
         Arr::pull($product,'image');
 
-        $product->options()->sync($request->products_options);
-
-        $product_options = ProductsOptions::find($id);
-
-
-        foreach ($request->products_options_types as $value) {
-            $option_type = explode(',',$value);
-            dd(Product::find($product->id)->get());
-
+        if(isset($request->colors) || isset($request->sizes)){
+            $product->colors()->sync($request->colors);
+            $product->sizes()->sync($request->sizes);
         }
-
-        if(isset($request->products_options_types)){
-            dd(Product::find($product->id)->options->find($value)->products_has_types()->sync($option_type[1]));
-
-        }
-
-        
-        
-
         
         $product->save();
         if ($request->hasFile('image')) {
             $request->file('image')->move(base_path('/public/files/products'), sprintf('%s.%s', $product->id, $extension));
         }
 
-      
+        
 
         return redirect()->route('products.index')->with('flash.success', 'Produto salvo com sucesso');
     }
@@ -180,6 +165,7 @@ class ProductsController extends Controller
             $size->name = $request->name;
 
             $size->save();
+
         }elseif($request->option == 'colors'){
             $color = new Colors;
 

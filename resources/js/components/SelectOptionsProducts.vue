@@ -2,15 +2,18 @@
 	<div>
 		<div class="form-group">
 			<label for="value_partner">Opções</label><small> Deixe em branco caso não queira utilizar</small>
-			<select multiple="multiple" v-model="selecteds" class="form-control" @change="addOption()" id="select_option" name="products_options[]">
+			<select multiple="multiple" class="form-control" v-model="selecteds" @change="addOption()" id="select_option" name="products_options[]">
 				<option value="sizes">Tamanho</option>
 				<option value="colors">Cor</option>
 			</select>
 		</div>
-		<div class="form-group" v-for="option in options">
-			<label for="value_partner" v-if="options.length > 0" >Opções de {{option.name}} </label>
-			<select class="form-control select_type_option" multiple="multiple" name="products_options_types[]">
-
+		<div class="form-group" v-for="option in options" v-if="options">
+			<label for="value_partner" v-if="options.length > 0" >Opções de {{(option == 'sizes')? 'tamanhos': 'cores'}} </label>
+			<select class="form-control select_type_option" v-model="colors_selecteds" multiple="multiple" v-if="option == 'colors'" name="colors[]">
+				<option v-for="type in all_colors" :value="type.id">{{type.name}}</option>
+			</select>
+			<select class="form-control select_type_option" v-model="sizes_selecteds" multiple="multiple" v-if="option == 'sizes'" name="sizes[]">
+				<option v-for="type in all_sizes" :value="type.id">{{type.name}}</option>
 			</select>
 			
 		</div>
@@ -18,36 +21,30 @@
 </template>
 <script>
 	export default{
-		props:{
-			all_colors: Array,
-			all_sizes: Array
-		},
+		props:['all_colors','all_sizes','colors','sizes'],
 		data(){
 			return {
 				options:[],
-				selecteds:[]
+				selecteds:[],
+				colors_selecteds:[],
+				sizes_selecteds: []
 			}
 		},
 		methods:{
 			addOption(){//Adiciona as opçoes	
 				this.clearSelect();
-				let option_selected = $('#select_option').val();
+				var option_selected = $('#select_option').val();
 
 				if(option_selected.length > 0){
 					for (var i = option_selected.length - 1; i >= 0; i--) {
 
 						if(option_selected.length >=0){
-							this.options.push(this.option_selected[i]);
+							this.options.push(option_selected[i]);
 						}else{
-					console.log('limpado2');
-
 							this.clearSelect();
 						}
 					}
-					
 				}else{
-					console.log('limpado1');
-
 					this.clearSelect();
 				}
 				this.$nextTick(() => {
@@ -56,29 +53,29 @@
 
 			},
 			clearSelect(){//Limpa os dados dos Selects
-				console.log('limpado');
 				this.options = [];
-				this.name_option_selected = '';
 				$('.select_type_option').val(null).trigger('change');
 			}
 		},
 		updated(){
 			$('#select_option').on('select2:change', function (e) {
-				addOption();
+				this.addOption();
 			});
 		},
 		mounted(){
-			// this.addOption();
-			// $('#select_option').select2({'theme':'classic'});
-			// console.log(this.all_options)
+			this.addOption();
 		},
 		created(){
-			// for (var i = this.product_options.length - 1; i >= 0; i--) {
-			// 	if(this.product_options){
-			// 		this.selecteds.push(this.product_options[i].pivot.id_option);
-			// 	}
-				
-			// }
+			if(this.colors.length > 0) this.selecteds.push('colors');
+
+			for (var i = this.colors.length - 1; i >= 0; i--) {
+				this.colors_selecteds.push(this.colors[i].id);
+			}
+			if(this.sizes.length > 0) this.selecteds.push('sizes');
+
+			for (var i = this.sizes.length - 1; i >= 0; i--) {
+				this.sizes_selecteds.push(this.sizes[i].id);
+			}
 		}
 	};
 </script>

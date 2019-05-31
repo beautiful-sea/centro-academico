@@ -12,6 +12,8 @@ class Product extends Authenticatable
 
     protected $fillable = ['name','description','minimum_stock','maximum_stock','value','value_partner','image'];
 
+    protected $with = ['colors','sizes'];
+
     public function getProductAttributeImage() {
         if ($this->avatar_extension) {
             $image = sprintf('/files/users/%s.%s', $this->id, $this->avatar_extension);
@@ -80,14 +82,13 @@ class Product extends Authenticatable
     {
         return $this->belongsTo('App\InputProducts','id_product');
     }
-    public function types(){
-        return $this->belongsToMany('App\ProductsOptionsTypes','products_has_options_types','id_products_options','id_products_options_types');
-        
+
+     public function colors(){
+        return $this->belongsToMany('App\Colors','products_has_colors','products_id','colors_id');
     }
 
-    public function options(){
-        return $this->belongsToMany('App\ProductsOptions','products_has_options','id_product','id_option');
+     public function sizes(){
+        return $this->belongsToMany('App\Sizes','products_has_sizes','products_id','sizes_id');
     }
-
 
 }
