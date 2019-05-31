@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use App\InputProducts;
 use App\OutputProducts;
+use App\Product;
+use App\Colors;
+use App\Sizes;
 
 class StockController extends Controller
 {
@@ -20,7 +23,9 @@ class StockController extends Controller
     {
         $stock = Stock::all();
 
-        return view('admin.stock.index',['stock'  =>  $stock]);
+        return view('admin.stock.index',[
+            'stock'  =>  $stock
+        ]);
     }
 
     /**
@@ -61,7 +66,14 @@ class StockController extends Controller
 
         $stock = new Stock;
         $stock['operation'] = 0;
-        return view('admin.stock.input',['stock'=>$stock]);
+        $product = new Product;
+        return view('admin.stock.input',[
+            'stock'=>$stock,
+            'all_colors'    => (Colors::all()),
+            'all_sizes'     => (Sizes::all()),
+            'sizes'         => $product->sizes()->get(),
+            'colors'        => $product->colors()->get()
+        ]);
     }
 
     public function findById($id){

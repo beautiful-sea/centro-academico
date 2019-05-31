@@ -63,6 +63,7 @@
 			});
 		},
 		mounted(){
+			console.log('montado');
 			this.addOption();
 		},
 		created(){

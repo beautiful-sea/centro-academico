@@ -1,3 +1,4 @@
+<div id="app"> 
 {{ Form::open(['url' => 'admin/stock/store', 'method' => 'POST','id' =>  'stock-form']) }}
 <div class="card">
     <div class="card-body">
@@ -7,6 +8,8 @@
            <label for="amount">Quantidade</label>
            <input id="amount" class="form-control" name="amount" type="number" value="{{(Request::is('stock/*/edit')?(int)$stock->amount:'')}}">
        </div>
+
+       <select-options-products :all_colors="{{$all_colors}}" :all_sizes="{{$all_sizes}}" :colors="{{$colors}}" :sizes="{{$sizes}}"></select-options-products> 
 
       @if($stock['operation'] == 0)
         {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdAllProducts(),['placeholder'=>null]) }}
@@ -20,7 +23,7 @@
 {{ Form::bsSubmit('Salvar',['class'=>'verify_stock btn btn-success']) }}
 
 {{ Form::close() }}
-
+</div>
 
 @section('js')
 <script>
