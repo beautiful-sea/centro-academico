@@ -1,34 +1,38 @@
 <div id="app"> 
-{{ Form::open(['url' => 'admin/stock/store', 'method' => 'POST','id' =>  'stock-form']) }}
-<div class="card">
+  {{ Form::open(['url' => 'admin/stock/store', 'method' => 'POST','id' =>  'stock-form']) }}
+  <div class="card">
     <div class="card-body">
-        <input id="operation" name="operation" type="hidden" value="{{$stock['operation']}}">
+      <input id="operation" name="operation" type="hidden" value="{{$stock['operation']}}">
 
-        <div class="form-group">
-           <label for="amount">Quantidade</label>
-           <input id="amount" class="form-control" name="amount" type="number" value="{{(Request::is('stock/*/edit')?(int)$stock->amount:'')}}">
-       </div>
+      <div class="form-group">
+       <label for="amount">Quantidade</label>
+       <input id="amount" class="form-control" name="amount" type="number" value="{{(Request::is('stock/*/edit')?(int)$stock->amount:'')}}">
+     </div>
 
-       <select-options-products :all_colors="{{$all_colors}}" :all_sizes="{{$all_sizes}}" :colors="{{$colors}}" :sizes="{{$sizes}}"></select-options-products> 
 
-      @if($stock['operation'] == 0)
-        {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdAllProducts(),['placeholder'=>null]) }}
-      @else
-        {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdProductsWithStock(),['placeholder'=>null]) }}
-      @endif
-       {{Form::bsText('unitary_value','Valor Unitário',['placeholder'=>null,'class'=>'money-mask']) }}
+
+     @if($stock['operation'] == 0)
+     {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdAllProducts(),['placeholder'=>'Selecione um produto']) }}
+     @else
+     {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdProductsWithStock(),['placeholder'=>null]) }}
+     @endif
+
+     <select-options-products ></select-options-products> 
+
+
+     {{Form::bsText('unitary_value','Valor Unitário',['placeholder'=>null,'class'=>'money-mask']) }}
    </div>
-</div>
+ </div>
 
-{{ Form::bsSubmit('Salvar',['class'=>'verify_stock btn btn-success']) }}
+ {{ Form::bsSubmit('Salvar',['class'=>'verify_stock btn btn-success']) }}
 
-{{ Form::close() }}
+ {{ Form::close() }}
 </div>
 
 @section('js')
 <script>
-    $('#stock-form').validate({
-        submitHandler: function(form) {
+  $('#stock-form').validate({
+    submitHandler: function(form) {
         //CONFIRMA A AÇÃO COM USUÁRIO ANTES DE EXECUTAR
             //verifica o tipo de movimentação
             operation = ($("#operation").val() == 0)? 'input': 'output';
@@ -37,9 +41,9 @@
 
             $.get('find/'+ id_product, function( data ) {
 
-                data = (data[0])?data[0]:undefined;
+              data = (data[0])?data[0]:undefined;
 
-                amount_form  = $("input[name='amount']").val();
+              amount_form  = $("input[name='amount']").val();
 
 
                 if(data != undefined){//Se ja tem o produto no estoque
@@ -52,25 +56,30 @@
                     '\n\nDeseja confimar a ação?'));                                
                 }else{
                   confirm =  (confirm(
-                  '\nQuantidade em estoque antes: 0'+
-                  '\nQuantidade em estoque agora: '+amount_form+
-                  '\n\nDeseja confimar a ação?'));                
+                    '\nQuantidade em estoque antes: 0'+
+                    '\nQuantidade em estoque agora: '+amount_form+
+                    '\n\nDeseja confimar a ação?'));                
                 }
                 confirm == true ? form.submit() : window.location.href = 'input';    
-          });
-        },
-        rules: {
+              });
+          },
+          rules: {
             'amount': 'required',
             'unitary_value': 'required'
-        },
-        messages: {
+          },
+          messages: {
             'amount': {
-                'required': 'É necessário informar a quantidade.'
+              'required': 'É necessário informar a quantidade.'
             },
             'unitary_value': {
-                'required': 'É necessário informar o preço do produto.'
+              'required': 'É necessário informar o preço do produto.'
             }
-        }
-    });
+          }
+        });
+
+  document.getElementById("id_product").addEventListener("change", function(){
+    var value = $(this).val();
+    eventBusCart.$emit('updateStock',value);
+  });
 </script>
 @endsection

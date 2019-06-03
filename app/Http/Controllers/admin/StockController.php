@@ -48,6 +48,7 @@ class StockController extends Controller
     {
         $operation = $request->operation;
         
+        dd($request->all());
         $products = ($operation == 0)? (new InputProducts) : (new OutputProducts);
         $data = $request->all();
         //Remover 'R$' do valor recebido e converter em 'float'
@@ -67,6 +68,7 @@ class StockController extends Controller
         $stock = new Stock;
         $stock['operation'] = 0;
         $product = new Product;
+
         return view('admin.stock.input',[
             'stock'=>$stock,
             'all_colors'    => (Colors::all()),
@@ -79,6 +81,11 @@ class StockController extends Controller
     public function findById($id){
         $stock = Stock::where('id_product',$id)->get();
         return $stock;
+    }
+
+    public function findProductById($id){
+        $product = Product::find($id);
+        return $product;
     }
 
     public function output(){//código 1

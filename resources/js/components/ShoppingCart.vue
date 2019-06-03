@@ -214,8 +214,7 @@
 				let options = [];
 
 				for (var i = types.length - 1; i >= 0; i--) {
-					let index = options.findIndex(item => item.id == types[i].option.id)
-					console.log(index);
+					let index = options.findIndex(item => item.id == types[i].option.id);
 					if(index < 0){
 						options.push(types[i].option);
 					}
@@ -227,7 +226,6 @@
 		watch:{
 			'client.is_partner': function(val){
 				this.$store.commit('setPartner',parseInt(this.client.is_partner));
-				console.log(this.$store.state.cart.client.is_partner);
 			},
 			'client.name': function(val){
 				this.$store.commit('setName',this.client.name);

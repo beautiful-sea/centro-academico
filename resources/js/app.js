@@ -78,6 +78,7 @@ const store = new Vuex.Store({
   }
 })
 window.eventBusCart = new Vue({});//transfere informações entre componente produto e carrinho
+window.eventBusStock = new Vue({});//transfere informações entre componente produto e carrinho
 
 const app = new Vue({
     el: '#app',

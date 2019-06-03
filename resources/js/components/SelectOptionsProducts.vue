@@ -34,7 +34,6 @@
 			addOption(){//Adiciona as opçoes	
 				this.clearSelect();
 				var option_selected = $('#select_option').val();
-
 				if(option_selected.length > 0){
 					for (var i = option_selected.length - 1; i >= 0; i--) {
 
@@ -55,6 +54,13 @@
 			clearSelect(){//Limpa os dados dos Selects
 				this.options = [];
 				$('.select_type_option').val(null).trigger('change');
+			},
+			setColorAndSize(id_product){
+				axios.get('find/'+id_product)
+				.then(response => {
+					this.colors_selecteds.push(response.data.colors);
+				})
+				console.log('this.all_colors');
 			}
 		},
 		updated(){
@@ -64,19 +70,32 @@
 		},
 		mounted(){
 			console.log('montado');
+
+			var vm = this;
+
+			eventBusCart.$on('updateStock',(id_product) =>{
+				vm.setColorAndSize(id_product);
+			});	
+
 			this.addOption();
+
+
 		},
 		created(){
-			if(this.colors.length > 0) this.selecteds.push('colors');
+			if(this.sizes && this.colors.length > 0) this.selecteds.push('colors');
+			if(this.sizes && this.sizes.length > 0  ) this.selecteds.push('sizes');
 
-			for (var i = this.colors.length - 1; i >= 0; i--) {
-				this.colors_selecteds.push(this.colors[i].id);
+			if(this.colors){
+				for (var i = this.colors.length - 1; i >= 0; i--) {
+					this.colors_selecteds.push(this.colors[i].id);
+				}
 			}
-			if(this.sizes.length > 0) this.selecteds.push('sizes');
+			if(this.sizes){
+				for (var i = this.sizes.length - 1; i >= 0; i--) {
+					this.sizes_selecteds.push(this.sizes[i].id);
+				}
+			}
 
-			for (var i = this.sizes.length - 1; i >= 0; i--) {
-				this.sizes_selecteds.push(this.sizes[i].id);
-			}
 		}
 	};
 </script>
