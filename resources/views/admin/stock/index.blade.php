@@ -27,7 +27,8 @@
                         <th>Produto</th>
                         <th>Em estoque</th>
                         <th>Mínimo</th>
-                        <th class="text-center">Ultima atualização</th>
+                        <th class="text-center">Cor</th>
+                        <th class="text-center">Tamanho</th>
                         <th data-orderable="false"></th>
                     </tr>
                 </thead>
@@ -46,7 +47,8 @@
                                 <td><a href="/admin/products/{{$s->product->id}}/edit" >{{$s->product->name}}</a></td>
                                 <td class=" text-center {{$class_danger}}">{{$s->amount}}</td>
                                 <td class=" text-center {{$class_danger}}">{{$s->product->minimum_stock}}</td>
-                                <td class=" text-center">{{date("d/m/Y",strtoTime($s->updated_at))}}</td>
+                                <td class=" text-center">{{$s->colors_id}}</td>
+                                <td class=" text-center">{{$s->sizes_id}}</td>
                                 <td>
                                     <div class="table-actions">
                                         <!-- @can('edit', $s)

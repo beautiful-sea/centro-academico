@@ -23,6 +23,7 @@ class StockController extends Controller
     {
         $stock = Stock::all();
 
+        // dd($stock);
         return view('admin.stock.index',[
             'stock'  =>  $stock
         ]);
@@ -48,16 +49,19 @@ class StockController extends Controller
     {
         $operation = $request->operation;
         
-        dd($request->all());
         $products = ($operation == 0)? (new InputProducts) : (new OutputProducts);
-        $data = $request->all();
+        $data     = $request->all();
+
         //Remover 'R$' do valor recebido e converter em 'float'
         $data['unitary_value'] =  (float)str_replace(['R$ ',','], ['','.'], $data['unitary_value']) ;
         unset($data['operation']);
         //mesclar $request com a instância do produto
         $products->fill($data);
+
         $products->amount         = (int)$products->amount;
         $products->id_product     = (int)$products->id_product;
+        $products->colors_id         = (int)$products->colors_id;
+        $products->sizes_id          = (int)$products->sizes_id;
         $products->save();
         return redirect()->route('stock.index')->with('flash.success',
         'Produto '.(($operation == 0)? 'adicionado ao' : 'removido do').'  estoque com sucesso.');
@@ -77,6 +81,20 @@ class StockController extends Controller
             'colors'        => $product->colors()->get()
         ]);
     }
+    
+    public function output(){//código 1
+        $stock = new Stock;
+        $stock['operation'] = 1;
+        $product = new Product;
+
+        return view('admin.stock.output',[
+            'stock'=>$stock,
+            'all_colors'    => (Colors::all()),
+            'all_sizes'     => (Sizes::all()),
+            'sizes'         => $product->sizes()->get(),
+            'colors'        => $product->colors()->get()
+        ]);
+    }
 
     public function findById($id){
         $stock = Stock::where('id_product',$id)->get();
@@ -88,11 +106,7 @@ class StockController extends Controller
         return $product;
     }
 
-    public function output(){//código 1
-        $stock = new Stock;
-        $stock['operation'] = 1;
-        return view('admin.stock.output',['stock'=>$stock]);
-    }
+
 
     /**
      * Display the specified resource.

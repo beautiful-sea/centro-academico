@@ -42,7 +42,7 @@ Vue.component('form-types-product-create', require('./components/TypesProductCre
 Vue.component('select-options-products', require('./components/SelectOptionsProducts.vue').default);
 Vue.component('participants-minutes', require('./components/ParticipantsMinutes.vue').default);
 Vue.component('schedule-minutes', require('./components/ScheduleMinutes.vue').default);
-
+Vue.component('select-options-products-in-stock', require('./components/SelectOptionsProductsInStock.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

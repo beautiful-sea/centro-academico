@@ -18,13 +18,9 @@ class CreateStocksTable extends Migration
             $table->integer('id_product');
             $table->integer('amount');
             $table->float('unitary_value');
-            $table->unsignedBigInteger('sizes_id');
-            $table->unsignedBigInteger('colors_id');
+            $table->integer('sizes_id');
+            $table->integer('colors_id');
             $table->timestamps();
-
-
-            $table->foreign('sizes_id')->references('id')->on('sizes');
-            $table->foreign('colors_id')->references('id')->on('colors');
 
         });
     }

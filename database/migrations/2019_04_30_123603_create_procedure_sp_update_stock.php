@@ -15,23 +15,23 @@ class CreateProcedureSpUpdateStock extends Migration
     {
         DB::unprepared("
 
-            CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UpdateStock` (IN `id_prod` INT, IN `amount_bought` INT, IN `unitary_value` DECIMAL(9,2))  BEGIN
+            CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UpdateStock` (IN `id_prod` INT, IN `amount_bought` INT,IN `unitary_value` DECIMAL(9,2), IN `size_id` INT,IN `color_id` INT)  BEGIN
                 declare counter int(11);
                 declare new_amount int(11);
 
-                SELECT count(*) into counter FROM stocks WHERE id_product = id_prod;
+                SELECT count(*) into counter FROM stocks WHERE id_product = id_prod AND sizes_id = size_id AND colors_id = color_id;
              
                 IF counter > 0 THEN
-                    UPDATE stocks SET amount=amount + amount_bought, unitary_value= unitary_value,updated_at=NOW()
-                    WHERE id_product = id_prod;
+                    UPDATE stocks SET amount=amount + amount_bought, unitary_value= unitary_value,sizes_id = size_id,colors_id = color_id,updated_at=NOW()
+                    WHERE id_product = id_prod AND sizes_id = size_id AND colors_id = color_id;
                 ELSE
-                    INSERT INTO stocks (id_product, amount, unitary_value,created_at,updated_at) values (id_prod, amount_bought, unitary_value,NOW(),NOW());
+                    INSERT INTO stocks (id_product, amount, unitary_value,sizes_id,colors_id,created_at,updated_at) values (id_prod, amount_bought, unitary_value,size_id,color_id,NOW(),NOW());
                 END IF;
 
-                SELECT amount into new_amount FROM stocks WHERE id_product = id_prod;
+                SELECT amount into new_amount FROM stocks WHERE id_product = id_prod AND sizes_id = size_id AND  colors_id = color_id;
     
                 IF new_amount <=0 THEN
-                    DELETE FROM stocks WHERE id_product = id_prod;
+                    DELETE FROM stocks WHERE id_product = id_prod AND sizes_id = size_id AND colors_id = color_id;
                 END IF;
             END
             ");

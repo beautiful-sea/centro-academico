@@ -17,7 +17,7 @@
      {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdProductsWithStock(),['placeholder'=>null]) }}
      @endif
 
-     <select-options-products ></select-options-products> 
+     <select-options-products-in-stock></select-options-products-in-stock> 
 
 
      {{Form::bsText('unitary_value','Valor Unitário',['placeholder'=>null,'class'=>'money-mask']) }}
@@ -60,7 +60,7 @@
                     '\nQuantidade em estoque agora: '+amount_form+
                     '\n\nDeseja confimar a ação?'));                
                 }
-                confirm == true ? form.submit() : window.location.href = 'input';    
+                confirm == true ? form.submit() : window.location.href = '/admin/stock';    
               });
           },
           rules: {
