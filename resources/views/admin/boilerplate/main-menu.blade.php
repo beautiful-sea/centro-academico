@@ -12,6 +12,14 @@ $class = 'active';
 }
 @endphp
 
+<style type="text/css">
+    .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active{
+        color: black;
+        background-color: white; 
+    }
+</style>
+
+
 <li class="nav-item">
     <a href="{{ route('admin.home') }}" class="nav-link {{ $class }}">
         <i class="nav-icon fa fa-home"></i>
@@ -86,7 +94,7 @@ $class = 'active';
 @php
 $class = '';
 
-if ($controller == 'UsersController' || $controller == 'ProductsOptionsTypesController') {
+if ($controller == 'UsersController' || $action == 'config') {
 $class = 'menu-open';
 }
 @endphp
@@ -133,7 +141,7 @@ $class = 'menu-open';
 @php
 $class = '';
 
-if ($controller == 'ProductsOptionsTypesController') {
+if ($controller == 'ProductsController' && $action == 'config') {
 $class = 'active';
 }
 @endphp

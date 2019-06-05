@@ -39,7 +39,7 @@
 
             id_product = document.getElementsByName('id_product')[0].value;
 
-            $.get('find/'+ id_product, function( data ) {
+            $.get('find_stock/'+ id_product, function( data ) {
 
               data = (data[0])?data[0]:undefined;
 

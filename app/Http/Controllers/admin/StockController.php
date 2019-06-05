@@ -81,7 +81,7 @@ class StockController extends Controller
             'colors'        => $product->colors()->get()
         ]);
     }
-    
+
     public function output(){//código 1
         $stock = new Stock;
         $stock['operation'] = 1;
@@ -96,7 +96,7 @@ class StockController extends Controller
         ]);
     }
 
-    public function findById($id){
+    public function findStockById($id){
         $stock = Stock::where('id_product',$id)->get();
         return $stock;
     }

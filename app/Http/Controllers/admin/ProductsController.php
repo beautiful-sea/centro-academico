@@ -62,6 +62,7 @@ class ProductsController extends Controller
         }  
 
         Arr::pull($product,'image');
+        $product->locked = 1;
         $product->save();
 
         if(isset($request->colors) || isset($request->sizes)){

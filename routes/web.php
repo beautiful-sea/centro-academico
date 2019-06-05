@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'a
     Route::get('/output','StockController@output')->name('stocks.output');
     Route::post('/output','StockController@store')->name('stocks.output');
     Route::get('/find/{id}','StockController@findProductById')->name('stocks.findbyid');
+    Route::get('/find_stock/{id}','StockController@findStockById')->name('stocks.findbyid');
 });
 
 Route::group(['prefix' => 'admin/minutes','namespace'=>'Admin', 'middleware' => 'auth'], function () {

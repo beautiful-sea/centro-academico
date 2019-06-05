@@ -10,6 +10,8 @@ class Stock extends Authenticatable
 
     protected $fillable = ['id_product','amount','unitary_value'];
 
+    protected $with = ['color','size'];
+
 
     public function product()
     {
@@ -23,6 +25,14 @@ class Stock extends Authenticatable
     public function getBelowStock(Stock $stock){//Produtos abaixo do estoque
         
         return $stock->all();
+    }
+
+    public function color(){
+        return $this->belongsTo('App\Colors','colors_id','id');
+    }
+
+    public function size(){
+        return $this->belongsTo('App\Sizes','sizes_id','id');
     }
 
 }

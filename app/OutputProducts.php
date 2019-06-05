@@ -7,8 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class OutputProducts extends Authenticatable
 {
 
-    protected $fillable = ['id_product','amount','unitary_value'
-    ];
+    protected $fillable = ['id_product','amount','unitary_value','sizes_id','colors_id'];
 
     protected $table = "output_products";
     protected $with = ['product'];

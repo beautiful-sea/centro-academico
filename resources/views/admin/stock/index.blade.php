@@ -47,8 +47,9 @@
                                 <td><a href="/admin/products/{{$s->product->id}}/edit" >{{$s->product->name}}</a></td>
                                 <td class=" text-center {{$class_danger}}">{{$s->amount}}</td>
                                 <td class=" text-center {{$class_danger}}">{{$s->product->minimum_stock}}</td>
-                                <td class=" text-center">{{$s->colors_id}}</td>
-                                <td class=" text-center">{{$s->sizes_id}}</td>
+                                <td class=" text-center">{{(isset($s->color->name)?$s->color->name:"-----------")}}</td>
+                                <td class=" text-center">
+                                    {{(isset($s->size->name)?$s->size->name:'-----------')}}</td>
                                 <td>
                                     <div class="table-actions">
                                         <!-- @can('edit', $s)
