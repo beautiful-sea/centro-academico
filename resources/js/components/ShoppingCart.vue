@@ -55,17 +55,7 @@
 									<div >
 										
 									</div>
-
-									<div>
-										<div class="" v-for="option in returnOptions(item.types)">
-											<label>{{option.name}}:</label>
-											<select class="pull-right">
-												<option v-for="type in item.types" v-if="type.option.id == option.id">
-													{{type.name}}
-												</option>
-											</select>
-										</div>
-									</div>
+									
 									
 
 									<div class="" style="margin-top: 0px!important">
@@ -174,7 +164,9 @@
 		created(){
 			var vm = this;
 			eventBusCart.$on('updateCart',function(product){
-				let index = vm.cart.findIndex(item => item.id == product.id);
+				let index = vm.cart.findIndex(item =>
+				item.id == product.id && item.colors.id == product.colors.id && item.sizes.id == product.sizes.id);
+
 				if(index < 0){
 					product['amount_order'] = 1;
 					vm.cart.push(product);
@@ -212,6 +204,7 @@
 			},
 			returnOptions(types){
 				let options = [];
+				console.log(types);
 
 				for (var i = types.length - 1; i >= 0; i--) {
 					let index = options.findIndex(item => item.id == types[i].option.id);

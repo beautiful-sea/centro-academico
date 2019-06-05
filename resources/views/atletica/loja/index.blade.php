@@ -3,24 +3,8 @@
 
 @section('content')
 <div id="app">
-	<!-- Modal Product -->
-	<div class="modal modal-primary" id="modalProduct" tabindex="-1" role="dialog" aria-labelledby="modalProduct">
-		<div class="modal-dialog animated zoomIn animated-3x" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title color-primary" id="modalProduct">Modal title</h3>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="zmdi zmdi-close"></i></span></button>
-				</div>
-				<div class="modal-body">
-					...
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-					<button type="button" class="btn  btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
+
+	
 	<shopping-cart></shopping-cart>
 	<div class="ms-hero-page ms-hero-img-city2 ms-hero-bg-info mb-6">
 		<div class="text-center color-white mt-6 mb-6 index-1">
