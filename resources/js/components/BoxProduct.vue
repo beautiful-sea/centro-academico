@@ -39,8 +39,8 @@
 								<div>
 									<div class="" >
 										<label>Cor</label>
-										<select v-model="selected_color" class="pull-right form-control select-2">
-											<option  v-for="option in item_modal.colors" :value="option">
+										<select  id="select_color"  class="pull-right form-control select-2">
+											<option  v-for="option in item_modal.colors" :value="option.id">
 												{{option.name}}
 											</option>
 										</select>
@@ -50,8 +50,9 @@
 								<div v-if="item_modal.sizes.length > 0" >
 									<div class="" >
 										<label>Tamanho</label>
-										<select  v-model="selected_size"  class="pull-right form-control select-2">
-											<option  v-for="option in item_modal.sizes" :value="option">
+
+										<select id="select_size" class="pull-right form-control select-2">
+											<option  v-for="option in item_modal.sizes" :value="option.id">
 												{{option.name}}
 											</option>
 										</select>
@@ -67,7 +68,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger close-modal" data-dismiss="modal">Cancelar</button>
-						<a href="javascript:void(0)"  @click='updateCart(item_modal)'  class="btn btn-bordo btn-sm btn-block btn-raised" v-if="(item_modal.stockable) && (item_modal.stockable.amount  > 0)">
+						<a href="javascript:void(0)"  @click='setCart()'  class="btn btn-bordo btn-sm btn-block btn-raised" v-if="(item_modal.stockable) && (item_modal.stockable.amount  > 0)">
 							<i class="zmdi zmdi-shopping-cart-plus"></i> Adicionar ao Carrinho
 						</a>
 					</div>
@@ -76,11 +77,11 @@
 		</div>
 		<!-- Fim modal -->
 
-		<div v-for="(item,index) in items" class="col-xl-4 col-md-6 " data-price="999.99" data-date="20160705">
+		<div v-for="item in items" class="col-xl-4 col-md-6 " data-price="999.99" data-date="20160705">
 
 			<div class="card ms-feature">
 				<div class="card-body overflow-hidden text-center" >
-					<a @click="modalProduct(item)">
+					<a>
 						<img :src="'/files/products/'+item.id+'.'+item.image_extension" alt=""
 						class="img-fluid center-block" style="height:150px;">
 					</a>
@@ -100,7 +101,7 @@
 					<span v-if="(!item.stockable) || (item.stockable.amount  <= 0)" class="badge badge-danger">INDISPONÍVEL</span>
 					<span v-if="(item.stockable) && ((item.stockable.amount > 1) && (item.stockable.amount < item.minimum_stock))" class="badge badge-danger">{{item.stockable.amount}} ULTIMAS UNIDADES</span>
 					<span v-if="(item.stockable) && ((item.stockable.amount == 1) && (item.stockable.amount < item.minimum_stock))" class="badge badge-danger">ULTIMA UNIDADE</span>
-					<a href="javascript:void(0)"  v-on:click="modalProduct(item)"  class="btn btn-bordo btn-sm btn-block btn-raised" v-if="(item.stockable) && (item.stockable.amount  > 0)">
+					<a href="javascript:void(0)"  @click="modalProduct(item)"  class="btn btn-bordo btn-sm btn-block btn-raised" v-if="(item.stockable) && (item.stockable.amount  > 0)">
 						<i class="zmdi zmdi-shopping-cart-plus"></i> Adicionar ao Carrinho
 					</a>
 				</div>
@@ -128,26 +129,30 @@
 			
 		},
 		methods: {
-			updateCart(item){
-				item.colors = this.selected_color;
-				item.sizes = this.selected_size;
-				eventBusCart.$emit('updateCart',item);
+			setCart(){
+				console.log(this.item_modal);
+
+				var selected_options = {
+					color : $('#selected_color').val(),
+					size  : $('#selected_size').val()
+				}
+				this.item_modal = '';
+				
 				openConf();
+				eventBusCart.$emit('updateCart',this.item_modal,selected_options);
+				
+				$('#modal-escolher-pedido').hide('modal');
+
+
 			},
 			modalProduct(item){
+				console.log(item);
 				this.item_modal = item;
+				console.log(this.item_modal);
+
 				$('#modal-escolher-pedido').show('modal');
-				console.log(this.item_modal)
 			}
 
-		},
-		watch:{
-			// selected_color:function(val){
-			// 	console.log(val);
-			// },
-			// selected_size:function(val){
-			// 	console.log(val);
-			// }
 		}
 
 	};

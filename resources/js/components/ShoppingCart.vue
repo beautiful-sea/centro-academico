@@ -57,10 +57,17 @@
 									</div>
 									
 									
-
+									<div class="" v-if="item.colors" style="margin-top: 0px!important">
+										<label>Cor:</label>
+										<input type="text"disabled  style="margin-top: 0px!important" class=" form-control-number pull-right" :value="item.colors.name" >
+									</div>
+									<div class="" v-if="item.sizes" style="margin-top: 0px!important">
+										<label>Tamanho:</label>
+										<input type="text"disabled  style="margin-top: 0px!important" class=" form-control-number pull-right" :value="item.sizes.name" >
+									</div>
 									<div class="" style="margin-top: 0px!important">
 										<label>Quantidade:</label>
-										<input type="number" min="0" disabled :max="item.stockable.amount" style="margin-top: 0px!important" class=" form-control-number pull-right" :value="item.amount_order" >
+										<input type="number" min="0" disabled :max="item.stockable.amount" style="margin-top: 0px!important;text-align: center" class=" form-control-number pull-right" :value="item.amount_order" >
 									</div>
 									<div class="row d-inline">
 										<span class="color-bordo" style="cursor:pointer;padding-left:10px" @click="removeProduct(item)">Remover
@@ -163,20 +170,22 @@
 		},
 		created(){
 			var vm = this;
-			eventBusCart.$on('updateCart',function(product){
+			eventBusCart.$on('updateCart',function(product,selected_options){
+				let product_selected = product
+				//verificar se o produto ja está no carrinho
 				let index = vm.cart.findIndex(item =>
-				item.id == product.id && item.colors.id == product.colors.id && item.sizes.id == product.sizes.id);
-
+				item.id == product_selected.id && item.colors.id == selected_options.color.id && item.sizes.id == selected_options.size.id);
 				if(index < 0){
-					product['amount_order'] = 1;
-					vm.cart.push(product);
+					product_selected['amount_order'] = 1;
+					product_selected['colors'] = (selected_options.color)?selected_options.color:'';
+					product_selected['sizes'] = (selected_options.size)?selected_options.size:'';
+					vm.cart.push(product_selected);
 				}else{
 					vm.cart[index]['amount_order'] += 1;
 				}
-				if(product.stockable.amount){
-					console.log(product.stockable.amount);
+				if(product_selected.stockable.amount){
+					console.log(product_selected.stockable.amount);
 				}
-				// console.log(item_cart);
 			});
 		},
 		mounted(){
