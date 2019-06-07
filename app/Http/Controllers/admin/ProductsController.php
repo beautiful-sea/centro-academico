@@ -179,4 +179,10 @@ class ProductsController extends Controller
         return redirect()->route('products.config')->with('flash.success', "$type_name cadastrado(a) com sucesso.");
     }
 
+    public function productInStock($id){
+        // $p = Stock::with('product')->where('amount','>','0')->get();//Busca todos produtos no estoque
+        $p = Product::with(['stockable'])->where('locked','0')->where('id',$id)->get();//Busca todos produtos desbloqueados
+        return $p;
+    }
+
 }

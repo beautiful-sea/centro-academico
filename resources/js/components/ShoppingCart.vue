@@ -47,7 +47,7 @@
 									</select>
 								</div>
 							</div>
-							<div id="itens_carrinho" v-model="cart" v-for="(item,index) in cart">
+							<div id="itens_carrinho" v-model="cart" v-for="item in cart">
 								
 								<div class="card container col-md-12">
 
@@ -67,10 +67,10 @@
 									</div>
 									<div class="" style="margin-top: 0px!important">
 										<label>Quantidade:</label>
-										<input type="number" min="0" disabled :max="item.stockable.amount" style="margin-top: 0px!important;text-align: center" class=" form-control-number pull-right" :value="item.amount_order" >
+										<input type="number" min="0" disabled v-model="item.amount_order" :max="item.stockable.amount" style="margin-top: 0px!important;text-align: center" class=" form-control-number pull-right" >
 									</div>
 									<div class="row d-inline">
-										<span class="color-bordo" style="cursor:pointer;padding-left:10px" @click="removeProduct(item)">Remover
+										<span class="color-bordo" style="cursor:pointer;padding-left:10px;font-size: 11px" @click="removeProduct(item)">Remover
 										</span>
 										<span class="color-bordo" style="float:right;padding-right:10px">Valor: R$ {{(client.is_partner == 1)?
 											(item.value_partner* item.amount_order).toFixed(2):
@@ -136,14 +136,16 @@
 							<div>
 								<div class="card container ">
 									<h4 class="color-bordo"><b>Produtos:</b></h4>
-									<div id="body-resumo-produtos" v-for="item in cart">
+									<div id="body-resumo-produtos" v-for="item in cart" style="border: 1px solid maroon;margin-bottom: 5px;padding: 5px;">
 										<p class="color-bordo"><b>{{item.amount_order}}</b> - {{item.name}}</p>
+										<small class="color-bordo" v-if="item.colors.name">Cor: {{item.colors.name}}</small>
+										<small class="color-bordo pull-right" v-if="item.sizes.name">Tamanho: {{item.sizes.name}}</small>
 									</div>	
 									<p v-if="cart.length <= 0" class="color-bordo">Seu carrinho está vazio, que tal adicionar algumas coisas!?</p>
 								</div>
 							</div>
 							<h4>Total do pedido: R$ <span id="resumo-total-pedido">{{getTotalOrder()}}</span></h4>
-							<button class="btn btn-raised btn-bordo" id="btn-finalizar-pedido">Finalizar Pedido</button>		
+							<button :class="'btn btn-raised btn-bordo'" @click="finishOrder()" v-if="cart.length > 0" id="btn-finalizar-pedido">Finalizar Pedido</button>		
 						</div>
 
 					</div>
@@ -170,23 +172,29 @@
 		},
 		created(){
 			var vm = this;
-			eventBusCart.$on('updateCart',function(product,selected_options){
+			eventBusCart.$on('updateCart',function(product){
 				let product_selected = product
 				//verificar se o produto ja está no carrinho
 				let index = vm.cart.findIndex(item =>
-				item.id == product_selected.id && item.colors.id == selected_options.color.id && item.sizes.id == selected_options.size.id);
+					item.id == product_selected.id &&
+					item.colors.id == product_selected.colors.id &&
+					item.sizes.id == product_selected.sizes.id);
+
+				//se o produto não estiver no carrinho ainda
 				if(index < 0){
-					product_selected['amount_order'] = 1;
-					product_selected['colors'] = (selected_options.color)?selected_options.color:'';
-					product_selected['sizes'] = (selected_options.size)?selected_options.size:'';
+					product_selected.amount_order = 1;
+					product_selected.colors = (product_selected.colors)?product_selected.colors:'';
+					product_selected.sizes = (product_selected.sizes)?product_selected.sizes:'';
 					vm.cart.push(product_selected);
-				}else{
-					vm.cart[index]['amount_order'] += 1;
-				}
-				if(product_selected.stockable.amount){
-					console.log(product_selected.stockable.amount);
-				}
-			});
+
+				//se o produto ja estiver no carrinho
+			}else{
+				vm.cart[index].amount_order += 1;
+			}
+			console.log(vm.cart);
+
+			this.$nextTick();
+		});
 		},
 		mounted(){
 		},
@@ -211,18 +219,18 @@
 				}
 				return total_order.toFixed(2);
 			},
-			returnOptions(types){
-				let options = [];
-				console.log(types);
-
-				for (var i = types.length - 1; i >= 0; i--) {
-					let index = options.findIndex(item => item.id == types[i].option.id);
-					if(index < 0){
-						options.push(types[i].option);
-					}
+			finishOrder(){
+				axios({
+				  method: 'post', // verbo http
+				  url: '/admin/orders/store', // url
+				  data: {
+				    cart: this.cart, // Parâmetro 1 enviado
+				    client: this.client // Parâmetro 2 enviado
 				}
-
-				return options;
+				})
+				.then(response => {
+					console.log({pedido:response.data});
+				})
 			}
 		},
 		watch:{

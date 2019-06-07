@@ -38,16 +38,6 @@ class MinutesController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Minutes  $minutes
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Minutes $minutes)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

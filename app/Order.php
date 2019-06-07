@@ -12,6 +12,6 @@ class Order extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['id_order','id_product','amount','unitary_value','discount'];
+    protected $fillable = ['customer_name','customer_email','status','delivered_at'];
     protected $date = ['created_at','updated_at'];
 }

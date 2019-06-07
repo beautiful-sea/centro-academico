@@ -16,8 +16,6 @@ Route::group(['prefix' => 'admin/config/products','namespace'=>'Admin', 'middlew
     Route::put('/colors/edit/{id}', 'ColorsController@update')->name('colors.update');
     Route::get('/colors/edit/{id}', 'ColorsController@edit')->name('config.colors.edit');
     Route::post('/types/create', 'ProductsController@defineTypeToStore')->name('config.products.types.create');
-
-
 });
 
 
@@ -27,6 +25,7 @@ Route::group(['prefix' => 'admin/products','namespace'=>'Admin', 'middleware' =>
     Route::post('/create', 'ProductsController@store')->name('products.store');
     Route::get('/block/{product}', 'ProductsController@block')->name('products.block');
     Route::get('/unblock/{product}', 'ProductsController@unblock')->name('products.unblock');
+    Route::get('/find/{id}', 'ProductsController@productInStock')->name('products.findinstock');
 });
 
 
@@ -45,6 +44,10 @@ Route::group(['prefix' => 'admin/minutes','namespace'=>'Admin', 'middleware' => 
     Route::get('/', 'MinutesController@index')->name('minutes');
 });
 
+Route::group(['prefix' => 'admin/orders','namespace'=>'Admin', 'middleware' => 'auth'], function () {
+    Route::post('/store', 'OrdersController@store')->name('orders.store');
+    Route::get('/store', 'OrdersController@store')->name('orders.store');
+});
 
 Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin.home');
