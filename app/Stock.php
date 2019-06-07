@@ -28,11 +28,11 @@ class Stock extends Authenticatable
     }
 
     public function color(){
-        return $this->belongsTo('App\Colors','colors_id','id');
+        return $this->hasOne('App\Colors','id','colors_id');
     }
 
     public function size(){
-        return $this->belongsTo('App\Sizes','sizes_id','id');
+        return $this->hasOne('App\Sizes','id','sizes_id');
     }
 
 }

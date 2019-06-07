@@ -22,7 +22,6 @@ class StockController extends Controller
     public function index()
     {
         $stock = Stock::all();
-
         // dd($stock);
         return view('admin.stock.index',[
             'stock'  =>  $stock
@@ -52,6 +51,7 @@ class StockController extends Controller
         $products->id_product     = (int)$products->id_product;
         $products->colors_id         = (int)$products->colors_id;
         $products->sizes_id          = (int)$products->sizes_id;
+        // dd($products);
         $products->save();
         return redirect()->route('stock.index')->with('flash.success',
         'Produto '.(($operation == 0)? 'adicionado ao' : 'removido do').'  estoque com sucesso.');
