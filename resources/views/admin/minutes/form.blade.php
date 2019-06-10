@@ -5,27 +5,27 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="minimum_stock">Data</label>
-                    <input id="minimum_stock" class="form-control" name="minimum_stock" type="date" >
+                    <label for="date">Data</label>
+                    <input id="date" class="form-control" name="date" type="date" >
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="minimum_stock">Horário de início</label>
-                    <input id="minimum_stock" class="form-control" name="minimum_stock" type="time" >
+                    <label for="start_time">Horário de início</label>
+                    <input id="start_time" class="form-control" name="start_time" type="time" >
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="minimum_stock">Horário de termino</label>
-                    <input id="minimum_stock" class="form-control" name="minimum_stock" type="time" >
+                    <label for="start_time">Horário de termino</label>
+                    <input id="start_time" class="form-control" name="end_time" type="time" >
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <participants-minutes :participants="[{name:'Lindomar',id:1,area:'RH',job_title:'Assistente administrativo'}]"></participants-minutes>
-            <schedule-minutes></schedule-minutes>
+            <participants-minutes :participants="{{$participants}}"></participants-minutes>
+            <schedule-minutes :all_schedules="{{$schedules}}"></schedule-minutes>
         </div>
         <div class="row">
             <div class="col-md-8">

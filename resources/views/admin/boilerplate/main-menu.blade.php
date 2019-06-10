@@ -80,7 +80,7 @@ $class = 'active menu-open';
 @php
 $class = '';
 
-if ($controller == 'MinutesController' && $action == 'index') {
+if ($controller == 'MinutesController' ) {
 $class = 'active';
 }
 @endphp

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\ParticipantsMinutes;
 use Illuminate\Http\Request;
@@ -35,7 +35,15 @@ class ParticipantsMinutesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $participant = new ParticipantsMinutes;
+
+        $data = $request->all();
+
+        $participant->fill($data['participant']);
+
+        $participant->save();
+
+        return $participant;
     }
 
     /**

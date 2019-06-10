@@ -15,7 +15,6 @@ class CreateScheduleMinutesTable extends Migration
     {
         Schema::create('schedule_minutes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('id_minutes');
             $table->string('subject');
             $table->timestamps();
         });

@@ -42,6 +42,8 @@ Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'a
 
 Route::group(['prefix' => 'admin/minutes','namespace'=>'Admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'MinutesController@index')->name('minutes');
+    Route::post('/participants/store', 'ParticipantsMinutesController@store')->name('minutes.participants.store');
+    Route::post('/schedule/store', 'ScheduleMinutesController@store')->name('minutes.schedule.store');
 });
 
 Route::group(['prefix' => 'admin/orders','namespace'=>'Admin', 'middleware' => 'auth'], function () {

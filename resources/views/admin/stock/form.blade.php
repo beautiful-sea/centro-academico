@@ -12,9 +12,9 @@
 
 
      @if($stock['operation'] == 0)
-     {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdAllProducts(),['placeholder'=>'Selecione um produto']) }}
+     {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdAllProducts(),['default'=>'Selecione um produto']) }}
      @else
-     {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdProductsWithStock(),['placeholder'=>null]) }}
+     {{Form::bsSelect('id_product','Produto',\App\Product::getNameAndIdProductsWithStock(),['default'=>null]) }}
      @endif
 
      <select-options-products-in-stock></select-options-products-in-stock> 

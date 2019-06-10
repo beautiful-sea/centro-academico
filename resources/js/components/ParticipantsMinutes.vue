@@ -40,17 +40,28 @@
 					name:$('#name_new_participant').val(),
 					area:$('#area_new_participant').val(),
 					job_title:$('#job_title_new_participant').val(),
-					id: 2
+					id:0
 				};
-				console.log(new_participant);
-				this.participants.push(new_participant);
-				$('#select_participant').select2('close');
-				console.log(this.participants);
+				axios({
+				  method: 'post', // verbo http
+				  url: '/admin/minutes/participants/store', // url
+				  data: {
+				    participant: new_participant, // Parâmetro 1 enviado
+				}
+				})
+				.then(response => {
+					let data = response.data;
+					new_participant.id = data.id;
+					this.participants.push(new_participant);
+					$('#select_participant').select2('close');
+				}).catch(error => {
+					console.log('Erro:',error);
+				});
+				
 
 			}
 		},
 		mounted(){
-			console.log(this.participants);
 			var vm = this;
 			$('#select_participant').select2({
 				'theme':'classic',
@@ -71,7 +82,7 @@
 
 			// Pega o nome do participante nao encontrado e coloca no input de cadastro do nome do novo participante
 			$('.select2-search__field').on('keyup',function(){
-				$('#new_participant').val($(this).val());
+				$('#name_new_participant').val($(this).val());
 			})
 
 		},

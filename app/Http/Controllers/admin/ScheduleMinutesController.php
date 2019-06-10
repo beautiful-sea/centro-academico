@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\ScheduleMinutes;
 use Illuminate\Http\Request;
@@ -35,7 +35,15 @@ class ScheduleMinutesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $schedule = new ScheduleMinutes;
+
+        $data = $request->all();
+        
+        $schedule->fill($data['schedule']);
+
+        $schedule->save();
+
+        return $schedule;
     }
 
     /**

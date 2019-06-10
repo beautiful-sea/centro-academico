@@ -15,7 +15,6 @@ class CreateParticipantsMinutesTable extends Migration
     {
         Schema::create('participants_minutes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('id_minutes');
             $table->string('name');
             $table->string('area');
             $table->string('job_title');

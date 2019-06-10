@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Minutes;
+use App\ParticipantsMinutes;
+use App\ScheduleMinutes;
 use Illuminate\Http\Request;
 
 class MinutesController extends Controller
@@ -14,7 +16,9 @@ class MinutesController extends Controller
      */
     public function index()
     {
-        return view('admin.minutes.index');
+        $participants = ParticipantsMinutes::all();
+        return view('admin.minutes.index',
+            ['participants' =>  $participants]);
     }
 
     /**
@@ -24,7 +28,14 @@ class MinutesController extends Controller
      */
     public function create()
     {
-        return view('admin.minutes.create');
+        $participants = ParticipantsMinutes::all();
+        $schedules = ScheduleMinutes::all();
+        
+        return view('admin.minutes.create',
+           [
+            'participants' =>  $participants,
+            'schedules' =>  $schedules
+        ]);
     }
 
     /**

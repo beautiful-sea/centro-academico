@@ -4,9 +4,9 @@
 
 		<div class="input-group">
 
-			<select class="form-control" id="select_schedule" name="id_option" multiple>
+			<select class="form-control" id="select_schedule" name="id_option" v-model="schedules" multiple>
 				<option value="0" disabled="disabled">Adicione assuntos:</option>
-				<option  v-for="p in schedules" :value="p.id">{{p.name}}</option>
+				<option  v-for="p in all_schedules" :value="p.id">{{p.subject}}</option>
 			</select>
 			
 
@@ -18,31 +18,43 @@
 <script type="text/javascript">
 	export default{
 		props:{
+			all_schedules: Array
 		},
 		data(){
 			return {
 				select : 1,
 				schedule: '',
-				schedules: [{name:'Orçamento','id':1}]
+				schedules: this.all_schedules
 			}
 		},
 		methods:{
-			addschedule(){
-				alert('cliado');
-			},
-			returnHtmlschedule(){
-				
-			},
 			createschedule(){
-				let new_schedule = {name:$('#new_schedule').val()};
-				console.log(new_schedule);
-				this.schedules.push(new_schedule);
+				let new_schedule = {
+					subject:$('#new_schedule').val(),
+					id:0
+				};
+				axios({
+				  method: 'post', // verbo http
+				  url: '/admin/minutes/schedule/store', // url
+				  data: {
+				    schedule: new_schedule, // Parâmetro 1 enviado
+				}
+				})
+				.then(response => {
+					let data = response.data;
+					new_schedule.id = data.id;
+					this.schedules.push(new_schedule);
+
+					$('#select_participant').select2('close');
+				}).catch(error => {
+					console.log('Erro:',error);
+				});
 				$('#select_schedule').select2('close');
 
 			}
 		},
 		mounted(){
-
+			console.log(this.all_schedules);
 			var vm = this;
 			$('#select_schedule').select2({
 				'theme':'classic',

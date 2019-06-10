@@ -229,7 +229,7 @@
 				    cart: this.cart, // Parâmetro 1 enviado
 				    client: this.client // Parâmetro 2 enviado
 				}
-			})
+				})
 				.then(response => {
 
 					var url = '/atletica/loja/pedido_realizado';
