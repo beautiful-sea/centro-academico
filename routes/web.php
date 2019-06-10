@@ -76,4 +76,8 @@ Route::group(['prefix'=>'atletica'],function(){
     Route::get('/loja',function(){
         return view('atletica.loja.index');
     })->name("atletica.loja");
+
+    Route::get('/loja/pedido_realizado',function(){
+        return view('atletica.loja.finalized');
+    })->name("atletica.loja.finalized");
 });

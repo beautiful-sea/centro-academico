@@ -24,40 +24,6 @@
 						<h3 class="card-title">Filtro</h3>
 					</div>
 					<div class="card-body">
-						<form class="form-horizontal" id="Filters">
-							<h4 class="mb-1 no-mt">Vestimenta</h4>
-							<fieldset>
-								<div class="form-group no-mt">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" value=".calca"> Calça 
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" value=".bermuda"> Bermuda 
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" value=".casaco"> Casaco 
-										</label>
-									</div>
-								</div>
-							</fieldset>
-							<fieldset>
-								<h4 class="mb-1">Outros</h4>
-								<div class="form-group no-mt">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" value=".caneca"> Caneca 
-										</label>
-									</div>
-								</div>
-							</fieldset>
-							<button class="btn btn-danger btn-block no-mb mt-2" id="Reset"><i class="zmdi zmdi-delete"></i> Limpar
-							Filtros</button>
-						</form>
 						<form class="form-horizontal">
 							<h4>Ordenar por</h4>
 							<div class="form-group">

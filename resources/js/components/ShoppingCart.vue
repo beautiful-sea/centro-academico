@@ -152,6 +152,7 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 </template>
 
@@ -173,6 +174,8 @@
 		created(){
 			var vm = this;
 			eventBusCart.$on('updateCart',function(product){
+				let new_cart = [];
+
 				let product_selected = product
 				//verificar se o produto ja está no carrinho
 				let index = vm.cart.findIndex(item =>
@@ -191,9 +194,8 @@
 			}else{
 				vm.cart[index].amount_order += 1;
 			}
-			console.log(vm.cart);
 
-			this.$nextTick();
+			vm.$forceUpdate();
 		});
 		},
 		mounted(){
@@ -227,10 +229,15 @@
 				    cart: this.cart, // Parâmetro 1 enviado
 				    client: this.client // Parâmetro 2 enviado
 				}
-				})
+			})
 				.then(response => {
-					console.log({pedido:response.data});
+
+					var url = '/atletica/loja/pedido_realizado';
+					window.location.href = url;
 				})
+				.catch(error => {
+					console.log(error.response);
+				});
 			}
 		},
 		watch:{
