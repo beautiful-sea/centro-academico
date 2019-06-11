@@ -1,4 +1,4 @@
-
+{{ Form::restForm($minute, ['id' => 'minute-form','files' => true]) }}
 <div class="card">
     <div class="card-body">
 
@@ -6,19 +6,19 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="date">Data</label>
-                    <input id="date" class="form-control" name="date" type="date" >
+                    <input id="date" class="form-control" name="date" type="date" value="{{$minute->date}}" >
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="start_time">Horário de início</label>
-                    <input id="start_time" class="form-control" name="start_time" type="time" >
+                    <input id="start_time" class="form-control" name="start_time" type="time" value="{{$minute->start_time}}" >
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="start_time">Horário de termino</label>
-                    <input id="start_time" class="form-control" name="end_time" type="time" >
+                    <label for="end_time">Horário de termino</label>
+                    <input id="end_time" class="form-control" name="end_time" type="time" value="{{$minute->end_time}}" >
                 </div>
             </div>
         </div>
@@ -30,8 +30,8 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="form-group">
-                    <label>Arquivo da ATA</label><small> Formato de .pdf</small>
-                    <input type="file" name="" class="form-control" >
+                    <label>Arquivo da ATA</label><small> Somente formato em .pdf</small>
+                    <input type="file" name="ata" class="form-control" >
                 </div>
             </div>
         </div>
@@ -45,23 +45,11 @@
 
 @section('js')
 <script>
-    $('#product-form').validate({
+    $('#minute-form').validate({
         rules: {
-            'name':'required',
-            'minimum_stock':'required',
-            'value':'required',
-            'value_partner':'required'
-        },
-        messages: {
-            'email': {
-                'remote': 'Este e-mail já está sendo utilizado'
-            },
-            'confirm_password': {
-                'equalTo': 'Deve ser igual à Senha'
-            },
-            'confirm_new_password': {
-                'equalTo': 'Deve ser igual à Nova Senha'
-            }
+            'date':'required',
+            'start_time':'required',
+            'end_time':'required'
         }
     });
 </script>

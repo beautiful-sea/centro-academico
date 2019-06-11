@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class MinutesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +21,9 @@ class MinutesController extends Controller
      */
     public function index()
     {
-        $participants = ParticipantsMinutes::all();
+        $minutes = Minutes::all();
         return view('admin.minutes.index',
-            ['participants' =>  $participants]);
+            ['minutes' =>  $minutes]);
     }
 
     /**
@@ -34,7 +39,8 @@ class MinutesController extends Controller
         return view('admin.minutes.create',
            [
             'participants' =>  $participants,
-            'schedules' =>  $schedules
+            'schedules' =>  $schedules,
+            'minute'    =>  (new Minutes)
         ]);
     }
 
@@ -46,7 +52,29 @@ class MinutesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $minute = new Minutes;
+        $minute->fill($data);
+
+        $minute->save();
+
+        foreach ($data['participants'] as $value) {
+            $participant = ParticipantsMinutes::find($value);
+            $minute->participants()->save($participant);
+        }
+
+        foreach ($data['schedules'] as $value) {
+            $schedule = ScheduleMinutes::find($value);
+            $minute->schedules()->save($schedule);
+        }
+
+        if ($request->hasFile('ata')) {
+            $request->file('ata')->move(base_path('/public/files/atas'), sprintf('%s.%s', $minute->id, 'pdf'));
+        }
+
+
+        return redirect()->route('minutes.index');
+
     }
 
 
@@ -56,9 +84,15 @@ class MinutesController extends Controller
      * @param  \App\Minutes  $minutes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Minutes $minutes)
+    public function edit(Minutes $minute)
     {
-        //
+        $participants = ParticipantsMinutes::all();
+        $schedules = ScheduleMinutes::all();
+
+        return view('admin.minutes.edit',
+            ['participants' =>  $participants,
+            'schedules' =>  $schedules,
+            'minute' =>  $minute]);
     }
 
     /**
@@ -68,9 +102,31 @@ class MinutesController extends Controller
      * @param  \App\Minutes  $minutes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Minutes $minutes)
-    {
-        //
+    public function update(Request $request, Minutes $minutes,$id)
+    {   
+        $data   = $request->all();
+        $minute = Minutes::find($id);
+        $minute->fill($data);
+
+        $minute->save();
+
+        if(isset($data['participants'])){
+            $minute->participants()->sync($data['participants']);
+        }
+        
+        if(isset($data['schedules'])){
+           foreach ($data['schedules'] as $value) {
+                $minute->schedules()->sync($data['schedules']);
+            } 
+        }
+        
+
+        if ($request->hasFile('ata')) {
+            $request->file('ata')->move(base_path('/public/files/atas'), sprintf('%s.%s', $minute->id, 'pdf'));
+        }
+
+
+        return redirect()->route('minutes.index');
     }
 
     /**
@@ -79,8 +135,12 @@ class MinutesController extends Controller
      * @param  \App\Minutes  $minutes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Minutes $minutes)
+    public function destroy(Minutes $minutes,$id)
     {
-        //
+        $minute = Minutes::find($id);
+
+        $minute->delete();
+
+        return redirect()->route('minutes.index');
     }
 }

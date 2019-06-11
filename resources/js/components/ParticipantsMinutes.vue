@@ -4,7 +4,7 @@
 
 		<div class="input-group">
 
-			<select class="form-control" id="select_participant" v-model="all_participants" name="id_option" multiple>
+			<select class="form-control" id="select_participant" v-model="all_participants" name="participants[]" multiple>
 				<option value="0" disabled="disabled">Selecione uma opção:</option>
 				<option  v-for="p in participants" :value="p.id">{{p.name}}</option>
 			</select>

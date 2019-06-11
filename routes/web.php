@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin/stock','namespace'=>'Admin', 'middleware' => 'a
 });
 
 Route::group(['prefix' => 'admin/minutes','namespace'=>'Admin', 'middleware' => 'auth'], function () {
-    Route::get('/', 'MinutesController@index')->name('minutes');
+    Route::get('/', 'MinutesController@index')->name('minutes.index');
     Route::post('/participants/store', 'ParticipantsMinutesController@store')->name('minutes.participants.store');
     Route::post('/schedule/store', 'ScheduleMinutesController@store')->name('minutes.schedule.store');
 });
@@ -57,7 +57,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/products', 'ProductsController');
     Route::resource('/stock', 'StockController');
     Route::resource('/minutes', 'MinutesController');
-    Route::resource('/minutes/participants', 'ParticipantsController');
+    Route::resource('/minutes/participants', 'ParticipantsMinutesController');
+    Route::resource('/minutes/schedules', 'ScheduleMinutesController');
     
     Auth::routes();
     \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();

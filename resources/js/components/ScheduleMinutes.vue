@@ -4,7 +4,7 @@
 
 		<div class="input-group">
 
-			<select class="form-control" id="select_schedule" name="id_option" v-model="schedules" multiple>
+			<select class="form-control" id="select_schedule" name="schedules[]" v-model="schedules" multiple>
 				<option value="0" disabled="disabled">Adicione assuntos:</option>
 				<option  v-for="p in all_schedules" :value="p.id">{{p.subject}}</option>
 			</select>
