@@ -15,7 +15,7 @@ class CreateProcedureSpUpdateStock extends Migration
     {
         DB::unprepared("
 
-            CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UpdateStock` (IN `id_prod` INT, IN `amount_bought` INT,IN `unitary_value` DECIMAL(9,2), IN `size_id` INT,IN `color_id` INT)  BEGIN
+            CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UpdateStock` (IN `id_prod` INT, IN `amount_bought` INT,IN `unitary_value` DECIMAL(9,2),IN `color_id` INT, IN `size_id` INT)  BEGIN
                 declare counter int(11);
                 declare new_amount int(11);
 
