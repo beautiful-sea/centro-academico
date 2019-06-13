@@ -18,6 +18,9 @@ Route::group(['prefix' => 'admin/config/products','namespace'=>'Admin', 'middlew
     Route::post('/types/create', 'ProductsController@defineTypeToStore')->name('config.products.types.create');
 });
 
+Route::group(['prefix' => 'admin/orders','namespace'=>'Admin', 'middleware' => 'auth'], function () {
+
+});
 
 Route::group(['prefix' => 'admin/products','namespace'=>'Admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'ProductsController@index')->name('products');
@@ -59,6 +62,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/minutes', 'MinutesController');
     Route::resource('/minutes/participants', 'ParticipantsMinutesController');
     Route::resource('/minutes/schedules', 'ScheduleMinutesController');
+    Route::resource('/orders', 'OrdersController');
     
     Auth::routes();
     \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();

@@ -8,6 +8,14 @@ use \App\OrderItems;
 
 class OrdersController extends Controller
 {
+    public function index(){
+        $orders = Order::all();
+
+        return view('admin.orders.index',[
+            'orders' => $orders
+        ]);
+    }
+
     public function store(Request $request){
         try{
             // $order = new Order;
@@ -41,6 +49,10 @@ class OrdersController extends Controller
 
     public function show(Request $request){
         echo 'asda';
+    }
+
+    public function edit(){
+        
     }
 
 

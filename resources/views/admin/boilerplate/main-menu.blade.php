@@ -26,6 +26,59 @@ $class = 'active';
         <p>Home</p>
     </a>
 </li>
+
+@php
+$class = '';
+
+if ($controller == 'MinutesController' ) {
+$class = 'active';
+}
+@endphp
+<li class="nav-item">
+    <a href="{{ route('minutes.index') }}" class="nav-link {{ $class }}">
+        <i class="nav-icon fa fa-handshake"></i>
+        <p>Reuniões</p>
+    </a>
+</li>
+
+@php
+$class = '';
+
+if ($controller == 'OrdersController' || ($controller == 'OrderItemsController' )) {
+$class = 'active menu-open';
+}
+@endphp
+
+<li class="nav-item has-treeview {{ $class }}">
+    <a href="#" class="nav-link" >
+        <i class="nav-icon fa fa-shopping-cart"></i>
+        <p>Vendas <i class="fa fa-angle-left right"></i></p>
+    </a>
+    
+    <ul class="nav nav-treeview">
+
+
+        @php
+        $class = '';
+
+        if ($controller == 'OrdersController') {
+        $class = 'active';
+    }
+    @endphp
+
+
+    <li class="nav-item">
+        <a href="{{ route('orders.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+            <i class="nav-icon fa fa-list"></i>
+            <p>Pedidos</p>
+        </a>
+    </li>  
+
+    </ul>
+</li>
+
+
+
 @php
 $class = '';
 
@@ -52,8 +105,8 @@ $class = 'active menu-open';
     @endphp
 
 
-    <li class="nav-item">
-        <a href="{{ route('stock.index') }}" class="nav-link {{ $class }}">
+    <li class="nav-item ">
+        <a href="{{ route('stock.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
             <i class="nav-icon fas fa-dolly-flatbed"></i>
             <p>Movimentações</p>
         </a>
@@ -69,26 +122,13 @@ $class = 'active menu-open';
 
 
 <li class="nav-item">
-    <a href="{{ route('products.index') }}" class="nav-link {{ $class }}">
+    <a href="{{ route('products.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
         <i class="nav-icon fab fa-product-hunt"></i>
         <p>Produtos</p>
     </a>
 </li>
 
 </ul>
-</li>
-@php
-$class = '';
-
-if ($controller == 'MinutesController' ) {
-$class = 'active';
-}
-@endphp
-<li class="nav-item">
-    <a href="{{ route('minutes.index') }}" class="nav-link {{ $class }}">
-        <i class="nav-icon fa fa-handshake"></i>
-        <p>Reuniões</p>
-    </a>
 </li>
 
 @php
@@ -116,7 +156,7 @@ $class = 'menu-open';
     @endphp
 
     <li class="nav-item">
-        <a href="{{ route('users.index') }}" class="nav-link {{ $class }}">
+        <a href="{{ route('users.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
             <i class="fa fa-users nav-icon"></i>
             <p>Usuários</p>
         </a>
@@ -132,7 +172,7 @@ $class = 'menu-open';
 @endphp
 
 <li class="nav-item">
-    <a href="{{ route('users.profile') }}" class="nav-link {{ $class }}">
+    <a href="{{ route('users.profile') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
         <i class="fa fa-user nav-icon"></i>
         <p>Perfil</p>
     </a>
@@ -148,7 +188,7 @@ $class = 'active';
 
 
 <li class="nav-item">
-    <a href="{{ route('products.config') }}" class="nav-link {{ $class }}">
+    <a href="{{ route('products.config') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
         <i class="nav-icon fab fa-product-hunt"></i>
         <p>Produtos</p>
     </a>
