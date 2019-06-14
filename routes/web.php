@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin/minutes','namespace'=>'Admin', 'middleware' => 
 Route::group(['prefix' => 'admin/orders','namespace'=>'Admin', 'middleware' => 'auth'], function () {
     Route::post('/store', 'OrdersController@store')->name('orders.store');
     Route::get('/store', 'OrdersController@store')->name('orders.store');
+    Route::get('/{id_order}/generate_pdf', 'OrdersController@generate_pdf')->name('orders.generate_pdf');
 });
 
 Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {

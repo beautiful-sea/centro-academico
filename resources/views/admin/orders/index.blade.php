@@ -41,8 +41,8 @@
                     <td class="">{{date('d/m/Y d:h',strtotime($s->created_at))}}</td>
                         <td>
                             <div class="table-actions">
-                                        @can('edit', $s)
-                                            <a href="{{ route('orders.edit', ['order' => $s]) }}" class="btn btn-default btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                                        @can('show', $s)
+                                            <a href="{{ route('orders.show', ['order' => $s]) }}" class="btn btn-info btn-sm"><i class="fa fa-list"></i> Detalhes</a>
                                             @endcan
 
                                         

@@ -103,11 +103,11 @@
 							</div>										
 							<div class="form-group">
 								<label>Seu Nome: </label>
-								<input v-model="client.name"  type="text" class="form-control color-white" id="input_nome_comprador" name="nome" >
+								<input v-model="client.name"  type="text" class="form-control color-white" id="input_nome_comprador" name="customer_name" >
 							</div>
 							<div class="form-group">
 								<label>Seu Email: </label>
-								<input v-model="client.email" type="email" class="form-control color-white" id="input_email_comprador" name="nome">
+								<input v-model="client.email" type="email" class="form-control color-white" id="input_email_comprador" name="customer_email">
 							</div>										
 						</div>
 
