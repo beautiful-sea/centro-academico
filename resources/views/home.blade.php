@@ -138,12 +138,12 @@
                                                 <h3 class="card-title"><i class="zmdi zmdi-graduation-cap"></i> Centro Acadêmico
                                                 </h3>
                                             </div>
-                                            <div class="withripple zoom-img">
+                                            <div class="withripple zoom-img" style="height: 200px">
                                                 <a href="javascript:void(0);">
                                                     <img width="100%" src="{{asset('images/logos/caeng-2.jpg')}}" alt="" class="img-fluid">
                                                 </a>
                                             </div>
-                                            <div class="card-body overflow-hidden text-center">
+                                            <div class="card-body overflow-hidden text-center" >
                                                 <a href="centroacademico/index.html" class="btn btn-bordo btn-raised"><i
                                                     class="zmdi  zmdi-play-for-work"></i> Entrar<div class="ripple-container">
                                                     </div></a>
@@ -155,9 +155,9 @@
                                                 <div class="card-header">
                                                     <h3 class="card-title"><i class="zmdi  zmdi-directions-run"></i> Atlética</h3>
                                                 </div>
-                                                <div class="withripple zoom-img">
+                                                <div class="withripple zoom-img" style="height: 200px; margin: 0 auto">
                                                     <a href="javascript:void(0);">
-                                                        <img width="100%" src="{{asset('images/logos/aauev-2.jpeg')}}" alt="" class="img-fluid">
+                                                        <img  src="{{asset('images/logos/Logo Institucional.png')}}" height="200px" alt="" class="">
                                                     </a>
                                                 </div>
                                                 <div class="card-body overflow-hidden text-center">
