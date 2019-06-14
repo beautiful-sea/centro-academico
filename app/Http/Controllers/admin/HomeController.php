@@ -43,11 +43,15 @@ class HomeController extends Controller
             inner join products p on (p.id = op.id_product)
             group by p.name,op.id_product order by op.amount DESC limit 5');
 
+        $monthNow = date('m');
+        $ordersThisMonth = DB::select("select * from orders where MONTH(created_at) = $monthNow");
+        
         return view('admin.home',[
             'products'  =>  $products,
             'users'  =>  $users->all(),
             'output_products'=>$output_products->all(),
             'stock' =>  $stock->all(),
+            'ordersThisMonth' => $ordersThisMonth,
             'last_outputs'=>$last_outputs,
             'last_inputs'=>$last_inputs,
             'bellowStock'=>$bellowStock,

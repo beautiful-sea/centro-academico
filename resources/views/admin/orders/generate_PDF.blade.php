@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html moznomarginboxes mozdisallowselectionprint>
-<body>
+<body onload="window.print()">
 
 <link rel="stylesheet" type="text/css" href="{{URL::asset('css/style.css')}}">
 

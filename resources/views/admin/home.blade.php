@@ -22,7 +22,7 @@
    </box-info>
    <box-info number="{{count($products)}}" description="Produtos Cadastrados" action="Mais informações" link="admin/products" color="info" icon="fab fa-product-hunt">
    </box-info>
-   <box-info number="{{count($output_products)}}" description="Vendas" action="Mais informações" link="admin/stock" color="success" icon="fa fa-shopping-cart">
+   <box-info number="{{count($ordersThisMonth)}}" description="Vendas esses mês" action="Mais informações" link="admin/stock" color="success" icon="fa fa-shopping-cart">
    </box-info>
    <box-info number="{{count($bellowStock)}}" description="Produtos com estoque baixo" action="Mais informações" link="admin/stock" color="danger" icon="fa fa-exclamation-triangle">
    </box-info>

@@ -79,26 +79,23 @@
           <div class="table-responsive">
             <table class="table">
               <tbody>
-              <tr class="pull-right">
-                <th>Total:</th>
-                <td>R$ {{$totalOrder}},00</td>
-              </tr>
-            </tbody></table>
+                <tr class="pull-right">
+                  <th colspan="2">Total:</th>
+                  <td><strong>R$ {{$totalOrder}},00</strong></td>
+                </tr>
+              </tbody></table>
+            </div>
           </div>
+          <!-- /.col -->
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+        <!-- /.row -->
 
-      <!-- this row will not appear when printing -->
-      <div class="row no-print">
-        <div class="col-12">
-          <a href="{{route('orders.generate_pdf', ['id_order' => $order->id])}}" target="_blank" class=" float-right btn btn-primary"><i class="fa fa-download"></i> Gerar PDF</a>
+        <div class="col-4 offset-8">
+          <a href="{{route('orders.generate_pdf', ['id_order' => $order->id])}}" target="_blank" class=" btn btn-primary"><i class="fa fa-print"></i> Imprimir</a>
         </div>
       </div>
+
     </div>
 
+    {{ Form::close() }}
   </div>
-
-  {{ Form::close() }}
-</div>
