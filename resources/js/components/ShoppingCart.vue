@@ -67,8 +67,11 @@
 									</div>
 									<div class="" style="margin-top: 0px!important">
 										<label>Quantidade:</label>
-										<input type="number" min="0" disabled v-model="item.amount_order" :max="item.stockable.amount" style="margin-top: 0px!important;text-align: center" class=" form-control-number pull-right" >
+										<input type="number" min="1" onkeydown="return false"  :max="item.stockable.amount" :maxlength="item.stockable.amount" 
+										v-model.number="item.amount_order" style="margin-top: 0px!important;text-align: center" class=" form-control-number pull-right" @change="limitOrder()" >
+										<span class="color-bordo">{{item.amount_order}}</span>
 									</div>
+									<span class="color-bordo" v-if="item.amount_order >= item.stockable.amount">Limite de estoque atingido({{item.stockable.amount}}).</span>
 									<div class="row d-inline">
 										<span class="color-bordo" style="cursor:pointer;padding-left:10px;font-size: 11px" @click="removeProduct(item)">Remover
 										</span>
@@ -138,7 +141,7 @@
 									<h4 class="color-bordo"><b>Produtos:</b></h4>
 									<div id="body-resumo-produtos" v-for="item in cart" style="border: 1px solid maroon;margin-bottom: 5px;padding: 5px;">
 										<p class="color-bordo"><b>{{item.amount_order}}</b> - {{item.name}}</p>
-										<small class="color-bordo" v-if="item.colors.name">Cor: {{item.colors.name}}</small>
+										<small class="color-bordo" v-model="item.amount_order" v-if="item.colors.name">Cor: {{item.colors.name}}</small>
 										<small class="color-bordo pull-right" v-if="item.sizes.name">Tamanho: {{item.sizes.name}}</small>
 									</div>	
 									<p v-if="cart.length <= 0" class="color-bordo">Seu carrinho está vazio, que tal adicionar algumas coisas!?</p>
@@ -176,7 +179,8 @@
 			eventBusCart.$on('updateCart',function(product){
 				let new_cart = [];
 
-				let product_selected = product
+				let product_selected = product;
+
 				//verificar se o produto ja está no carrinho
 				let index = vm.cart.findIndex(item =>
 					item.id == product_selected.id &&
@@ -192,15 +196,22 @@
 
 				//se o produto ja estiver no carrinho
 			}else{
-				vm.cart[index].amount_order += 1;
+				if(vm.cart[index].amount_order < vm.cart[index].stockable.amount){
+					vm.cart[index].amount_order += 1;
+				}
+				
 			}
 
+			console.log(vm.cart[index]);
 			vm.$forceUpdate();
 		});
 		},
 		mounted(){
 		},
 		methods:{
+			limitOrder(){
+
+			},
 			removeProduct(product){
 				let index = this.cart.findIndex(item => item.id == product.id);
 				if(this.cart[index]['amount_order'] <= 1){
