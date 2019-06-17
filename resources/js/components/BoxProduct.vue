@@ -131,18 +131,22 @@
 		methods: {
 			setCart(){
 
-				
+				let sizeExists = this.item_modal.sizes.find(item => item.id == this.selected_size.id);
+				let colorExists = this.item_modal.colors.find(item => item.id == this.selected_color.id);
 
-				if(this.selected_size || this.selected_color){
+				if((this.selected_size.id ==  sizeExists.id) && (colorExists.id == this.selected_color.id)){
 					this.item_modal.colors = this.selected_color;
 					this.item_modal.sizes  = this.selected_size;
 
 					openConf();
+
 					eventBusCart.$emit('updateCart',this.item_modal);
 
 					$('#modal-escolher-pedido').hide('modal');
 
 					this.item_modal = '';
+				}else{
+					console.log('nao existe');
 				}
 				
 

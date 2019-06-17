@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use \App\Order;
 use \App\OrderItems;
-
+use \App\OutputProducts;
 class OrdersController extends Controller
 {
 
@@ -34,6 +34,9 @@ class OrdersController extends Controller
 
             foreach ($request->cart as $product) {
 
+                /**
+                 * Cria Pedido
+                 */
                 $order_items = new OrderItems;
                 $order_items->id_order = $order->id;
                 $order_items->id_product = $product['id'];
@@ -42,8 +45,24 @@ class OrdersController extends Controller
                 $order_items->amount = $product['amount_order'];
                 $order_items->unitary_value = ($request->client['is_partner'] == 1)?$product['value_partner']: $product['value'];
                 $order_items->discount = null;
-
                 $order_items->save();
+
+                /**
+                 * Retira do estoque os produtos comprados
+                 */
+
+                $output = new OutputProducts;
+                // //Remover 'R$' do valor recebido e converter em 'float'
+                // $product['unitary_value'] =  (float)str_replace(['R$ ',','], ['','.'], $product['unitary_value']) ;
+                //mesclar $request com a instância do produto
+                
+                $output->unitary_value = $order_items->unitary_value;
+                $output->amount        = (int)$order_items->amount;
+                $output->id_product    = (int)$order_items->id_product;
+                $output->colors_id     = (int)$order_items->colors_id;
+                $output->sizes_id      = (int)$order_items->sizes_id;
+
+                $output->save();
 
             }
             return $order;
