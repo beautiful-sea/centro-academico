@@ -52,7 +52,7 @@ class StockController extends Controller
         unset($data['operation']);
         //mesclar $request com a instância do produto
         $products->fill($data);
-
+        
         $products->amount         = (int)$products->amount;
         $products->id_product     = (int)$products->id_product;
         $products->colors_id         = (int)$products->colors_id;

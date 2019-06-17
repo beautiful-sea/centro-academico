@@ -50,10 +50,9 @@
 							<div v-if="item_modal.sizes.length > 0" >
 								<div class="" >
 									<label>Tamanho</label>
-
 									<select v-model="selected_size" id="select_size" class="pull-right form-control select-2">
 										<option  v-for="option in item_modal.sizes" 
-										v-if="item_modal.stockable.amount > 0" :value="option">
+										v-if="(item_modal.stockable.amount > 0)" :value="option">
 											{{option.name}}
 										</option>
 									</select>

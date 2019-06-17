@@ -25,7 +25,7 @@ class CreateProcedureSpUpdateStock extends Migration
                     UPDATE stocks SET amount=amount + amount_bought, unitary_value= unitary_value,sizes_id = size_id,colors_id = color_id,updated_at=NOW()
                     WHERE id_product = id_prod AND sizes_id = size_id AND colors_id = color_id;
                 ELSE
-                    INSERT INTO stocks (id_product, amount, unitary_value,sizes_id,colors_id,created_at,updated_at) values (id_prod, amount_bought, unitary_value,color_id,size_id,NOW(),NOW());
+                    INSERT INTO stocks (id_product, amount, unitary_value,colors_id,sizes_id,created_at,updated_at) values (id_prod, amount_bought, unitary_value,color_id,size_id,NOW(),NOW());
                 END IF;
 
                 SELECT amount into new_amount FROM stocks WHERE id_product = id_prod AND sizes_id = size_id AND  colors_id = color_id;
