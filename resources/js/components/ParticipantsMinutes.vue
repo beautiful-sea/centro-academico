@@ -1,6 +1,6 @@
 <template>
 	<div class="col-md-6">
-		<label for="options_types">Participantes </label>
+		<label for="options_types">Participantes </label><small> Deixe em branco caso não queira editar</small>
 
 		<div class="input-group">
 

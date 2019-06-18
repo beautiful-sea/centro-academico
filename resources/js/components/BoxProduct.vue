@@ -131,10 +131,19 @@
 		methods: {
 			setCart(){
 
-				let sizeExists = this.item_modal.sizes.find(item => item.id == this.selected_size.id);
-				let colorExists = this.item_modal.colors.find(item => item.id == this.selected_color.id);
+				let sizeExists = 0;
+				let colorExists = 0;
 
-				if((this.selected_size.id ==  sizeExists.id) && (colorExists.id == this.selected_color.id)){
+				if(this.selected_size){
+					console.log('size selected');
+					sizeExists = this.item_modal.sizes.find(item => item.id == this.selected_size.id);
+				}
+				if(this.selected_color){
+					console.log('color selected');
+					colorExists = this.item_modal.colors.find(item => item.id == this.selected_color.id);
+				}
+
+				if((this.selected_size.id ==  sizeExists.id) || (colorExists.id == this.selected_color.id)){
 					this.item_modal.colors = this.selected_color;
 					this.item_modal.sizes  = this.selected_size;
 
@@ -145,6 +154,8 @@
 					$('#modal-escolher-pedido').hide('modal');
 
 					this.item_modal = '';
+					this.selected_size = 0;
+					this.selected_color = 0;
 				}else{
 					console.log('nao existe');
 				}

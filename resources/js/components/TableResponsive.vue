@@ -1,5 +1,5 @@
 <template>
-  <div class="card collapsed-card">
+  <div class="card ">
     <div class="card-header border-transparent">
       <h3 class="card-title">{{this.title}}</h3>
 

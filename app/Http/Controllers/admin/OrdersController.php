@@ -40,8 +40,8 @@ class OrdersController extends Controller
                 $order_items = new OrderItems;
                 $order_items->id_order = $order->id;
                 $order_items->id_product = $product['id'];
-                $order_items->colors_id = $product['colors']['id'];
-                $order_items->sizes_id = $product['sizes']['id'];
+                $order_items->colors_id = ($product['colors']['id'])?$product['colors']['id']:0;
+                $order_items->sizes_id = ($product['sizes']['id'])?$product['sizes']['id']:0;
                 $order_items->amount = $product['amount_order'];
                 $order_items->unitary_value = ($request->client['is_partner'] == 1)?$product['value_partner']: $product['value'];
                 $order_items->discount = null;
@@ -106,6 +106,25 @@ class OrdersController extends Controller
         }
 
         return view('admin.orders.generate_PDF', compact('order','totalOrder'));
+    }
+
+    public function salesInYear(){
+        
+        $sales = Array();
+
+        for ($i=0; $i < 12; $i++) { 
+            $monthData = OutputProducts::whereMonth('created_at', '=', ($i+1))
+            ->whereYear('created_at','=',date("Y"))->count();
+            array_push($sales, $monthData);
+        }
+
+        return $sales;
+    }
+
+    public function getBestSellers(){
+        $sellers = OutputProducts::all()->groupBy('id_product');
+
+        return $sellers;  
     }
 
 

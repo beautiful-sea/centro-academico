@@ -39,13 +39,15 @@ class HomeController extends Controller
         $last_inputs = $input_products->orderBy('created_at','DESC')->get();
         $bellowStock = DB::select(' select * from `stocks` left join `products` on `products`.`id` = `stocks`.`id_product` where `products`.`minimum_stock` >= `stocks`.`amount` ');
 
-        $bestSellers = DB::select('select op.id_product,p.name, sum(op.amount) amount from output_products as op
-            inner join products p on (p.id = op.id_product)
-            group by p.name,op.id_product order by op.amount DESC limit 5');
+        // $bestSellers = DB::select('select op.id_product,p.name, sum(op.amount) amount from output_products as op
+        //     inner join products p on (p.id = op.id_product)
+        //     group by p.name,op.id_product order by op.amount DESC limit 5');
 
         $monthNow = date('m');
         $ordersThisMonth = DB::select("select * from orders where MONTH(created_at) = $monthNow");
         
+        $profit = DB::select('select sum( unitary_value ) as total from output_products where MONTH(`created_at`) = '. date('m').' and YEAR(`created_at`) = '.date('Y'));
+
         return view('admin.home',[
             'products'  =>  $products,
             'users'  =>  $users->all(),
@@ -55,6 +57,6 @@ class HomeController extends Controller
             'last_outputs'=>$last_outputs,
             'last_inputs'=>$last_inputs,
             'bellowStock'=>$bellowStock,
-            'bestSellers'=>$bestSellers]);
+            'profit'    =>  $profit[0]->total]);
     }
 }
