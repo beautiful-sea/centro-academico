@@ -9,6 +9,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 Route::group(['prefix' => 'admin/config/products','namespace'=>'Admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'ProductsController@config')->name('products.config');
     Route::get('/sizes/edit/{id}', 'SizesController@edit')->name('config.sizes.edit');
@@ -21,6 +24,14 @@ Route::group(['prefix' => 'admin/config/products','namespace'=>'Admin', 'middlew
 Route::group(['prefix' => 'admin/orders','namespace'=>'Admin', 'middleware' => 'auth'], function () {
     Route::get('/salesinyear','OrdersController@salesInYear')->name('orders.salesinyear');
     Route::get('/bestsellers','OrdersController@getBestSellers')->name('orders.bestsellers');
+});
+
+Route::group(['prefix' => 'admin/athletic','namespace'=>'Admin', 'middleware' => 'auth'], function () {
+    Route::get('/data','AthleticDataController@index')->name('athletic_data.index');
+    Route::post('/data','AthleticDataController@store')->name('athleticdatas.store');
+    Route::put('/data/{id}','AthleticDataController@update')->name('athleticdatas.update');
+
+
 });
 
 Route::group(['prefix' => 'admin/products','namespace'=>'Admin', 'middleware' => 'auth'], function () {
@@ -56,6 +67,10 @@ Route::group(['prefix' => 'admin/orders','namespace'=>'Admin', 'middleware' => '
     Route::get('/{id_order}/generate_pdf', 'OrdersController@generate_pdf')->name('orders.generate_pdf');
 });
 
+Route::group(['prefix' => '/'], function () {
+    Route::get('/', 'HomeController@index')->name('admin.home');
+});
+
 Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::resource('/products/config', 'ProductsOptionsTypesController');
@@ -65,17 +80,17 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/minutes/participants', 'ParticipantsMinutesController');
     Route::resource('/minutes/schedules', 'ScheduleMinutesController');
     Route::resource('/orders', 'OrdersController');
+    Route::resource('/last_photos_eng', 'LastPhotosEngController');
     
     Auth::routes();
     \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();
-
 });
 
 
-Route::get("/",function(){
-    return view('home');
-});
 
+Route::get("/centro_academico",function(){
+    return view('ca.index');
+})->name('ca');
 
 Route::group(['prefix'=>'atletica'],function(){
     Route::get('/',function(){

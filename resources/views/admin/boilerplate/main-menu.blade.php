@@ -74,7 +74,7 @@ $class = 'active menu-open';
         </a>
     </li>  
 
-    </ul>
+</ul>
 </li>
 
 
@@ -128,6 +128,75 @@ $class = 'active menu-open';
     </a>
 </li>
 
+</ul>
+</li>
+
+@php
+$class = '';
+
+if ($controller == 'LastPhotosEngController') {
+$class = 'menu-open';
+}
+@endphp
+
+<li class="nav-item has-treeview {{ $class }}">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fa fa-cogs"></i>
+        <p>Engenharias <i class="fa fa-angle-left right"></i></p>
+    </a>
+    
+    <ul class="nav nav-treeview">
+        @can('index', \App\User::class)    
+        @php
+        $class = '';
+
+        if ($controller == 'LastPhotosEngController') {
+        $class = 'active';
+    }
+    @endphp
+
+    <li class="nav-item">
+        <a href="{{ route('last_photos_eng.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+            <i class="fa fa-image nav-icon"></i>
+            <p>Fotos</p>
+        </a>
+    </li>
+    @endcan
+</ul>
+</li>
+
+
+@php
+$class = '';
+
+if ($controller == 'UsersController' || $action == 'config') {
+$class = 'menu-open';
+}
+@endphp
+
+<li class="nav-item has-treeview {{ $class }}">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fa fa-running"></i>
+        <p>Atlética <i class="fa fa-angle-left right"></i></p>
+    </a>
+    
+    <ul class="nav nav-treeview">
+        @can('index', \App\User::class)    
+        @php
+        $class = '';
+
+        if ($controller == 'AthleticDataController') {
+        $class = 'active';
+    }
+    @endphp
+
+    <li class="nav-item">
+        <a href="{{ route('athletic_data.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+            <i class="fa fa-info nav-icon"></i>
+            <p>Dados</p>
+        </a>
+    </li>
+    @endcan
 </ul>
 </li>
 

@@ -11,8 +11,6 @@
     <title>Engenharias Vassouras</title>
     <meta name="description" content="Engenharia de Vassouras">
 
-    <link rel="shortcut icon" href="{{ asset('images/favicon.png?v=3') }}">
-
     <link rel="stylesheet" href="{{ asset('css/preload.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/plugins.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.bordo.min.css') }}">
@@ -150,7 +148,7 @@
                         </a>
                     </div>
                     <div class="card-body overflow-hidden text-center" >
-                        <a href="centroacademico/index.html" class="btn btn-bordo btn-raised"><i
+                        <a href="{{route('ca')}}" class="btn btn-bordo btn-raised"><i
                             class="zmdi  zmdi-play-for-work"></i> Entrar<div class="ripple-container">
                             </div></a>
                         </div>
@@ -379,102 +377,21 @@
                     <h1 class="wow fadeInUp animation-delay-2">Últimas Fotos</h1>
                 </div>
                 <div class="row">
+                    @foreach($LastPhotosEng as $l)
                     <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                         <div class="ms-thumbnail-container wow fadeInUp">
-                            <figure class="ms-thumbnail ms-thumbnail-top ms-thumbnail-info">
-                                <img src="{{asset('images/demo/port9.jpg')}}" alt="" class="img-fluid">
-                                <figcaption class="ms-thumbnail-caption text-center">
-                                    <div class="ms-thumbnail-caption-content">
-                                        <h3 class="ms-thumbnail-caption-title">Lorem ipsum dolor sit</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                        <a href="javascript:void(0)" class="btn btn-raised btn-danger"><i
-                                            class="zmdi zmdi-eye"></i>
-                                        View more</a>
+                            <figure style="height: 200px" class="ms-thumbnail ms-thumbnail-top ms-thumbnail-info">
+                                <img src="/files/last_photos_eng/{{$l->id}}.{{$l->extension_img}}" alt=""   style="height: 100%"  height='100%' class="img-fluid">
+                                <figcaption  class="ms-thumbnail-caption text-center">
+                                    <div class="ms-thumbnail-caption-content" >
+                                        <h3 class="ms-thumbnail-caption-title">{{$l->name}}</h3>
+                                        <p>{{Str::limit($l->description,180,'...')}}</p>
                                     </div>
                                 </figcaption>
                             </figure>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                        <div class="ms-thumbnail-container wow fadeInUp">
-                            <figure class="ms-thumbnail ms-thumbnail-top ms-thumbnail-info">
-                                <img src="{{asset('images/demo/port11.jpg')}}" alt="" class="img-fluid">
-                                <figcaption class="ms-thumbnail-caption text-center">
-                                    <div class="ms-thumbnail-caption-content">
-                                        <h3 class="ms-thumbnail-caption-title">Lorem ipsum dolor sit</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                        <a href="javascript:void(0)" class="btn btn-raised btn-danger"><i
-                                            class="zmdi zmdi-eye"></i>
-                                        View more</a>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                        <div class="ms-thumbnail-container wow fadeInUp">
-                            <figure class="ms-thumbnail ms-thumbnail-top ms-thumbnail-info">
-                                <img src="{{asset('images/demo/port23.jpg')}}" alt="" class="img-fluid">
-                                <figcaption class="ms-thumbnail-caption text-center">
-                                    <div class="ms-thumbnail-caption-content">
-                                        <h3 class="ms-thumbnail-caption-title">Lorem ipsum dolor sit</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                        <a href="javascript:void(0)" class="btn btn-raised btn-danger"><i
-                                            class="zmdi zmdi-eye"></i>
-                                        View more</a>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                        <div class="ms-thumbnail-container wow fadeInUp">
-                            <figure class="ms-thumbnail ms-thumbnail-top ms-thumbnail-info">
-                                <img src="{{asset('images/demo/port7.jpg')}}" alt="" class="img-fluid">
-                                <figcaption class="ms-thumbnail-caption text-center">
-                                    <div class="ms-thumbnail-caption-content">
-                                        <h3 class="ms-thumbnail-caption-title">Lorem ipsum dolor sit</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                        <a href="javascript:void(0)" class="btn btn-raised btn-danger"><i
-                                            class="zmdi zmdi-eye"></i>
-                                        View more</a>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                        <div class="ms-thumbnail-container wow fadeInUp">
-                            <figure class="ms-thumbnail ms-thumbnail-top ms-thumbnail-info">
-                                <img src="{{asset('images/demo/port4.jpg')}}" alt="" class="img-fluid">
-                                <figcaption class="ms-thumbnail-caption text-center">
-                                    <div class="ms-thumbnail-caption-content">
-                                        <h3 class="ms-thumbnail-caption-title">Lorem ipsum dolor sit</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                        <a href="javascript:void(0)" class="btn btn-raised btn-danger"><i
-                                            class="zmdi zmdi-eye"></i>
-                                        View more</a>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                        <div class="ms-thumbnail-container wow fadeInUp">
-                            <figure class="ms-thumbnail ms-thumbnail-top ms-thumbnail-info">
-                                <img src="{{asset('images/demo/port2.jpg')}}" alt="" class="img-fluid">
-                                <figcaption class="ms-thumbnail-caption text-center">
-                                    <div class="ms-thumbnail-caption-content">
-                                        <h3 class="ms-thumbnail-caption-title">Lorem ipsum dolor sit</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                        <a href="javascript:void(0)" class="btn btn-raised btn-danger"><i
-                                            class="zmdi zmdi-eye"></i>
-                                        View more</a>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -670,10 +587,9 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/plugins.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/app.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/lead.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/plugins.min.js') }}"></script>
+    <script src="{{ asset('js/app.min.js') }}" ></script>
 
 </body>
 
