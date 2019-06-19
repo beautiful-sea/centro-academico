@@ -22,6 +22,7 @@
         {{ Form::restForm($athletic_data, ['id' => 'athletic_data-form']) }}
         <div class="card">
             <div class="card-body">
+
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
@@ -48,15 +49,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="description">Descrição</label><small> Texto opcional localizado abaixo dos dados</small>
+                            <textarea id="description" class="form-control" name="description">{{$athletic_data->description}}</textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
+            {{ Form::bsSubmit('Salvar') }}
+
+
         </div>
-    {{ Form::bsSubmit('Salvar') }}
 
 
-    </div>
+        @stop
 
-
-    @stop
-
-    @section('js')
-    @stop
+        @section('js')
+        @stop

@@ -385,7 +385,7 @@
                                 <figcaption  class="ms-thumbnail-caption text-center">
                                     <div class="ms-thumbnail-caption-content" >
                                         <h3 class="ms-thumbnail-caption-title">{{$l->name}}</h3>
-                                        <p>{{Str::limit($l->description,180,'...')}}</p>
+                                        <p>{{Str::limit($l->description,160,'...')}}</p>
                                     </div>
                                 </figcaption>
                             </figure>
@@ -401,195 +401,49 @@
         <div class="container pt-6">
             <h1 class="color-bordo text-center wow fadeInUp animation-delay-2">Nosso Time!</h1>
             <div class="row">
+
+                @foreach($team_eng as $t)
                 <div class="col-lg-4 col-sm-6">
                     <div class="card mt-4 card-danger wow zoomInUp animation-delay-7">
                         <div class="ms-hero-bg-warning ms-hero-img-city">
-                            <img src="{{asset('images/demo/Enilson-Civil.png')}}" alt="..."
+                            <img src="/files/team_eng/{{$t->id}}.{{$t->extension_img}}" alt="..."
                             class="img-avatar-circle">
                         </div>
                         <div class="card-body pt-6 text-center">
-                            <h3 class="color-warning">Enilson Salino Braga</h3>
-                            <p>{{Str::limit('Possuo Mestrado em Ciências Ambientais pela Universidade de Vassouras(2014),
-                                Especialização em Gestão de Negócios pela PUC - MG/ Fundação Dom Cabral (2007),
-                                Graduação em Engenharia Civil (1994) e Pós Graduação em Segurança do Trabalho
-                                (1996) pela Fundação Educacional Rosemar Pimentel. Atualmente Coordenador do
-                                Curso de Engenharia Civil e Professor da Universidade de Vassouras no curso de
-                                Pós Graduação em Engenharia de Segurança do Trabalho, Graduação em Engenharia
-                                Civil e Engenharia Ambiental e, também nos cursos Técnicos de Edificações,
-                                Eletrotécnica e Segurança do Trabalho, onde também atuo como Coordenador dos
-                                Cursos Técnicos de Edificações e Segurança do Trabalho.',600,'...')}}
+                            <h3 class="color-warning">{{$t->name}}</h3>
+                            <p>{{$t->description}}
                                 <br>
-                                <a
-                                href=" http://lattes.cnpq.br/8791565047879602">Veja Mais</a>
+                            @if($t->lattes)<a href="{{$t->lattes}}" target="_blank">Veja Mais</a>@endif
                             </p>
-                            <a href="https://www.facebook.com/enilson.braga"
+                             @if($t->linkedin)<a href="{{$t->linkedin}}" target="_blank"
                             class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
-                            class="zmdi zmdi-facebook"></i></a>
-                            <a href="javascript:void(0)"
-                            class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i
-                            class="zmdi zmdi-twitter"></i></a>
-                            <a href="javascript:void(0)"
+                            class="zmdi zmdi-linkedin"></i></a>@endif
+                             @if($t->instagram)<a href="{{$t->instagram}}" target="_blank"
                             class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
-                            class="zmdi zmdi-instagram"></i></a>
+                            class="zmdi zmdi-instagram"></i></a>@endif
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="card mt-4 card-info wow zoomInUp animation-delay-7">
-                        <div class="ms-hero-bg-warning ms-hero-img-city">
-                            <img src="{{asset('images/demo/Avatar2.jpg')}}" alt="..." class="img-avatar-circle">
-                        </div>
-                        <div class="card-body pt-6 text-center">
-                            <h3 class="color-info">Anrafel Fernandes Pereira</h3>
-                            <p>{{Str::limit('Mestre em Ciência da Computação pela Universidade Federal de Juiz de Fora, MBA
-                                Executivo em Gerenciamento de Projetos, pós-graduado em Engenharia de Sistemas,
-                                graduado em Sistemas de Informação. Cursando especialização em Pedagogia Digital
-                                e Inovações Tecnológicas. Atualmente é Coordenador do Curso de Graduação em
-                                Engenharia de Software e Professor na Universidade de Vassouras, nos cursos de
-                                Engenharia de Software, Engenharia de Computação, Engenharia de Produção,
-                                Engenharia Elétrica e Administração e no Centro Universitário Redentor
-                                (UniRedentor), atuando nos cursos de Engenharia Civil, Engenharia Mecânica e
-                                Engenharia de Produção.',600,'...')}}
+                @endforeach
 
-                                <br>
-                                <a href=" http://lattes.cnpq.br/6711819845096632">Veja Mais</a></p>
-                                <a href="javascript:void(0)"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
-                                class="zmdi zmdi-facebook"></i></a>
-                                <a href="javascript:void(0)"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i
-                                class="zmdi zmdi-twitter"></i></a>
-                                <a href="javascript:void(0)"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
-                                class="zmdi zmdi-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card mt-4 card-warning wow zoomInUp animation-delay-7">
-                            <div class="ms-hero-bg-warning ms-hero-img-city">
-                                <img src="{{asset('images/demo/Avatar3.jpg')}}" alt="..." class="img-avatar-circle">
-                            </div>
-                            <div class="card-body pt-6 text-center">
-                                <h3 class="color-warning">Adaurir Junior</h3>
-                                <p>
-
-                                    {{Str::limit('Atua desde 2010 como professor universitário no ensino superior (experiência de
-                                    09 anos) ministrando as disciplinas de Desenho Técnico (com utilização de
-                                    softwares o AutoCAD® e Solid Works®), Fenômenos de Transporte, Hidráulica,
-                                    Projeto de Fábrica e Instalações Industriais, Mecânica Básica, Introdução a
-                                    Engenharia de Produção, Resistência dos Materiais, Física Mecânica e Engenharia
-                                    de Processos e Produtos, Engenharia de Pessoas no Trabalho, Gestão e Inovação
-                                    Tecnológica. Atuou como coordenador do Curso de Engenharia de Produção na
-                                    Universidade de Vassouras, curso avaliado pelo MEC como Nota 4 (em escala 1 à 5)
-                                    obteve (experiência de 03 anos na função no período de NOV-2015 à JAN-2019).',600,'...')}}
-
-                                    <br>
-                                    <a href="http://lattes.cnpq.br/2829715941269034">Veja Mais</a>
-                                </p>
-                                <a href="https://www.facebook.com/adauri.junior"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
-                                class="zmdi zmdi-facebook"></i></a>
-                                <a href="javascript:void(0)"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i
-                                class="zmdi zmdi-twitter"></i></a>
-                                <a href="javascript:void(0)"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
-                                class="zmdi zmdi-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="offset-2">
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card mt-4 card-royal wow zoomInUp animation-delay-7">
-                            <div class="ms-hero-bg-royal ms-hero-img-city">
-                                <img src="{{asset('images/demo/Avatar4.jpg')}}" alt="..." class="img-avatar-circle">
-                            </div>
-                            <div class="card-body pt-6 text-center">
-                                <h3 class="color-royal">José Leandro Casanova</h3>
-                                <p>
-                                    {{Str::limit('O currículo do Professor José Leandro, indica Graduação em Engenharia Elétrica
-                                    pela Universidade de Vassouras (2002), mestrado (2007) e doutorado (2010) em
-                                    Engenharia Mecânica com ênfase em Transmissão e Conversão de Energia pela
-                                    Universidade Estadual Paulista, localizada em Guaratinguetá (São Paulo) - UNESP,
-                                    Júlio de Mesquita Filho.
-
-                                    Na docência de Ensino Superior atua como Professor Adjunto III da Universidade
-                                    de Vassouras principalmente no curso de graduação de Engenharia Elétrica desde
-                                    2007, lecionando diversas disciplinas: Transmissão de Energia, Análise de
-                                    Defeitos em Sistemas de Elétricos Potencia, Geração de Energia, Instalações
-                                    Elétricas, Máquinas Elétricas, Laboratório de Máquinas Elétricas, Laboratório de
-                                    Acionamentos Elétricos e Circuitos Polifásicos. Entre 2007 e 2011, lecionou
-                                    outras disciplinas para o curso de Engenharia Ambiental – Energia e Meio
-                                    Ambiente. Tem também atuação como Coordenador de projeto de pesquisa na
-                                    Universidade de Vassouras desde meados de abril do ano de 2011 e líder do grupo
-                                    de pesquisa “Qualidade e Conservação de Energia” com projeto titulado de
-                                    “Gerador Síncrono com Ímãs Permanentes no Rotor: uma Abordagem Constitutiva e
-                                sob o Aspecto da Qualidade de Energia Gerada',600,'...')}}</p>
-                                <a href="https://www.facebook.com/leandro.casanova.96558"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
-                                class="zmdi zmdi-facebook"></i></a>
-                                <a href="javascript:void(0)"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i
-                                class="zmdi zmdi-twitter"></i></a>
-                                <a href="javascript:void(0)"
-                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
-                                class="zmdi zmdi-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card mt-4 card-success wow zoomInUp animation-delay-7">
-                            <div class="ms-hero-bg-warning ms-hero-img-city">
-                                <img src="{{asset('images/demo/Avatar22.jpg')}}" alt="..."
-                                class="img-avatar-circle">
-                            </div>
-                            <div class="card-body pt-6 text-center">
-                                <h3 class="color-success">Miguel Rascado Fraguas</h3>
-                                <p>
-                                    {{Str::limit('Possui graduação em Engenharia Química pela Universidade Federal Rural do Rio de
-                                    Janeiro (1993) e mestrado em Química pela Universidade Federal Rural do Rio de
-                                    Janeiro (1997). Atualmente é professor titular da Universidade de Vassouras e
-                                    coordena os cursos de Engenharia Química e Engenharia Ambiental. Atuou como
-                                    Pró-Reitor de Ciências Tecnológicas, Sociais Aplicadas e Humanas da Universidade
-                                    de Vassouras. Tem experiência na área de Química, com ênfase em síntese
-                                    orgânica, atuando principalmente nos seguintes temas: segurança em química,
-                                    descritores moleculares, acronicina, modelagem molecular e fitoquímica. Atua nas
-                                    linhas de pesquisa sobre biocombustível, química verde, resíduos
-                                    agroindustriais, meio ambiente e simulação de processos.',600,'...')}}
-                                    <br>
-                                    <a href=" http://lattes.cnpq.br/9222953104245071">Veja Mais</a></p>
-                                    <a href="https://www.facebook.com/engenharia.quimica.37604"
-                                    class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
-                                    class="zmdi zmdi-facebook"></i></a>
-                                    <a href="javascript:void(0)"
-                                    class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i
-                                    class="zmdi zmdi-twitter"></i></a>
-                                    <a href="javascript:void(0)"
-                                    class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
-                                    class="zmdi zmdi-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <footer class="ms-footer">
-                <div class="container">
-                    <p>E-Point &copy; Desenvolvido em 2019</p>
-                </div>
-            </footer>
-            <div class="btn-back-top">
-                <a href="#" data-scroll id="back-top"
-                class="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised "><i
-                class="zmdi zmdi-long-arrow-up"></i></a>
             </div>
         </div>
+    </section>
+    <footer class="ms-footer">
+        <div class="container">
+            <p>E-Point &copy; Desenvolvido em 2019</p>
+        </div>
+    </footer>
+    <div class="btn-back-top">
+        <a href="#" data-scroll id="back-top"
+        class="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised "><i
+        class="zmdi zmdi-long-arrow-up"></i></a>
     </div>
-    <script src="{{ asset('js/app.js') }}" ></script>
-    <script src="{{ asset('js/plugins.min.js') }}"></script>
-    <script src="{{ asset('js/app.min.js') }}" ></script>
+</div>
+</div>
+<script src="{{ asset('js/app.js') }}" ></script>
+<script src="{{ asset('js/plugins.min.js') }}"></script>
+<script src="{{ asset('js/app.min.js') }}" ></script>
 
 </body>
 

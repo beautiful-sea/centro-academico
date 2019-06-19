@@ -196,7 +196,7 @@
 
 	<footer class="ms-footer">
 		<div class="container">
-			<p>Copyright &copy; Material Style 2017</p>
+			<p>Copyright &copy; E-Point 2019</p>
 		</div>
 	</footer>
 

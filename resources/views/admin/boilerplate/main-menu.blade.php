@@ -134,7 +134,7 @@ $class = 'active menu-open';
 @php
 $class = '';
 
-if ($controller == 'LastPhotosEngController') {
+if ($controller == 'LastPhotosEngController' || $controller == 'TeamEngController') {
 $class = 'menu-open';
 }
 @endphp
@@ -162,6 +162,23 @@ $class = 'menu-open';
         </a>
     </li>
     @endcan
+
+    @can('index', \App\User::class)    
+    @php
+    $class = '';
+
+    if ($controller == 'TeamEngController') {
+    $class = 'active';
+}
+@endphp
+
+<li class="nav-item">
+    <a href="{{ route('team_eng.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+        <i class="fa fa-graduation-cap nav-icon"></i>
+        <p>Coordenadores</p>
+    </a>
+</li>
+@endcan
 </ul>
 </li>
 
@@ -169,7 +186,7 @@ $class = 'menu-open';
 @php
 $class = '';
 
-if ($controller == 'UsersController' || $action == 'config') {
+if ($controller == 'AthleticDataController' || $controller == 'AthleticTeamsController') {
 $class = 'menu-open';
 }
 @endphp
@@ -181,7 +198,7 @@ $class = 'menu-open';
     </a>
     
     <ul class="nav nav-treeview">
-        @can('index', \App\User::class)    
+    @can('index', \App\User::class)    
         @php
         $class = '';
 
@@ -194,6 +211,23 @@ $class = 'menu-open';
         <a href="{{ route('athletic_data.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
             <i class="fa fa-info nav-icon"></i>
             <p>Dados</p>
+        </a>
+    </li>
+    @endcan
+
+    @can('index', \App\User::class)    
+        @php
+        $class = '';
+
+        if ($controller == 'AthleticTeamsController') {
+        $class = 'active';
+    }
+    @endphp
+
+    <li class="nav-item">
+        <a href="{{ route('athletic_teams.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+            <i class="fa fa-users nav-icon"></i>
+            <p>Esportes</p>
         </a>
     </li>
     @endcan

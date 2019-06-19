@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class AthleticData extends Model
 {
-    protected $fillable = ['prizes','trophies','games_won','partners'];
+    protected $fillable = ['prizes','trophies','games_won','partners','description'];
 }

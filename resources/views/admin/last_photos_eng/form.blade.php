@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="description">Descrição</label>
+                    <label for="description">Breve descrição</label>
                     <input id="description" maxlength="180" class="form-control" name="description" type="text" value="{{$last_photos_eng->description}}" >
                 </div>
             </div>

@@ -114,74 +114,20 @@
 			<section class="mb-4">
 				<h2 class="text-center no-mt mb-6 wow fadeInUp">Nossos Times</h2>
 				<div class="row">
+
+					@foreach($athletic_teams as $at)
 					<div class="col-lg-4 col-md-6 col-sm-6 mb-2">
 						<div class="ms-icon-feature wow flipInX animation-delay-4">
 							<div class="ms-icon-feature-icon">
-								<a href=""><span class="ms-icon ms-icon-lg ms-icon"><i class="fas fa-futbol"></i></span>
+								<a href="{{$at->link}}"><span class="ms-icon ms-icon-lg ms-icon"><i class="{{$at->icon}}"></i></span>
 								</a></div>
 							<div class="ms-icon-feature-content">
-								<h4 class="color-bordo">Futebol</h4>
-								<p>Futebol masculino.</p>
+								<h4 class="color-bordo">{{$at->name}}</h4>
+								<p>{{$at->description}}</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6 mb-2">
-						<div class="ms-icon-feature wow flipInX animation-delay-4">
-							<div class="ms-icon-feature-icon">
-								<a href=""><span class="ms-icon ms-icon-lg ms-icon"><i class="far fa-futbol"></i></span>
-								</a></div>
-							<div class="ms-icon-feature-content">
-								<h4 class="color-bordo">Futsal</h4>
-								<p>Futsal feminino e masculino.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6 mb-2">
-						<div class="ms-icon-feature wow flipInX animation-delay-4">
-							<div class="ms-icon-feature-icon">
-								<a href=""><span class="ms-icon ms-icon-lg ms-icon"><i class="fas fa-basketball-ball"></i></span>
-								</a></div>
-							<div class="ms-icon-feature-content">
-								<h4 class="color-bordo">Basquete</h4>
-								<p>Basquete feminino e masculino.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6 mb-2">
-						<div class="ms-icon-feature wow flipInX animation-delay-4">
-							<div class="ms-icon-feature-icon">
-								<a href=""><span class="ms-icon ms-icon-lg ms-icon"><i class="fas fa-baseball-ball"></i></span>
-								</a></div>
-							<div class="ms-icon-feature-content">
-								<h4 class="color-bordo">Handebol</h4>
-								<p>Handebol feminino e masculino.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6 mb-2">
-						<div class="ms-icon-feature wow flipInX animation-delay-4">
-							<div class="ms-icon-feature-icon">
-								<a href="/esportes/volei.html"><span class="ms-icon ms-icon-lg ms-icon"><i class="fas fa-volleyball-ball"></i></span></a>
-							</div>
-							<div class="ms-icon-feature-content">
-								<h4 class="color-bordo">Vôlei</h4>
-								<p>Vôlei feminino e masculino.</p>
-							</div>
-						</div>
-					</div>
-					<!-- <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
-						<div class="ms-icon-feature wow flipInX animation-delay-4">
-							<div class="ms-icon-feature-icon">
-								<span class="ms-icon ms-icon-lg ms-icon"><i class="fa fa-send"></i></span>
-							</div>
-							<div class="ms-icon-feature-content">
-								<h4 class="color-bordo">Customer service</h4>
-								<p>Praesentium cumque voluptate harum quae doloribus, atque error debitis, amet velit in
-									similique, necessitatibus odit vero sunt.</p>
-							</div>
-						</div>
-					</div>
-				</div> -->
+					@endforeach
 			</section>
 		</div> <!-- container -->
 		<div class="wrap bg-bordo color-dark">
@@ -190,38 +136,36 @@
 				<div class="row">
 					<div class="col-xl-3 col-md-6">
 						<div class="card card-royal card-body overflow-hidden text-center wow zoomInUp animation-delay-2">
-							<h2 class="counter">450</h2>
+							<h2 class="counter">{{$athletic_data->prizes}}</h2>
 							<i class="fas fa-4x fa-award color-royal"></i>
 							<p class="mt-2 no-mb lead small-caps">prêmios ganhos</p>
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-6">
 						<div class="card card-success card-body overflow-hidden text-center wow zoomInUp animation-delay-5">
-							<h2 class="counter">64</h2>
+							<h2 class="counter">{{$athletic_data->trophies}}</h2>
 							<i class="fas fa-4x fa-chess-queen color-success"></i>
 							<p class="mt-2 no-mb lead small-caps">troféus</p>
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-6">
 						<div class="card card-danger card-body overflow-hidden text-center wow zoomInUp animation-delay-4">
-							<h2 class="counter">600</h2>
+							<h2 class="counter">{{$athletic_data->games_won}}</h2>
 							<i class="fas fa-4x fa-medal color-danger"></i>
 							<p class="mt-2 no-mb lead small-caps">Jogos vencidos</p>
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-6">
 						<div class="card card-info card-body overflow-hidden text-center wow zoomInUp animation-delay-3">
-							<h2 class="counter">3500</h2>
+							<h2 class="counter">{{$athletic_data->partners}}</h2>
 							<i class="fa fa-4x fa-group color-info"></i>
 							<p class="mt-2 no-mb lead small-caps">sócios</p>
 						</div>
 					</div>
 				</div>
 				<div class="text-center color-white mw-800 center-block mt-4">
-					<p class="lead lead-lg">Discover our projects and the rigorous process of creation. Our principles
-						are creativity, design, experience and knowledge. We are backed by 20 years of research.</p>
-					<a href="javascript:void(0)" class="btn btn-raised btn-white color-bordo wow flipInX animation-delay-8"><i class=""></i>
-						Tenho um Projeto</a>
+					<p class="lead lead-lg">{{$athletic_data->description}}</p>
+					
 				</div>
 			</div>
 		</div>

@@ -81,6 +81,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/minutes/schedules', 'ScheduleMinutesController');
     Route::resource('/orders', 'OrdersController');
     Route::resource('/last_photos_eng', 'LastPhotosEngController');
+    Route::resource('/team_eng', 'TeamEngController');
+    Route::resource('/athletic_teams', 'AthleticTeamsController');
     
     Auth::routes();
     \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();
@@ -93,9 +95,7 @@ Route::get("/centro_academico",function(){
 })->name('ca');
 
 Route::group(['prefix'=>'atletica'],function(){
-    Route::get('/',function(){
-        return view('atletica.home');
-    })->name("atletica.home");
+    Route::get('/','HomeAthleticController@index')->name("atletica.home");
 
     Route::get('/loja',function(){
         return view('atletica.loja.index');
