@@ -231,6 +231,24 @@ $class = 'menu-open';
         </a>
     </li>
     @endcan
+
+    @can('index', \App\User::class)    
+        @php
+        $class = '';
+
+        if ($controller == 'AthleticTeamsController') {
+        $class = 'active';
+    }
+    @endphp
+
+    <li class="nav-item">
+        <a href="{{ route('last_photos_athletic.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+            <i class="fa fa-image nav-icon"></i>
+            <p>Fotos</p>
+        </a>
+    </li>
+    @endcan
+
 </ul>
 </li>
 

@@ -83,6 +83,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/last_photos_eng', 'LastPhotosEngController');
     Route::resource('/team_eng', 'TeamEngController');
     Route::resource('/athletic_teams', 'AthleticTeamsController');
+    Route::resource('/last_photos_athletic', 'LastPhotosAthleticController');
     
     Auth::routes();
     \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();
