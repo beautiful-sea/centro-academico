@@ -35,7 +35,7 @@
                 <tbody>
                     @foreach($orders as $s)
                 <tr class="">
-                    <td><a href="/admin/products/{{$s->id}}/edit" >{{$s->customer_name}}</a></td>
+                    <td>{{$s->customer_name}}</td>
                     <td class="">{{$s->customer_email}}</td>
                     <td class="">{{count($s->items)}}</td>
                     <td class="">{{date('d/m/Y d:h',strtotime($s->created_at))}}</td>

@@ -52,6 +52,8 @@ class StockController extends Controller
         //mesclar $request com a instância do produto
         $products->fill($data);
 
+        // dd($products);
+
         $products->amount         = (int)$products->amount;
         $products->id_product     = (int)$products->id_product;
         $products->colors_id         = (int)$products->colors_id;
@@ -67,7 +69,7 @@ class StockController extends Controller
         $stock = new Stock;
         $stock['operation'] = 0;
         $product = new Product;
-
+        
         return view('admin.stock.input',[
             'stock'=>$stock,
             'all_colors'    => (Colors::all()),

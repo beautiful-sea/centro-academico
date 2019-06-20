@@ -40,8 +40,8 @@ class OrdersController extends Controller
                 $order_items = new OrderItems;
                 $order_items->id_order = $order->id;
                 $order_items->id_product = $product['id'];
-                $order_items->colors_id = ($product['colors']['id'])?$product['colors']['id']:0;
-                $order_items->sizes_id = ($product['sizes']['id'])?$product['sizes']['id']:0;
+                $order_items->colors_id = ($product['colors']['id'])?$product['colors']['id']:null;
+                $order_items->sizes_id = ($product['sizes']['id'])?$product['sizes']['id']:null;
                 $order_items->amount = $product['amount_order'];
                 $order_items->unitary_value = ($request->client['is_partner'] == 1)?$product['value_partner']: $product['value'];
                 $order_items->discount = null;

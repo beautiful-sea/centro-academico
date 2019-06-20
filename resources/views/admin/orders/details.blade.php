@@ -52,6 +52,8 @@
               <tr>
                 <th>Qtd</th>
                 <th>Produto</th>
+                <th>Tamanho</th>
+                <th>Cor</th>
                 <th>Subtotal</th>
               </tr>
             </thead>
@@ -60,6 +62,8 @@
               <tr>
                 <td>{{$o->amount}}</td>
                 <td>{{$o->product->name}}</td>
+                <td>{{$o->product->size}}</td>
+                <td>{{$o->product->color}}</td>
                 <td>R$ {{($o->unitary_value * $o->amount)}},00</td>
               </tr>
 

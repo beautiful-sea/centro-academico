@@ -51,10 +51,10 @@
     <table-responsive title="Ultimas Entradas" txt_btn_footer="Ver todos" :items="{{$last_inputs}}" :limit="5" link_btn_footer="admin/stock"></table-responsive>
   </div>
   @endif
-   <box-info number="R$ {{$profit}},00" description="Lucro no mês atual" action="Mais informações" link="admin/stock" color="success" icon="fa fa-money-bill">
+   <box-info number="R$ {{($profit == null)?'0':$profit}},00" description="Lucro no mês atual" action="Mais informações" link="admin/stock" color="success" icon="fa fa-money-bill">
    </box-info>
   <!-- Chart de vendas no ano -->
-  <div class="container">
+  <div class="col-6">
     <div class="card">
       <div class="card-body">
         <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
@@ -63,7 +63,7 @@
   </div>
 
   <!-- Chart de produtos mais vendidos -->
-  <div class="container">
+  <div class="col-6">
     <div class="card">
       <div class="card-body">
         <div class="alert alert-info" id="alert-best_sellers"><i class="fa fa-exclamation-circle"></i> É necessário a venda de no mínimo 4 produtos diferentes para ver o relatório de produtos mais vendidos.</div>

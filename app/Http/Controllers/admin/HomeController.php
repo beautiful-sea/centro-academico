@@ -8,7 +8,9 @@ use App\User;
 use App\OutputProducts;
 use App\InputProducts;
 use App\Stock;
+use App\Order;
 use Illuminate\Support\Facades\DB;
+
 use Barryvdh\Debugbar\Facade as Debugbar;
 
 class HomeController extends Controller
@@ -31,28 +33,17 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::orderBy('created_at','DESC')->get();
-        $users    = new User;
-        $output_products = new OutputProducts;
-        $input_products = new InputProducts;
-        $stock = new Stock;
-        $last_outputs = $output_products->orderBy('created_at','DESC')->get();
-        $last_inputs = $input_products->orderBy('created_at','DESC')->get();
-        $bellowStock = DB::select(' select * from `stocks` left join `products` on `products`.`id` = `stocks`.`id_product` where `products`.`minimum_stock` >= `stocks`.`amount` ');
-
-        // $bestSellers = DB::select('select op.id_product,p.name, sum(op.amount) amount from output_products as op
-        //     inner join products p on (p.id = op.id_product)
-        //     group by p.name,op.id_product order by op.amount DESC limit 5');
-
-        $monthNow = date('m');
-        $ordersThisMonth = DB::select("select * from orders where MONTH(created_at) = $monthNow");
-        
-        $profit = DB::select('select sum( unitary_value ) as total from output_products where MONTH(`created_at`) = '. date('m').' and YEAR(`created_at`) = '.date('Y'));
+        $last_outputs = OutputProducts::orderBy('created_at','DESC')->get();
+        $last_inputs = InputProducts::orderBy('created_at','DESC')->get();
+        $bellowStock = Stock::getBellowStock();
+        $ordersThisMonth = Order::getOrdersThisMonth();
+        $profit = OutputProducts::getRawProfit();
 
         return view('admin.home',[
             'products'  =>  $products,
-            'users'  =>  $users->all(),
-            'output_products'=>$output_products->all(),
-            'stock' =>  $stock->all(),
+            'users'  =>  User::all(),
+            'output_products'=>OutputProducts::all(),
+            'stock' =>  Stock::all(),
             'ordersThisMonth' => $ordersThisMonth,
             'last_outputs'=>$last_outputs,
             'last_inputs'=>$last_inputs,

@@ -18,8 +18,8 @@ class CreateStocksTable extends Migration
             $table->integer('id_product');
             $table->integer('amount');
             $table->float('unitary_value');
-            $table->integer('sizes_id');
-            $table->integer('colors_id');
+            $table->integer('sizes_id')->nulllable();
+            $table->integer('colors_id')->nulllable();
             $table->timestamps();
 
         });

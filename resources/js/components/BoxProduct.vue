@@ -125,7 +125,8 @@
 		mounted(){
 			$('.close-modal').on('click',function(){
 				$("#modal-escolher-pedido").hide("modal"); 
-			})
+			});
+			console.log(this.items);
 			
 		},
 		methods: {

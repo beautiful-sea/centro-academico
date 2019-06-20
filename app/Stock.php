@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Stock extends Authenticatable
 {
@@ -12,7 +13,13 @@ class Stock extends Authenticatable
 
     protected $with = ['color','size'];
 
-
+    /**
+     * Seleciona todos produtos com quantidade abaixo do valor mínimo no estoque
+     * @return array
+     */
+    public static function getBellowStock(){
+        return DB::select(' select * from `stocks` left join `products` on `products`.`id` = `stocks`.`id_product` where `products`.`minimum_stock` >= `stocks`.`amount` ');
+    }
     public function product()
     {
         return $this->hasOne('App\Product','id','id_product');
