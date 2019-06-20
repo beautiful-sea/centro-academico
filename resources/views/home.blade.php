@@ -101,30 +101,33 @@
         </div>
     </div> <!-- container -->
 </nav>
+
 <div class="intro-fixed ms-hero-img-keyboard ms-hero-bg-bordo color-white" id="home">
     <div class="intro-fixed-content index-1">
         <div class="container">
             <div class="text-center mb-4">
-                <span
-                class="ms-logo ms-logo-lg ms-logo-white center-block mb-2 mt-2 animated zoomInDown animation-delay-5">EV</span>
-                <h1
-                class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5">
-                Engenharias <span>Vassouras</span></h1>
-                <p
-                class="lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-600 animated fadeInUp animation-delay-7">
-                Bem vindo, discente ou ingressante dos
-                cursos de engenharia! Conheça um pouco mais das engenharias da<span
-                class="color-warning"><a class="color-warning" href="https://universidadedevassouras.edu.br/" target="_blank"> universidade de vassouras</a></span> e aproveite para conhecer também nosso Centro acadêmico e nossa atlética.
-            </p>
-        </div>
-        <div class="text-center mb-2">
-            <a id="go-intro-fixed-next" href="javascript:void(0)"
-            class="btn-circle btn-circle-raised btn-circle-white animated zoomInUp animation-delay-12"><i
-            class="zmdi zmdi-long-arrow-down"></i></a>
+                <span class="ms-logo ms-logo-lg ms-logo-white center-block mb-2 mt-2 animated zoomInDown animation-delay-5">EV</span>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5">
+                    Engenharias <span>Vassouras</span>
+                </h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-600 animated fadeInUp animation-delay-7">
+                    Bem vindo, discente ou ingressante dos
+                    cursos de engenharia! Conheça um pouco mais das engenharias da
+                    <span class="color-warning">
+                        <a class="color-warning" href="https://universidadedevassouras.edu.br/" target="_blank"> universidade de vassouras</a>
+                    </span> e aproveite para conhecer também nosso Centro acadêmico e nossa atlética.
+                </p>
+            </div>
+            <div class="text-center mb-2">
+                <a id="go-intro-fixed-next" href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-white animated zoomInUp animation-delay-12">
+                    <i  class="zmdi zmdi-long-arrow-down"></i>
+                </a>
+            </div>
         </div>
     </div>
 </div>
-</div>
+
+
 <div class="btn-back-top">
     <a href="#" data-scroll id="back-top"
     class="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised "><i
@@ -148,7 +151,7 @@
                         </a>
                     </div>
                     <div class="card-body overflow-hidden text-center" >
-                        <a href="{{route('ca')}}" class="btn btn-bordo btn-raised"><i
+                        <a href="{{route('ca.home')}}" class="btn btn-bordo btn-raised"><i
                             class="zmdi  zmdi-play-for-work"></i> Entrar<div class="ripple-container">
                             </div></a>
                         </div>
@@ -178,7 +181,7 @@
                 <div class="wrap ms-hero-img-meeting ms-hero-bg-info color-white ms-bg-fixed">
                     <div class="container">
                         <div class="text-center mb-4">
-                            <h1 class="wow zoomInDown"><b>Serviços</b></h1>
+                            <h1 class="wow zoomInDown"><b>Conheça mais</b></h1>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
@@ -413,37 +416,37 @@
                             <h3 class="color-warning">{{$t->name}}</h3>
                             <p>{{$t->description}}
                                 <br>
-                            @if($t->lattes)<a href="{{$t->lattes}}" target="_blank">Veja Mais</a>@endif
+                                @if($t->lattes)<a href="{{$t->lattes}}" target="_blank">Veja Mais</a>@endif
                             </p>
-                             @if($t->linkedin)<a href="{{$t->linkedin}}" target="_blank"
-                            class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
-                            class="zmdi zmdi-linkedin"></i></a>@endif
-                             @if($t->instagram)<a href="{{$t->instagram}}" target="_blank"
-                            class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
-                            class="zmdi zmdi-instagram"></i></a>@endif
+                            @if($t->linkedin)<a href="{{$t->linkedin}}" target="_blank"
+                                class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
+                                class="zmdi zmdi-linkedin"></i></a>@endif
+                                @if($t->instagram)<a href="{{$t->instagram}}" target="_blank"
+                                    class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
+                                    class="zmdi zmdi-instagram"></i></a>@endif
+                                </div>
+                            </div>
                         </div>
+                        @endforeach
+
                     </div>
                 </div>
-                @endforeach
-
+            </section>
+            <footer class="ms-footer">
+                <div class="container">
+                    <p>E-Point &copy; Desenvolvido em 2019</p>
+                </div>
+            </footer>
+            <div class="btn-back-top">
+                <a href="#" data-scroll id="back-top"
+                class="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised "><i
+                class="zmdi zmdi-long-arrow-up"></i></a>
             </div>
         </div>
-    </section>
-    <footer class="ms-footer">
-        <div class="container">
-            <p>E-Point &copy; Desenvolvido em 2019</p>
-        </div>
-    </footer>
-    <div class="btn-back-top">
-        <a href="#" data-scroll id="back-top"
-        class="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised "><i
-        class="zmdi zmdi-long-arrow-up"></i></a>
     </div>
-</div>
-</div>
-<script src="{{ asset('js/app.js') }}" ></script>
-<script src="{{ asset('js/plugins.min.js') }}"></script>
-<script src="{{ asset('js/app.min.js') }}" ></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/plugins.min.js') }}"></script>
+    <script src="{{ asset('js/app.min.js') }}" ></script>
 
 </body>
 

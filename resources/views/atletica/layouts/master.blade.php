@@ -27,6 +27,8 @@
 			<script src="{{ asset('js/app.js') }}" ></script>
 			<script src="{{ asset('js/plugins.min.js') }}"></script>
 			<script src="{{ asset('js/app.min.js') }}" ></script>
+			<script src="{{ asset('js/index.js') }}"></script>
+			
 
 		</body>
 

@@ -183,10 +183,32 @@ $class = 'menu-open';
 </li>
 
 
+
 @php
 $class = '';
 
-if ($controller == 'AthleticDataController' || $controller == 'AthleticTeamsController') {
+if ($controller == 'LastPhotosCAController') {
+$class = 'menu-open';
+}
+@endphp
+
+<li class="nav-item has-treeview {{ $class }}">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fa fa-bullhorn"></i>
+        <p>Centro Acadêmico <i class="fa fa-angle-left right"></i></p>
+    </a>
+    
+    <ul class="nav nav-treeview">
+
+</ul>
+</li>
+
+
+
+@php
+$class = '';
+
+if ($controller == 'AthleticDataController' || $controller == 'AthleticTeamsController' || $controller == 'NewsAthleticController' || $controller == 'LastPhotosAthleticController') {
 $class = 'menu-open';
 }
 @endphp
@@ -236,7 +258,7 @@ $class = 'menu-open';
         @php
         $class = '';
 
-        if ($controller == 'AthleticTeamsController') {
+        if ($controller == 'LastPhotosAthleticController') {
         $class = 'active';
     }
     @endphp
@@ -249,6 +271,23 @@ $class = 'menu-open';
     </li>
     @endcan
 
+
+    @can('index', \App\User::class)    
+        @php
+        $class = '';
+
+        if ($controller == 'NewsAthleticController') {
+        $class = 'active';
+    }
+    @endphp
+
+    <li class="nav-item">
+        <a href="{{ route('news_athletic.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+            <i class="fa fa-newspaper nav-icon"></i>
+            <p>Notícias</p>
+        </a>
+    </li>
+    @endcan
 </ul>
 </li>
 

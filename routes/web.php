@@ -84,19 +84,22 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/team_eng', 'TeamEngController');
     Route::resource('/athletic_teams', 'AthleticTeamsController');
     Route::resource('/last_photos_athletic', 'LastPhotosAthleticController');
+    Route::resource('/news_athletic', 'NewsAthleticController');
+
     
     Auth::routes();
     \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();
 });
 
 
+Route::group(['prefix'=>'centro_academico'],function(){
+    Route::get('/','HomeCAController@index')->name("ca.home");
+});
 
-Route::get("/centro_academico",function(){
-    return view('ca.index');
-})->name('ca');
 
 Route::group(['prefix'=>'atletica'],function(){
     Route::get('/','HomeAthleticController@index')->name("atletica.home");
+    Route::get('/noticia/{id}','Admin\NewsAthleticController@show')->name("atletica.show");
 
     Route::get('/loja',function(){
         return view('atletica.loja.index');
