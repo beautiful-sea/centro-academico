@@ -1,4 +1,4 @@
-@extends('ca.layouts.master')
+@extends('atletica.layouts.master')
 
 
 @section('before_content')
@@ -13,52 +13,153 @@
 @endsection
 
 @section('body')
-  <div class="ms-site-container ms-nav-fixed">
-    <nav class="navbar navbar-expand-md navbar-fixed ms-lead-navbar navbar-mode navbar-mode mb-0" id="navbar-lead">
-      <div class="container container-full">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">
-            <!-- <img src="{{asset('/img/demo/logo-navbar.png" alt=""> -->
-            <span class="ms-logo ms-logo-white ms-logo-sm">C. A.</span>
-            <span class="ms-title">Centro<strong>Acadêmico</strong></span>
-          </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item"><a data-scroll class="nav-link active" href="../index.html">Home</a></li>
-            <li class="nav-item"><a data-scroll class="nav-link" href="#services">Serviços</a></li>
-            <li class="nav-item"><a data-scroll class="nav-link" href="#portfolio">Portfolio</a></li>
-            <!-- <li class="nav-item"><a data-scroll class="nav-link" href="#pricing">Pricing</a></li> -->
-            <li class="nav-item"><a data-scroll class="nav-link" href="#about">Sobre Nós</a></li>
-            <li class="nav-item"><a data-scroll class="nav-link" href="#team">Equipe</a></li>
-            <li class="nav-item dropdown">
-              <a href="../index.html" class="nav-link dropdown-toggle animated fadeIn animation-delay-8"
-                data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-                data-name="portfolio">Engenharias <i class="zmdi zmdi-chevron-down"></i></a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item"
-                    href="https://universidadedevassouras.edu.br/graduacao/engenhariasoftware"><i
-                      class="zmdi zmdi-devices"></i> Engenharia de Software</a></li>
-                <li><a class="dropdown-item" href="https://universidadedevassouras.edu.br/graduacao/engenhariacivil"><i
-                      class="zmdi zmdi-city-alt"></i>Engenharia Civil</a></li>
-                <li><a class="dropdown-item"
-                    href="https://universidadedevassouras.edu.br/graduacao/engenhariaproducao"><i
-                      class="zmdi zmdi-assignment-o"></i> Engenharia de Produção</a></li>
-                <li><a class="dropdown-item"
-                    href="https://universidadedevassouras.edu.br/graduacao/engenhariaquimica"><i
-                      class="zmdi zmdi-gradient"></i> Engenharia Química</a></li>
-                <li><a class="dropdown-item"
-                    href="https://universidadedevassouras.edu.br/graduacao/engenhariaeletrica"><i
-                      class="zmdi zmdi-flash"></i>Engenharia Elétrica</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a data-scroll class="nav-link" href="#contact">Contato</a></li>
-          </ul>
-        </div> <!-- navbar-collapse collapse -->
-        <a href="javascript:void(0)" class="ms-toggle-left btn-navbar-menu"><i class="zmdi zmdi-menu"></i></a>
-      </div> <!-- container -->
-    </nav>
 
+<div class="ms-site-container">
+	<!-- Modal -->
+	<div class="modal modal-primary" id="ms-account-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog animated zoomIn animated-3x" role="document">
+			<div class="modal-content">
+				<div class="modal-header d-block shadow-2dp no-pb">
+					<button type="button" class="close d-inline pull-right mt-2" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="zmdi zmdi-close"></i></span></button>
+					<div class="modal-title text-center">
+						<span class="ms-logo ms-logo-white ms-logo-sm mr-1">CA</span>
+						<h3 class="no-m ms-site-title">Centro <span>Acadêmico</span></h3>
+					</div>
+					<div class="modal-header-tabs">
+						<ul class="nav nav-tabs nav-tabs-full nav-tabs-3 nav-tabs-primary" role="tablist">
+							<li class="nav-item" role="presentation"><a href="#ms-login-tab" aria-controls="ms-login-tab" role="tab" data-toggle="tab" class="nav-link active withoutripple"><i class="zmdi zmdi-account"></i>
+							Login</a></li>
+							<li class="nav-item" role="presentation"><a href="#ms-register-tab" aria-controls="ms-register-tab" role="tab" data-toggle="tab" class="nav-link withoutripple"><i class="zmdi zmdi-account-add"></i>
+							Register</a></li>
+							<li class="nav-item" role="presentation"><a href="#ms-recovery-tab" aria-controls="ms-recovery-tab" role="tab" data-toggle="tab" class="nav-link withoutripple"><i class="zmdi zmdi-key"></i> Recovery Pass</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade active show" id="ms-login-tab">
+							<form autocomplete="off">
+								<fieldset>
+									<div class="form-group label-floating">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+											<label class="control-label" for="ms-form-user">Username</label>
+											<input type="text" id="ms-form-user" class="form-control">
+										</div>
+									</div>
+									<div class="form-group label-floating">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+											<label class="control-label" for="ms-form-pass">Password</label>
+											<input type="password" id="ms-form-pass" class="form-control">
+										</div>
+									</div>
+									<div class="row mt-2">
+										<div class="col-md-6">
+											<div class="form-group no-mt">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> Remember Me </label>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<button class="btn btn-raised btn-primary pull-right">Login</button>
+											</div>
+										</div>
+									</fieldset>
+								</form>
+								<div class="text-center">
+									<h3>Login with</h3>
+									<a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-facebook"><i class="zmdi zmdi-facebook"></i> Facebook</a>
+									<a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-twitter"><i class="zmdi zmdi-twitter"></i> Twitter</a>
+									<a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-google"><i class="zmdi zmdi-google"></i> Google</a>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="ms-register-tab">
+								<form>
+									<fieldset>
+										<div class="form-group label-floating">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+												<label class="control-label" for="ms-form-user-r">Username</label>
+												<input type="text" id="ms-form-user-r" class="form-control">
+											</div>
+										</div>
+										<div class="form-group label-floating">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+												<label class="control-label" for="ms-form-email-r">Email</label>
+												<input type="email" id="ms-form-email-r" class="form-control">
+											</div>
+										</div>
+										<div class="form-group label-floating">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+												<label class="control-label" for="ms-form-pass-r">Password</label>
+												<input type="password" id="ms-form-pass-r" class="form-control">
+											</div>
+										</div>
+										<div class="form-group label-floating">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+												<label class="control-label" for="ms-form-pass-rn">Re-type
+												Password</label>
+												<input type="password" id="ms-form-pass-rn" class="form-control">
+											</div>
+										</div>
+										<button class="btn btn-raised btn-block btn-primary">Register Now</button>
+									</fieldset>
+								</form>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="ms-recovery-tab">
+								<fieldset>
+									<div class="form-group label-floating">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+											<label class="control-label" for="ms-form-user-re">Username</label>
+											<input type="text" id="ms-form-user-re" class="form-control">
+										</div>
+									</div>
+									<div class="form-group label-floating">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+											<label class="control-label" for="ms-form-email-re">Email</label>
+											<input type="email" id="ms-form-email-re" class="form-control">
+										</div>
+									</div>
+									<button class="btn btn-raised btn-block btn-primary">Send Password</button>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header class="ms-header ms-header-dark">
+
+		<!--ms-header-dark-->
+		<div class="container container-full">
+			<div class="ms-title">
+				<a href="/">
+					<!-- <img src="../assets/img/demo/logo-header.png" alt=""> -->
+					<span class="ms-logo animated zoomInDown animation-delay-5">CA</span>
+					<h1 class="animated fadeInRight animation-delay-6">Centro <span>Acadêmico</span></h1>
+				</a>
+			</div>
+
+			<div class="header-right" style="float:left;">
+				<div class="share-menu">
+					<ul class="share-menu-list">
+						<li class="animated fadeInRight animation-delay-3"><a href="/" class="color-white">Voltar para Engenharias</a></li>
+					</ul>
+					<a href="/" class="btn-circle btn-circle-primary animated zoomInDown animation-delay-7"><i class="fa fa-hand-point-left"></i></a>
+				</div>
+			</div>
+		</div>
+	</header>
 	@yield('content')
 	@endsection
 

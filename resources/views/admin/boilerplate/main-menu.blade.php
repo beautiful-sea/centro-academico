@@ -199,7 +199,39 @@ $class = 'menu-open';
     </a>
     
     <ul class="nav nav-treeview">
+        @can('index', \App\User::class)    
+        @php
+        $class = '';
 
+        if ($controller == 'LastPhotosCAController' && $action == 'index') {
+        $class = 'active';
+    }
+    @endphp
+
+    <li class="nav-item">
+        <a href="{{ route('ca.last_photos_ca') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+            <i class="fa fa-image nav-icon"></i>
+            <p>Fotos</p>
+        </a>
+    </li>
+    @endcan
+
+    @can('index', \App\User::class)    
+    @php
+    $class = '';
+
+    if ($controller == 'LastPhotosCAController' && $action == 'index') {
+    $class = 'active';
+}
+@endphp
+
+<li class="nav-item">
+    <a href="{{ route('ca.history_ca') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+        <i class="fa fa-landmark nav-icon"></i>
+        <p>História</p>
+    </a>
+</li>
+@endcan
 </ul>
 </li>
 
@@ -220,7 +252,7 @@ $class = 'menu-open';
     </a>
     
     <ul class="nav nav-treeview">
-    @can('index', \App\User::class)    
+        @can('index', \App\User::class)    
         @php
         $class = '';
 
@@ -238,56 +270,56 @@ $class = 'menu-open';
     @endcan
 
     @can('index', \App\User::class)    
-        @php
-        $class = '';
+    @php
+    $class = '';
 
-        if ($controller == 'AthleticTeamsController') {
-        $class = 'active';
-    }
-    @endphp
+    if ($controller == 'AthleticTeamsController') {
+    $class = 'active';
+}
+@endphp
 
-    <li class="nav-item">
-        <a href="{{ route('athletic_teams.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
-            <i class="fa fa-users nav-icon"></i>
-            <p>Esportes</p>
-        </a>
-    </li>
-    @endcan
+<li class="nav-item">
+    <a href="{{ route('athletic_teams.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+        <i class="fa fa-users nav-icon"></i>
+        <p>Esportes</p>
+    </a>
+</li>
+@endcan
 
-    @can('index', \App\User::class)    
-        @php
-        $class = '';
+@can('index', \App\User::class)    
+@php
+$class = '';
 
-        if ($controller == 'LastPhotosAthleticController') {
-        $class = 'active';
-    }
-    @endphp
+if ($controller == 'LastPhotosAthleticController') {
+$class = 'active';
+}
+@endphp
 
-    <li class="nav-item">
-        <a href="{{ route('last_photos_athletic.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
-            <i class="fa fa-image nav-icon"></i>
-            <p>Fotos</p>
-        </a>
-    </li>
-    @endcan
+<li class="nav-item">
+    <a href="{{ route('last_photos_athletic.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+        <i class="fa fa-image nav-icon"></i>
+        <p>Fotos</p>
+    </a>
+</li>
+@endcan
 
 
-    @can('index', \App\User::class)    
-        @php
-        $class = '';
+@can('index', \App\User::class)    
+@php
+$class = '';
 
-        if ($controller == 'NewsAthleticController') {
-        $class = 'active';
-    }
-    @endphp
+if ($controller == 'NewsAthleticController') {
+$class = 'active';
+}
+@endphp
 
-    <li class="nav-item">
-        <a href="{{ route('news_athletic.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
-            <i class="fa fa-newspaper nav-icon"></i>
-            <p>Notícias</p>
-        </a>
-    </li>
-    @endcan
+<li class="nav-item">
+    <a href="{{ route('news_athletic.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+        <i class="fa fa-newspaper nav-icon"></i>
+        <p>Notícias</p>
+    </a>
+</li>
+@endcan
 </ul>
 </li>
 

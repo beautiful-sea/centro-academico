@@ -31,6 +31,12 @@ Route::group(['prefix' => 'admin/athletic','namespace'=>'Admin', 'middleware' =>
     Route::post('/data','AthleticDataController@store')->name('athleticdatas.store');
     Route::put('/data/{id}','AthleticDataController@update')->name('athleticdatas.update');
 
+});
+
+Route::group(['prefix' => 'admin/ca','namespace'=>'Admin', 'middleware' => 'auth'], function () {
+    Route::get('/last_photos_ca','LastPhotosCAController@index')->name('ca.last_photos_ca');
+    Route::get('/history_ca','HistoryCAController@index')->name('ca.history_ca');
+    Route::post('/history_ca','HistoryCAController@store')->name('history_ca.store');
 
 });
 
@@ -85,7 +91,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/athletic_teams', 'AthleticTeamsController');
     Route::resource('/last_photos_athletic', 'LastPhotosAthleticController');
     Route::resource('/news_athletic', 'NewsAthleticController');
-
+    Route::resource('/last_photos_ca', 'LastPhotosCAController');
     
     Auth::routes();
     \AgenciaMaior\LaravelBoilerplate\LaravelBoilerplateServiceProvider::routes();

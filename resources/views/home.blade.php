@@ -102,7 +102,7 @@
     </div> <!-- container -->
 </nav>
 
-<div class="intro-fixed ms-hero-img-keyboard ms-hero-bg-bordo color-white" id="home">
+<div class="intro-fixed ms-hero-img-keyboard ms-hero-bg-bordo color-white" id="">
     <div class="intro-fixed-content index-1">
         <div class="container">
             <div class="text-center mb-4">
@@ -145,8 +145,8 @@
                             <h3 class="card-title"><i class="zmdi zmdi-graduation-cap"></i> Centro Acadêmico
                             </h3>
                         </div>
-                        <div class="withripple zoom-img" style="height: 200px;margin: 0 auto"">
-                        <a href="javascript:void(0);">
+                        <div class="withripple zoom-img" style="height: 200px;margin: 0 auto">
+                        <a href="javascript:void(0)">
                             <img width="100%" src="{{asset('images/logos/caeng-2.jpg')}}" alt="" class="img-fluid">
                         </a>
                     </div>

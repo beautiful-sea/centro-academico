@@ -120,9 +120,9 @@
 											@foreach($news_athletic as $n)
 											<div class="card animation-delay-6">
 												<div class="withripple zoom-img">
-													<a href="javascript:void()"><img src="files/news_athletic/{{$n->id}}.{{$n->extension_img}}" alt="..." class="img-fluid"></a>
+													<a href="javascript:void()"><img style="height: 257px!important" src="files/news_athletic/{{$n->id}}.{{$n->extension_img}}" alt="..." class="img-fluid"></a>
 												</div>
-												<div class="card-body" style="height: 320px !important">
+												<div class="card-body">
 													<h3 class="color-bordo">{{$n->title}}</h3>
 													<p>{{$n->description}}</p>
 													<p class="text-right">
@@ -164,7 +164,7 @@
 
 										<div class="container">
 											<section class="mb-4">
-												<h2 class="color-white text-center mb-4 fadeInUp">Nossos Times</h2>
+												<h2 class="color-white text-center mb-4 fadeInUp">Esportes</h2>
 												<div class="row">
 
 													@foreach($athletic_teams as $at)
@@ -249,24 +249,24 @@
 													</div>
 													<div class="row no-gutters">
 
-														<div class="col-lg-4 offset-4">
+														<div class="col-lg-6 offset-3">
 															<div class="price-table price-table-danger wow zoomInUp">
 																<header class="price-table-header">
 																	<span class="price-table-category">SÓCIO</span>
-																	<h3><sup>$</sup>6,70<sub>/mês.</sub></h3>
+																	<h3><sup>R$</sup>6,70<sub>/mês.</sub></h3>
 																</header>
+
 																<div class="price-table-body">
-																	<p class="price-table-list">
-																		Clube de vantagens em todo Brasil
-																		Estabelecimentos parceiros exclusivos
-																		Descontos em todos os produtos da Atlética
-																		Benefícios na compra de produtos
-																		Descontos em todas as festas da Atlética
-																		Descontos nos campeonatos esportivos da Atlética
-																		Vantagens dentro dos eventos da Atlética
-																	</p>
+																	<ul class="price-table-list">
+																		<li><i class="fa fa-check-circle"></i> Clube de vantagens em todo Brasil</li>
+																		<li><i class="fa fa-check-circle"></i> Estabelecimentos parceiros exclusivos</li>
+																		<li><i class="fa fa-check-circle"></i> Descontos em todos os produtos da Atlética</li>
+																		<li><i class="fa fa-check-circle"></i> Descontos em todas as festas da Atlética</li>
+																		<li><i class="fa fa-check-circle"></i> Descontos nos campeonatos esportivos da Atlética</li>
+																		<li><i class="fa fa-check-circle"></i> Vantagens dentro dos eventos da Atlética</li>
+																	</ul>
 																	<div class="text-center">
-																		<a href="https://www.forsocios.com/engvassouras#main" class="btn btn-danger btn-raised"><i class="glyphicon glyphicon-euro"></i>Eu quero!</a>
+																		<a href="https://www.forsocios.com/engvassouras#main" class="btn btn-danger btn-raised">Eu quero!</a>
 																	</div>
 																</div>
 															</div>
@@ -285,7 +285,7 @@
 																	<img src="{{asset('images/demo/avatar1.jpg')}}" alt="..." class="img-avatar-circle">
 																</div>
 																<div class="card-body pt-6 text-center">
-																	<h3 class="color-danger">Victoria Smith</h3>
+																	<h3 class="color-danger">Fulano da Silva</h3>
 																	<p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse
 																	voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
 																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i class="zmdi zmdi-facebook"></i></a>
@@ -300,7 +300,7 @@
 																	<img src="{{asset('images/demo/avatar2.jpg')}}" alt="..." class="img-avatar-circle">
 																</div>
 																<div class="card-body pt-6 text-center">
-																	<h3 class="color-info">Charlie Durant</h3>
+																	<h3 class="color-info">Beltrano Fernandes</h3>
 																	<p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse
 																	voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
 																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i class="zmdi zmdi-facebook"></i></a>
@@ -315,7 +315,7 @@
 																	<img src="{{asset('images/demo/avatar3.jpg')}}" alt="..." class="img-avatar-circle">
 																</div>
 																<div class="card-body pt-6 text-center">
-																	<h3 class="color-warning">Joan Fawert</h3>
+																	<h3 class="color-warning">Ciclano Cocheto</h3>
 																	<p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse
 																	voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
 																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i class="zmdi zmdi-facebook"></i></a>
