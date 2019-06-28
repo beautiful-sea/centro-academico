@@ -14,7 +14,7 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 
-			<div class="carousel-item active">
+			<div class="carousel-item ">
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-7">
@@ -45,7 +45,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="carousel-item ">
+						<div class="carousel-item active">
 							<div class="container">
 								<div class="row">
 									<div class="col-xl-6 col-lg-7">
