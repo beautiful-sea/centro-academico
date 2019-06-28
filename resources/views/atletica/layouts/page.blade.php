@@ -145,7 +145,7 @@
 			<div class="ms-title">
 				<a href="/">
 					<!-- <img src="../assets/img/demo/logo-header.png" alt=""> -->
-					<span class="ms-logo animated zoomInDown animation-delay-5">AV</span>
+					<img src="{{asset('images/logos/rostobarao.png')}}" style="width: 50px">
 					<h1 class="animated fadeInRight animation-delay-6">Atlética <span>Vassouras</span></h1>
 				</a>
 			</div>
@@ -165,7 +165,7 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/">
 					<!-- <img src="../assets/img/demo/logo-navbar.png" alt=""> -->
-					<span class="ms-logo ms-logo-sm">AV</span>
+					<img src="{{asset('images/logos/rostobarao.png')}}" style="width: 50px">
 					<span class="ms-title">Atlética <strong>Vassouras</strong></span>
 				</a>
 			</div>

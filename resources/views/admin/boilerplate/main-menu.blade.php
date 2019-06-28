@@ -186,7 +186,7 @@ $class = 'menu-open';
 
 @php
 $class = '';
-if ($controller == 'LastPhotosCAController' || $controller == 'HistoryCAController') {
+if ($controller == 'LastPhotosCAController' || $controller == 'HistoryCAController' || $controller == 'TeamCAController') {
 $class = 'menu-open';
 }
 @endphp
@@ -227,6 +227,23 @@ $class = 'menu-open';
     <a href="{{ route('ca.history_ca') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
         <i class="fa fa-landmark nav-icon"></i>
         <p>História</p>
+    </a>
+</li>
+
+@endcan
+
+    @can('index', \App\User::class)    
+    @php
+    $class = '';
+    if ($controller == 'TeamCAController') {
+    $class = 'active';
+}
+@endphp
+
+<li class="nav-item">
+    <a href="{{ route('team_ca.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+        <i class="fa fa-users nav-icon"></i>
+        <p>Representantes</p>
     </a>
 </li>
 @endcan

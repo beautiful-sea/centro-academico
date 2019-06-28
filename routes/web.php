@@ -89,6 +89,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin'], function () {
     Route::resource('/orders', 'OrdersController');
     Route::resource('/last_photos_eng', 'LastPhotosEngController');
     Route::resource('/team_eng', 'TeamEngController');
+    Route::resource('/team_ca', 'TeamCAController');
     Route::resource('/athletic_teams', 'AthleticTeamsController');
     Route::resource('/last_photos_athletic', 'LastPhotosAthleticController');
     Route::resource('/news_athletic', 'NewsAthleticController');

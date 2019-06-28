@@ -13,6 +13,7 @@
 		</ol>
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
+
 			<div class="carousel-item active">
 				<div class="container">
 					<div class="row">
@@ -39,98 +40,99 @@
 										</div>
 									</div>
 									<div class="col-xl-6 col-lg-5">
-										<img src="{{asset('images/logos/baroes.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
+										<img src="{{asset('images/logos/apontando.png')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="carousel-item">
+						<div class="carousel-item ">
 							<div class="container">
 								<div class="row">
 									<div class="col-xl-6 col-lg-7">
 										<div class="carousel-caption">
-											<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">At the
-											Vanguard of Innovation</h1>
+											<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Venha
+											fazer parte da nossa Atlética!</h1>
 											<ul class="list-unstyled list-hero">
-												<li><i class="animated flipInX animation-delay-6 color-success zmdi zmdi-spinner"></i>
-													<span class="color-success animated fadeInRightTiny animation-delay-7">High-speed
-													servers and performance</span></li>
-													<li><i class="animated flipInX animation-delay-8 color-danger zmdi zmdi-cocktail"></i>
-														<span class="color-danger animated fadeInRightTiny animation-delay-9">Global
-														web solutions &amp; cloud computing</span></li>
-														<li><i class="animated flipInX animation-delay-10 color-info zmdi zmdi-case"></i>
-															<span class="color-info animated fadeInRightTiny animation-delay-11">Lorem
+												<li><i class="animated flipInX animation-delay-6 color-warning zmdi zmdi-cloud"></i>
+													<span class="color-warning animated fadeInRightTiny animation-delay-7">Exclusivo
+													para Alunos da Universidade</span></li>
+													<li><i class="animated flipInX animation-delay-8 color-info zmdi zmdi-globe"></i>
+														<span class="color-info animated fadeInRightTiny animation-delay-9">Participamos
+														de Competições Globais</span></li>
+														<li><i class="animated flipInX animation-delay-10 color-success zmdi zmdi-download"></i>
+															<span class="color-success animated fadeInRightTiny animation-delay-11">Lorem
 															ipsum dolor sit amet consectetur</span></li>
 														</ul>
 														<div class="text-center">
-															<a href="#" class="btn btn-primary btn-xlg btn-raised animated flipInX animation-delay-16"><i class="zmdi zmdi-settings"></i> Personalize</a>
-															<a href="#" class="btn btn-warning btn-xlg btn-raised animated flipInX animation-delay-18"><i class="zmdi zmdi-download"></i> Download</a>
+															<a href="#" class="btn btn-primary btn-xlg btn-raised animated flipInX animation-delay-16">Me
+															Inscrever</a>
+
 														</div>
 													</div>
 												</div>
 												<div class="col-xl-6 col-lg-5">
-													<img src="{{asset('images/obrigado-baraozada.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInRight animation-delay-5">
+													<img src="{{asset('images/logos/torcida.png')}}" style="width: 60%!important" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="carousel-item">
+									<div class="carousel-item ">
 										<div class="container">
 											<div class="row">
 												<div class="col-xl-6 col-lg-7">
 													<div class="carousel-caption">
-														<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">At the
-														Vanguard of Innovation</h1>
+														<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Venha
+														fazer parte da nossa Atlética!</h1>
 														<ul class="list-unstyled list-hero">
-															<li><i class="animated flipInX animation-delay-8 color-info zmdi zmdi-nature"></i>
-																<span class="color-info animated fadeInRightTiny animation-delay-9">Global
-																web solutions &amp; cloud computing</span></li>
-																<li><i class="animated flipInX animation-delay-6 color-danger zmdi zmdi-city-alt"></i>
-																	<span class="color-danger animated fadeInRightTiny animation-delay-7">High-speed
-																	servers and performance</span></li>
-																	<li><i class="animated flipInX animation-delay-10 color-warning zmdi zmdi-graduation-cap"></i>
-																		<span class="color-warning animated fadeInRightTiny animation-delay-11">Lorem
+															<li><i class="animated flipInX animation-delay-6 color-warning zmdi zmdi-cloud"></i>
+																<span class="color-warning animated fadeInRightTiny animation-delay-7">Exclusivo
+																para Alunos da Universidade</span></li>
+																<li><i class="animated flipInX animation-delay-8 color-info zmdi zmdi-globe"></i>
+																	<span class="color-info animated fadeInRightTiny animation-delay-9">Participamos
+																	de Competições Globais</span></li>
+																	<li><i class="animated flipInX animation-delay-10 color-success zmdi zmdi-download"></i>
+																		<span class="color-success animated fadeInRightTiny animation-delay-11">Lorem
 																		ipsum dolor sit amet consectetur</span></li>
 																	</ul>
 																	<div class="text-center">
-																		<a href="#" class="btn btn-primary btn-xlg btn-raised animated flipInX animation-delay-16"><i class="zmdi zmdi-settings"></i> Personalize</a>
-																		<a href="#" class="btn btn-warning btn-xlg btn-raised animated flipInX animation-delay-18"><i class="zmdi zmdi-download"></i> Download</a>
+																		<a href="#" class="btn btn-primary btn-xlg btn-raised animated flipInX animation-delay-16">Me
+																		Inscrever</a>
+
 																	</div>
 																</div>
 															</div>
 															<div class="col-xl-6 col-lg-5">
-																<img src="{{asset('images/logos/logo-baroes.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
+																<img src="{{asset('images/logos/baroes.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
 															</div>
 														</div>
 													</div>
 												</div>
+												<!-- Controls -->
+												<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
+												<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
 											</div>
-											<!-- Controls -->
-											<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
-											<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
-										</div>
-									</header>
+										</header>
 
 
-									<div class="container mt-6 ">
-										<h1 class="text-center color-bordo">Notícias</h1>
-										<div class="owl-dots color"></div>
-										<div class="owl-carousel owl-theme">
+										<div class="container mt-6 ">
+											<h1 class="text-center color-bordo">Notícias</h1>
+											<div class="owl-dots color"></div>
+											<div class="owl-carousel owl-theme">
 
-											@foreach($news_athletic as $n)
-											<div class="card animation-delay-6">
-												<div class="withripple zoom-img">
-													<a href="javascript:void()"><img style="height: 257px!important" src="files/news_athletic/{{$n->id}}.{{$n->extension_img}}" alt="..." class="img-fluid"></a>
+												@foreach($news_athletic as $n)
+												<div class="card animation-delay-6">
+													<div class="withripple zoom-img">
+														<a href="javascript:void()"><img style="height: 257px!important" src="files/news_athletic/{{$n->id}}.{{$n->extension_img}}" alt="..." class="img-fluid"></a>
+													</div>
+													<div class="card-body">
+														<h3 class="color-bordo">{{$n->title}}</h3>
+														<p>{{$n->description}}</p>
+														<p class="text-right">
+															<a href="atletica/noticia/{{$n->id}}" class="btn btn-primary btn-raised text-right" role="button"><i class="zmdi zmdi-collection-image-o" style="float: bottom"></i> Ler notícia</a>
+														</p>
+													</div>
 												</div>
-												<div class="card-body">
-													<h3 class="color-bordo">{{$n->title}}</h3>
-													<p>{{$n->description}}</p>
-													<p class="text-right">
-														<a href="atletica/noticia/{{$n->id}}" class="btn btn-primary btn-raised text-right" role="button"><i class="zmdi zmdi-collection-image-o" style="float: bottom"></i> Ler notícia</a>
-													</p>
-												</div>
-											</div>
-											@endforeach
+												@endforeach
 											<!-- <div class="card card-dark-inverse animation-delay-8">
 												<div class="withripple zoom-img">
 													<a href="javascript:void()"><img src="files/news_athletic/1.jpg" alt="..." class="img-fluid"></a>
