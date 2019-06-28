@@ -102,7 +102,7 @@
     </div> <!-- container -->
 </nav>
 
-<div class="intro-fixed ms-hero-img-keyboard ms-hero-bg-bordo color-white" id="">
+<div class="intro-fixed ms-hero-img-keyboard ms-hero-bg-bordo color-white" style="height: 1000px!important;position: relative" id="home">
     <div class="intro-fixed-content index-1">
         <div class="container">
             <div class="text-center mb-4">
@@ -119,7 +119,7 @@
                 </p>
             </div>
             <div class="text-center mb-2">
-                <a id="go-intro-fixed-next" href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-white animated zoomInUp animation-delay-12">
+                <a id="go-intro-fixed-next"  href="#intro-next" data-scroll class=" animated fadeIn animation-delay-8 btn-circle btn-circle-raised btn-circle-white animated zoomInUp animation-delay-12">
                     <i  class="zmdi zmdi-long-arrow-down"></i>
                 </a>
             </div>
@@ -447,7 +447,18 @@
     <script src="{{ asset('js/app.js') }}" ></script>
     <script src="{{ asset('js/plugins.min.js') }}"></script>
     <script src="{{ asset('js/app.min.js') }}" ></script>
-
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/bb4a50dbd4097c54e5c2033c1f0355f412f3ebb1/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
 </body>
 
 </html>

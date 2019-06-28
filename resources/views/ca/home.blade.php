@@ -31,11 +31,6 @@
 												<span class="color-success animated fadeInRightTiny animation-delay-11">Lorem
 												ipsum dolor sit amet consectetur</span></li>
 											</ul>
-											<div class="text-center">
-												<a href="#" class="btn btn-primary btn-xlg btn-raised animated flipInX animation-delay-16">Me
-												Inscrever</a>
-
-											</div>
 										</div>
 									</div>
 									<div class="col-xl-6 col-lg-5">
@@ -49,23 +44,16 @@
 								<div class="row">
 									<div class="col-xl-6 col-lg-7">
 										<div class="carousel-caption">
-											<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">At the
-											Vanguard of Innovation</h1>
+											<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Conheça a história do Centro acadêmico</h1>
 											<ul class="list-unstyled list-hero">
 												<li><i class="animated flipInX animation-delay-6 color-success zmdi zmdi-spinner"></i>
-													<span class="color-success animated fadeInRightTiny animation-delay-7">High-speed
-													servers and performance</span></li>
+													<span class="color-success animated fadeInRightTiny animation-delay-7">Lorem ipsum dolor sit amet consectetur</span></li>
 													<li><i class="animated flipInX animation-delay-8 color-danger zmdi zmdi-cocktail"></i>
-														<span class="color-danger animated fadeInRightTiny animation-delay-9">Global
-														web solutions &amp; cloud computing</span></li>
+														<span class="color-danger animated fadeInRightTiny animation-delay-9">Lorem ipsum dolor sit amet consectetur</span></li>
 														<li><i class="animated flipInX animation-delay-10 color-info zmdi zmdi-case"></i>
 															<span class="color-info animated fadeInRightTiny animation-delay-11">Lorem
 															ipsum dolor sit amet consectetur</span></li>
 														</ul>
-														<div class="text-center">
-															<a href="#" class="btn btn-primary btn-xlg btn-raised animated flipInX animation-delay-16"><i class="zmdi zmdi-settings"></i> Personalize</a>
-															<a href="#" class="btn btn-warning btn-xlg btn-raised animated flipInX animation-delay-18"><i class="zmdi zmdi-download"></i> Download</a>
-														</div>
 													</div>
 												</div>
 												<div class="col-xl-6 col-lg-5">
@@ -79,27 +67,20 @@
 											<div class="row">
 												<div class="col-xl-6 col-lg-7">
 													<div class="carousel-caption">
-														<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">At the
-														Vanguard of Innovation</h1>
+														<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Lorem ipsum dolor sit amet consectetur</h1>
 														<ul class="list-unstyled list-hero">
 															<li><i class="animated flipInX animation-delay-8 color-info zmdi zmdi-nature"></i>
-																<span class="color-info animated fadeInRightTiny animation-delay-9">Global
-																web solutions &amp; cloud computing</span></li>
+																<span class="color-info animated fadeInRightTiny animation-delay-9">Lorem ipsum dolor sit amet consectetur</span></li>
 																<li><i class="animated flipInX animation-delay-6 color-danger zmdi zmdi-city-alt"></i>
-																	<span class="color-danger animated fadeInRightTiny animation-delay-7">High-speed
-																	servers and performance</span></li>
+																	<span class="color-danger animated fadeInRightTiny animation-delay-7">Lorem ipsum dolor sit amet consectetur</span></li>
 																	<li><i class="animated flipInX animation-delay-10 color-warning zmdi zmdi-graduation-cap"></i>
 																		<span class="color-warning animated fadeInRightTiny animation-delay-11">Lorem
 																		ipsum dolor sit amet consectetur</span></li>
 																	</ul>
-																	<div class="text-center">
-																		<a href="#" class="btn btn-primary btn-xlg btn-raised animated flipInX animation-delay-16"><i class="zmdi zmdi-settings"></i> Personalize</a>
-																		<a href="#" class="btn btn-warning btn-xlg btn-raised animated flipInX animation-delay-18"><i class="zmdi zmdi-download"></i> Download</a>
-																	</div>
 																</div>
 															</div>
 															<div class="col-xl-6 col-lg-5">
-																<img src="{{asset('images/logos/logo-baroes.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
+																<img src="{{asset('images/logos/institucional.png')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
 															</div>
 														</div>
 													</div>
@@ -115,16 +96,13 @@
 									<div class="container mt-6 ">
 										<h2 class="color-bordo">Nossa História</h2>
 										<div class="row">
-											@foreach($history_ca as $h)
 											<div class="col-lg-6 text-justify">
-												<p class="dropcaps">@php echo $h->text @endphp</p>
+												<p class="dropcaps"> @php echo isset($history_ca->text[0])?$history_ca->text[0]:'' @endphp</p>
+												
 											</div>
-											@endforeach
-											@foreach($history_ca as $h)
 											<div class="col-lg-6 text-justify">
-												<p class="dropcaps">@php echo $h->text @endphp</p>
+												<p> @php echo isset($history_ca->text[1])?$history_ca->text[1]:'' @endphp</p>
 											</div>
-											@endforeach
 										</div>
 										<div class="owl-dots color"></div>
 										<div class="owl-carousel owl-theme">
@@ -159,7 +137,7 @@
 
 									<div class="container">
 									</div> <!-- container -->
-									<div class="wrap bg-bordo color-dark">
+									<!-- <div class="wrap bg-bordo color-dark">
 
 										<div class="container">
 											<section class="mb-4">
@@ -203,7 +181,7 @@
 
 												</div>
 											</div>
-										</div>
+										</div> -->
 										<section class="mt-6">
 											<div class="container">
 												<h1 class="right-line">Últimas Fotos</h1>
@@ -242,20 +220,20 @@
 														<div class="price-table price-table-danger wow zoomInUp">
 															<header class="price-table-header">
 																<span class="price-table-category">SÓCIO</span>
-																<h3><sup>$</sup>6,70<sub>/mês.</sub></h3>
+																<h3><sup>R$</sup>6,70<sub>/mês.</sub></h3>
 															</header>
 															<div class="price-table-body">
 																<p class="price-table-list">
-																	Clube de vantagens em todo Brasil
-																	Estabelecimentos parceiros exclusivos
-																	Descontos em todos os produtos da Atlética
-																	Benefícios na compra de produtos
-																	Descontos em todas as festas da Atlética
-																	Descontos nos campeonatos esportivos da Atlética
-																	Vantagens dentro dos eventos da Atlética
+																	Clube de vantagens em todo Brasil<hr style="margin: 0px">
+																	Estabelecimentos parceiros exclusivos<hr style="margin: 0px"> 
+																	Descontos em todos os produtos da Atlética<hr style="margin: 0px">
+																	Benefícios na compra de produtos<hr style="margin: 0px">
+																	Descontos em todas as festas da Atlética<hr style="margin: 0px">
+																	Descontos nos campeonatos esportivos da Atlética<hr style="margin: 0px">
+																	Vantagens dentro dos eventos da Atlética<hr style="margin: 0px">
 																</p>
 																<div class="text-center">
-																	<a href="https://www.forsocios.com/engvassouras#main" class="btn btn-danger btn-raised"><i class="glyphicon glyphicon-euro"></i>Eu quero!</a>
+																	<a href="https://www.forsocios.com/engvassouras#main" class="btn btn-danger btn-raised">Quero ser sócio!</a>
 																</div>
 															</div>
 														</div>

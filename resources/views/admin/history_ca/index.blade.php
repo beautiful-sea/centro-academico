@@ -26,7 +26,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="prizes">História</label>
-                            <textarea id="summernote" name="text"></textarea>
+                            <textarea id="summernote" name="text">{{$history_ca->text}}</textarea>
                         </div>
                     </div>
                 </div>

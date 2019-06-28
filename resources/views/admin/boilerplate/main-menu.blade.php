@@ -186,8 +186,7 @@ $class = 'menu-open';
 
 @php
 $class = '';
-
-if ($controller == 'LastPhotosCAController') {
+if ($controller == 'LastPhotosCAController' || $controller == 'HistoryCAController') {
 $class = 'menu-open';
 }
 @endphp
@@ -219,8 +218,7 @@ $class = 'menu-open';
     @can('index', \App\User::class)    
     @php
     $class = '';
-
-    if ($controller == 'LastPhotosCAController' && $action == 'index') {
+    if ($controller == 'HistoryCAController') {
     $class = 'active';
 }
 @endphp

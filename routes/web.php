@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin/ca','namespace'=>'Admin', 'middleware' => 'auth
     Route::get('/last_photos_ca','LastPhotosCAController@index')->name('ca.last_photos_ca');
     Route::get('/history_ca','HistoryCAController@index')->name('ca.history_ca');
     Route::post('/history_ca','HistoryCAController@store')->name('history_ca.store');
+    Route::put('/history_ca','HistoryCAController@update')->name('history_ca.update');
 
 });
 

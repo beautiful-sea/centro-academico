@@ -14,7 +14,7 @@ class HistoryCAController extends Controller
      */
     public function index()
     {
-        $history_ca = new HistoryCA;
+        $history_ca = HistoryCA::find(1);
         return view('admin.history_ca.index',[
             'history_ca'    =>  $history_ca
         ]);
@@ -26,6 +26,15 @@ class HistoryCAController extends Controller
         $history_ca = HistoryCA::first();
         $history_ca->fill($request->all());
 
+        $history_ca->save();
+
+        return redirect()->route('ca.history_ca');
+    }
+
+    public function update(Request $request)
+    {
+        $history_ca = HistoryCA::find(1);
+        $history_ca->fill($request->all());
         $history_ca->save();
 
         return redirect()->route('ca.history_ca');
