@@ -161,16 +161,29 @@
 		</div>
 	</header>
 	<nav class="navbar navbar-expand-md  navbar-static ms-navbar ms-navbar-white hidden-md-down">
-	<div class="container container-full">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">
-				<!-- <img src="../assets/img/demo/logo-navbar.png" alt=""> -->
-				<span class="ms-logo animated zoomInDown animation-delay-5">CA</span>
-				<span class="ms-title">Centro <strong>Acadêmico</strong></span>
-			</a>
+		<div class="container container-full">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">
+					<!-- <img src="../assets/img/demo/logo-navbar.png" alt=""> -->
+					<img src="{{asset('images/logos/logocaeng.png')}}" width="50px">
+					<span class="ms-title">Centro <strong>Acadêmico</strong></span>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse" id="ms-navbar">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a href="/" class="nav-link  animated fadeIn animation-delay-7">Início </a>
+				</li>
+
+				<li class="nav-item">
+					<a href="/" class="nav-link animated fadeIn animation-delay-9" role="button">
+
+					</a>
+				</li>
+			</ul>
 		</div>
-	</div> <!-- container -->
-</nav>
+		</div> <!-- container -->
+	</nav>
 	@yield('content')
 	@endsection
 

@@ -12,7 +12,7 @@
 			<p class="lead lead-lg">Bem vindo a nossa vitrine online. Veja nossos produtos e aproveite para reservar o seu!
 				<br> Obtenha descontos sendo sócio da Atlética.
 			</p>
-			<a href="" class="btn btn-raised btn-white color-danger">
+			<a href="https://www.forsocios.com/engvassouras#main" target="_blank" class="btn btn-raised btn-white color-danger">
 			tornar-se Sócio</a>
 		</div>
 	</div>

@@ -142,7 +142,7 @@
                         </div>
                         <div class="withripple zoom-img" style="height: 200px;margin: 0 auto">
                             <a href="javascript:void(0)">
-                                <img width="100%" src="{{asset('images/logos/caeng-2.jpg')}}" alt="" class="img-fluid">
+                                <img width="100%" src="{{asset('images/logos/caeng.png')}}" alt="" class="img-fluid">
                             </a>
                         </div>
                         <div class="card-body overflow-hidden text-center" >

@@ -31,7 +31,7 @@
 											</ul>
 										</div>
 									</div>
-									<div class="col-xl-6 col-lg-5">
+									<div class="col-xl-6 col-lg-5 d-none d-xs-block d-sm-block">
 										<img src="{{asset('images/obrigado-baraozada.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInRight animation-delay-5">
 									</div>
 								</div>
@@ -62,8 +62,10 @@
 									</div> -->
 								</div>
 								<!-- Controls -->
-								<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
-								<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
+								<div class="d-none d-xs-block d-sm-block">
+								<a href="#carousel-header" class=" btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
+								<a href="#carousel-header" class=" btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
+								</div>
 							</div>
 						</header>
 

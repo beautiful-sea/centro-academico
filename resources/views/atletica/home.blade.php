@@ -270,7 +270,7 @@
 																		<li><i class="fa fa-check-circle"></i> Vantagens dentro dos eventos da Atlética</li>
 																	</ul>
 																	<div class="text-center">
-																		<a href="https://www.forsocios.com/engvassouras#main" class="btn btn-danger btn-raised">Eu quero!</a>
+																		<a href="https://www.forsocios.com/engvassouras#main" target="_blank" class="btn btn-danger btn-raised">Eu quero!</a>
 																	</div>
 																</div>
 															</div>
