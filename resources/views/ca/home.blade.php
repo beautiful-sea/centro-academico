@@ -13,101 +13,76 @@
 		</ol>
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
-			<div class="carousel-item active">
+
+			<div class="carousel-item active" >
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-7">
 							<div class="carousel-caption">
-								<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Venha
-								fazer parte da nossa Atlética!</h1>
+								<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Conheça a história do Centro acadêmico</h1>
 								<ul class="list-unstyled list-hero">
-									<li><i class="animated flipInX animation-delay-6 color-warning zmdi zmdi-cloud"></i>
-										<span class="color-warning animated fadeInRightTiny animation-delay-7">Exclusivo
-										para Alunos da Universidade</span></li>
-										<li><i class="animated flipInX animation-delay-8 color-info zmdi zmdi-globe"></i>
-											<span class="color-info animated fadeInRightTiny animation-delay-9">Participamos
-											de Competições Globais</span></li>
-											<li><i class="animated flipInX animation-delay-10 color-success zmdi zmdi-download"></i>
-												<span class="color-success animated fadeInRightTiny animation-delay-11">Lorem
+									<li><i class="animated flipInX animation-delay-6 color-success zmdi zmdi-spinner"></i>
+										<span class="color-success animated fadeInRightTiny animation-delay-7">Lorem ipsum dolor sit amet consectetur</span></li>
+										<li><i class="animated flipInX animation-delay-8 color-danger zmdi zmdi-cocktail"></i>
+											<span class="color-danger animated fadeInRightTiny animation-delay-9">Lorem ipsum dolor sit amet consectetur</span></li>
+											<li><i class="animated flipInX animation-delay-10 color-info zmdi zmdi-case"></i>
+												<span class="color-info animated fadeInRightTiny animation-delay-11">Lorem
 												ipsum dolor sit amet consectetur</span></li>
 											</ul>
 										</div>
 									</div>
 									<div class="col-xl-6 col-lg-5">
-										<img src="{{asset('images/logos/baroes.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
+										<img src="{{asset('images/obrigado-baraozada.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInRight animation-delay-5">
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="carousel-item">
+						<!-- <div class="carousel-item ">
 							<div class="container">
 								<div class="row">
 									<div class="col-xl-6 col-lg-7">
 										<div class="carousel-caption">
-											<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Conheça a história do Centro acadêmico</h1>
+											<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Lorem ipsum dolor sit amet consectetur</h1>
 											<ul class="list-unstyled list-hero">
-												<li><i class="animated flipInX animation-delay-6 color-success zmdi zmdi-spinner"></i>
-													<span class="color-success animated fadeInRightTiny animation-delay-7">Lorem ipsum dolor sit amet consectetur</span></li>
-													<li><i class="animated flipInX animation-delay-8 color-danger zmdi zmdi-cocktail"></i>
-														<span class="color-danger animated fadeInRightTiny animation-delay-9">Lorem ipsum dolor sit amet consectetur</span></li>
-														<li><i class="animated flipInX animation-delay-10 color-info zmdi zmdi-case"></i>
-															<span class="color-info animated fadeInRightTiny animation-delay-11">Lorem
+												<li><i class="animated flipInX animation-delay-8 color-info zmdi zmdi-nature"></i>
+													<span class="color-info animated fadeInRightTiny animation-delay-9">Lorem ipsum dolor sit amet consectetur</span></li>
+													<li><i class="animated flipInX animation-delay-6 color-danger zmdi zmdi-city-alt"></i>
+														<span class="color-danger animated fadeInRightTiny animation-delay-7">Lorem ipsum dolor sit amet consectetur</span></li>
+														<li><i class="animated flipInX animation-delay-10 color-warning zmdi zmdi-graduation-cap"></i>
+															<span class="color-warning animated fadeInRightTiny animation-delay-11">Lorem
 															ipsum dolor sit amet consectetur</span></li>
 														</ul>
 													</div>
 												</div>
 												<div class="col-xl-6 col-lg-5">
-													<img src="{{asset('images/obrigado-baraozada.jpeg')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInRight animation-delay-5">
+													<img src="{{asset('images/logos/institucional.png')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
 												</div>
 											</div>
 										</div>
-									</div>
-									<div class="carousel-item">
-										<div class="container">
-											<div class="row">
-												<div class="col-xl-6 col-lg-7">
-													<div class="carousel-caption">
-														<h1 class="color-white no-mt mb-4 animated zoomInDown animation-delay-7">Lorem ipsum dolor sit amet consectetur</h1>
-														<ul class="list-unstyled list-hero">
-															<li><i class="animated flipInX animation-delay-8 color-info zmdi zmdi-nature"></i>
-																<span class="color-info animated fadeInRightTiny animation-delay-9">Lorem ipsum dolor sit amet consectetur</span></li>
-																<li><i class="animated flipInX animation-delay-6 color-danger zmdi zmdi-city-alt"></i>
-																	<span class="color-danger animated fadeInRightTiny animation-delay-7">Lorem ipsum dolor sit amet consectetur</span></li>
-																	<li><i class="animated flipInX animation-delay-10 color-warning zmdi zmdi-graduation-cap"></i>
-																		<span class="color-warning animated fadeInRightTiny animation-delay-11">Lorem
-																		ipsum dolor sit amet consectetur</span></li>
-																	</ul>
-																</div>
-															</div>
-															<div class="col-xl-6 col-lg-5">
-																<img src="{{asset('images/logos/institucional.png')}}" alt="..." class="img-fluid mt-6 center-block text-center animated zoomInDown animation-delay-5">
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- Controls -->
-											<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
-											<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
-										</div>
-									</header>
+									</div> -->
+								</div>
+								<!-- Controls -->
+								<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
+								<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
+							</div>
+						</header>
 
 
-									<div class="container mt-6 ">
-										<h2 class="color-bordo">Nossa História</h2>
-										<div class="row">
-											<div class="col-lg-6 text-justify">
-												<p class="dropcaps"> @php echo isset($history_ca->text[0])?$history_ca->text[0]:'' @endphp</p>
-												
-											</div>
-											<div class="col-lg-6 text-justify">
-												<p> @php echo isset($history_ca->text[1])?$history_ca->text[1]:'' @endphp</p>
-											</div>
-										</div>
-										<div class="owl-dots color"></div>
-										<div class="owl-carousel owl-theme">
+						<div class="container mt-6 ">
+							<h2 class="color-bordo">Nossa História</h2>
+							<div class="row">
+								<div class="col-lg-6 text-justify">
+									<p class="dropcaps"> @php echo isset($history_ca->text[0])?$history_ca->text[0]:'' @endphp</p>
 
-											
+								</div>
+								<div class="col-lg-6 text-justify">
+									<p> @php echo isset($history_ca->text[1])?$history_ca->text[1]:'' @endphp</p>
+								</div>
+							</div>
+							<div class="owl-dots color"></div>
+							<div class="owl-carousel owl-theme">
+
+
 											<!-- <div class="card card-dark-inverse animation-delay-8">
 												<div class="withripple zoom-img">
 													<a href="javascript:void()"><img src="files/news_athletic/1.jpg" alt="..." class="img-fluid"></a>
@@ -216,7 +191,7 @@
 												</div>
 												<div class="row no-gutters">
 
-													<div class="col-lg-4 offset-4">
+													<div class="col-lg-4 col-sm-12  offset-lg-4">
 														<div class="price-table price-table-danger wow zoomInUp">
 															<header class="price-table-header">
 																<span class="price-table-category">SÓCIO</span>
@@ -247,30 +222,30 @@
 											<div class="container">
 												<h1 class="color-primary text-center" text-center>Representantes</h1>
 												<div class="row">
-												@foreach($team_ca as $t)
-												<div class="col-lg-4 col-sm-6">
-													<div class="card mt-4 card-danger wow zoomInUp animation-delay-7">
-														<div class="ms-hero-bg-warning ms-hero-img-city">
-															<img src="/files/team_ca/{{$t->id}}.{{$t->extension_img}}" alt="..."
-															class="img-avatar-circle">
-														</div>
-														<div class="card-body pt-6 text-center">
-															<h3 class="color-warning">{{$t->name}}</h3>
-															<p>{{$t->description}}
-																<br>
-																@if($t->lattes)<a href="{{$t->lattes}}" target="_blank">Veja Mais</a>@endif
-															</p>
-															@if($t->linkedin)<a href="{{$t->linkedin}}" target="_blank"
-																class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
-																class="zmdi zmdi-linkedin"></i></a>@endif
-																@if($t->instagram)<a href="{{$t->instagram}}" target="_blank"
-																	class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
-																	class="zmdi zmdi-instagram"></i></a>@endif
+													@foreach($team_ca as $t)
+													<div class="col-lg-4 col-sm-6">
+														<div class="card mt-4 card-danger wow zoomInUp animation-delay-7">
+															<div class="ms-hero-bg-warning ms-hero-img-city">
+																<img src="/files/team_ca/{{$t->id}}.{{$t->extension_img}}" alt="..."
+																class="img-avatar-circle">
+															</div>
+															<div class="card-body pt-6 text-center">
+																<h3 class="color-warning">{{$t->name}}</h3>
+																<p>{{$t->description}}
+																	<br>
+																	@if($t->lattes)<a href="{{$t->lattes}}" target="_blank">Veja Mais</a>@endif
+																</p>
+																@if($t->linkedin)<a href="{{$t->linkedin}}" target="_blank"
+																	class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
+																	class="zmdi zmdi-linkedin"></i></a>@endif
+																	@if($t->instagram)<a href="{{$t->instagram}}" target="_blank"
+																		class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
+																		class="zmdi zmdi-instagram"></i></a>@endif
+																	</div>
 																</div>
 															</div>
+															@endforeach
 														</div>
-														@endforeach
-													</div>
 													</div>
 
 												</section>

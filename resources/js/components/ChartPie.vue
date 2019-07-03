@@ -35,6 +35,7 @@
 			}
 		},
 		mounted(){
+			console.log(items);
 			var canvas =  $('#doughnutChart').get(0).getContext('2d')
 
 			var doughnutChart = new Chart(canvas, {

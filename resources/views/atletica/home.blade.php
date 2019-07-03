@@ -108,8 +108,10 @@
 													</div>
 												</div>
 												<!-- Controls -->
-												<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
-												<a href="#carousel-header" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
+												<div class="visible-md-up" style="visibility: hidden;">
+													<a href="#carousel-header" class="hidden-sm hidden-xs btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
+													<a href="#carousel-header" class="hidden-sm hidden-xs btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
+												</div>
 											</div>
 										</header>
 
@@ -173,7 +175,7 @@
 													<div class="col-lg-4 col-md-6 col-sm-6 mb-2">
 														<div class="ms-icon-feature wow flipInX animation-delay-4">
 															<div class="ms-icon-feature-icon">
-																<a href="{{$at->link}}"><span class="bg-white ms-icon ms-icon-lg ms-icon"><i class="{{$at->icon}} color-bordo"></i></span>
+																<a href="{{($at->link == null)?'javascript:void(0)':$at->link}}"><span class="bg-white ms-icon ms-icon-lg ms-icon"><i class="{{$at->icon}} color-bordo"></i></span>
 																</a></div>
 																<div class="ms-icon-feature-content">
 																	<h4 class="color-white">{{$at->name}}</h4>
@@ -251,7 +253,7 @@
 													</div>
 													<div class="row no-gutters">
 
-														<div class="col-lg-6 offset-3">
+														<div class="col-lg-6 col-xs-12 col-md-12 offset-lg-3">
 															<div class="price-table price-table-danger wow zoomInUp">
 																<header class="price-table-header">
 																	<span class="price-table-category">SÓCIO</span>

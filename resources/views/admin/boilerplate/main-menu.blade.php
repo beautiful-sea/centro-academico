@@ -295,7 +295,7 @@ $class = 'menu-open';
 
 <li class="nav-item">
     <a href="{{ route('athletic_teams.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
-        <i class="fa fa-users nav-icon"></i>
+        <i class="fas fa-futbol nav-icon"></i>
         <p>Esportes</p>
     </a>
 </li>

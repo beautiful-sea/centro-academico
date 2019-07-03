@@ -14,7 +14,7 @@
             </ul>
         
             <!-- Área de busca -->
-            <form class="form-inline ml-3">
+           <!--  <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
                     <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
                     <div class="input-group-append">
@@ -23,11 +23,11 @@
                         </button>
                     </div>
                 </div>
-            </form>
+            </form> -->
         
             <ul class="navbar-nav ml-auto">
                 <!-- Notificações -->
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell"></i>
                         <span class="badge badge-warning navbar-badge">12</span>
@@ -53,7 +53,7 @@
 
                         <a href="#" class="dropdown-item dropdown-footer">Ver todas as notificações</a>
                     </div>
-                </li>
+                </li> -->
 
                 <li class="nav-item d-none d-sm-inline-block">
                     {{ Form::open(['url' => route('logout')]) }}

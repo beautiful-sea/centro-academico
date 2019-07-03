@@ -38,7 +38,7 @@ class HomeController extends Controller
         $bellowStock = Stock::getBellowStock();
         $ordersThisMonth = Order::getOrdersThisMonth();
         $profit = OutputProducts::getRawProfit();
-
+        
         return view('admin.home',[
             'products'  =>  $products,
             'users'  =>  User::all(),
