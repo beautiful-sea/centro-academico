@@ -1,4 +1,4 @@
-{{ Form::restForm($team_ca, ['id' => 'team_ca-form','files' => true,'route_prefix'=>'team_ca']) }}
+{{ Form::restForm($team_athletic, ['id' => 'team_athletic-form','files' => true,'route_prefix'=>'team_athletic']) }}
 
 <div class="card">
     <div class="card-body">
@@ -7,13 +7,13 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="name">Nome *</label>
-                    <input id="name" class="form-control" name="name" type="text" value="{{$team_ca->name}}" >
+                    <input id="name" class="form-control" name="name" type="text" value="{{$team_athletic->name}}" >
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="description">Informações *</label>
-                    <textarea maxlength="180" id="description" class="form-control" name="description">{{$team_ca->description}}</textarea>
+                    <textarea maxlength="180" id="description" class="form-control" name="description">{{$team_athletic->description}}</textarea>
                 </div>
             </div>
         </div>
@@ -22,20 +22,20 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="linkedin">Linkedin</label>
-                    <input id="linkedin" class="form-control" name="linkedin" type="text" value="{{$team_ca->linkedin}}" >
+                    <input id="linkedin" class="form-control" name="linkedin" type="text" value="{{$team_athletic->linkedin}}" >
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="instagram">Instagram</label>
-                    <input id="instagram" class="form-control" name="instagram" type="text" value="{{$team_ca->instagram}}" >
+                    <input id="instagram" class="form-control" name="instagram" type="text" value="{{$team_athletic->instagram}}" >
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="lattes">Lattes</label>
-                    <input id="lattes" class="form-control" name="lattes" type="text" value="{{$team_ca->lattes}}" >
+                    <input id="lattes" class="form-control" name="lattes" type="text" value="{{$team_athletic->lattes}}" >
                 </div>
             </div>
 
@@ -49,8 +49,8 @@
                 </div>
             </div>
             <div class="col-md-6">
-                @if($team_ca->extension_img)
-                <img src="/files/team_ca/{{$team_ca->id}}.{{$team_ca->extension_img}}">
+                @if($team_athletic->extension_img)
+                <img src="/files/team_athletic/{{$team_athletic->id}}.{{$team_athletic->extension_img}}">
 
                 @endif
             </div>
@@ -67,7 +67,7 @@
 
 @section('js')
 <script>
-    $('#team_ca-form').validate({
+    $('#team_athletic-form').validate({
         rules: {
             'name':'required',
             'description':'required'

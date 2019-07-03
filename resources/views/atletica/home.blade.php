@@ -283,54 +283,34 @@
 												<div class="container">
 													<h1 class="color-primary text-center" text-center>Nossa Equipe</h1>
 													<div class="row d-flex justify-content-center">
-														<div class="col-lg-4 col-md-6">
-															<div class="card mt-4 card-danger wow zoomInUp">
-																<div class="ms-hero-bg-danger ms-hero-img-city">
-																	<img src="{{asset('images/demo/avatar1.jpg')}}" alt="..." class="img-avatar-circle">
-																</div>
-																<div class="card-body pt-6 text-center">
-																	<h3 class="color-danger">Fulano da Silva</h3>
-																	<p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse
-																	voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i class="zmdi zmdi-facebook"></i></a>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i class="zmdi zmdi-twitter"></i></a>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i class="zmdi zmdi-instagram"></i></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-lg-4 col-md-6">
-															<div class="card mt-4 card-info wow zoomInUp">
-																<div class="ms-hero-bg-info ms-hero-img-city">
-																	<img src="{{asset('images/demo/avatar2.jpg')}}" alt="..." class="img-avatar-circle">
-																</div>
-																<div class="card-body pt-6 text-center">
-																	<h3 class="color-info">Beltrano Fernandes</h3>
-																	<p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse
-																	voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i class="zmdi zmdi-facebook"></i></a>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i class="zmdi zmdi-twitter"></i></a>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i class="zmdi zmdi-instagram"></i></a>
-																</div>
-															</div>
-														</div>
-														<div class="col-lg-4 col-md-6">
-															<div class="card mt-4 card-warning wow zoomInUp">
+
+														@foreach($team_athletic as $t)
+														<div class="col-lg-4 col-sm-6">
+															<div class="card mt-4 card-danger wow zoomInUp animation-delay-7">
 																<div class="ms-hero-bg-warning ms-hero-img-city">
-																	<img src="{{asset('images/demo/avatar3.jpg')}}" alt="..." class="img-avatar-circle">
+																	<img src="/files/team_athletic/{{$t->id}}.{{$t->extension_img}}" alt="..."
+																	class="img-avatar-circle">
 																</div>
 																<div class="card-body pt-6 text-center">
-																	<h3 class="color-warning">Ciclano Cocheto</h3>
-																	<p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse
-																	voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i class="zmdi zmdi-facebook"></i></a>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i class="zmdi zmdi-twitter"></i></a>
-																	<a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i class="zmdi zmdi-instagram"></i></a>
+																	<h3 class="color-warning">{{$t->name}}</h3>
+																	<p>{{$t->description}}
+																		<br>
+																		@if($t->lattes)<a href="{{$t->lattes}}" target="_blank">Veja Mais</a>@endif
+																	</p>
+																	@if($t->linkedin)<a href="{{$t->linkedin}}" target="_blank"
+																		class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i
+																		class="zmdi zmdi-linkedin"></i></a>@endif
+																		@if($t->instagram)<a href="{{$t->instagram}}" target="_blank"
+																			class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i
+																			class="zmdi zmdi-instagram"></i></a>@endif
+																		</div>
+																	</div>
 																</div>
+																@endforeach
+
 															</div>
 														</div>
-													</div>
-												</div>
-											</section>
+													</section>
 
 
-											@endsection
+													@endsection

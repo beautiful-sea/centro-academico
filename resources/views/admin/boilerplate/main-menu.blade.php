@@ -255,7 +255,7 @@ $class = 'menu-open';
 @php
 $class = '';
 
-if ($controller == 'AthleticDataController' || $controller == 'AthleticTeamsController' || $controller == 'NewsAthleticController' || $controller == 'LastPhotosAthleticController') {
+if ($controller == 'AthleticDataController' || $controller == 'AthleticTeamsController' || $controller == 'NewsAthleticController' || $controller == 'LastPhotosAthleticController' || $controller == 'TeamAthleticController') {
 $class = 'menu-open';
 }
 @endphp
@@ -332,6 +332,23 @@ $class = 'active';
     <a href="{{ route('news_athletic.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
         <i class="fa fa-newspaper nav-icon"></i>
         <p>Notícias</p>
+    </a>
+</li>
+@endcan
+
+@can('index', \App\User::class)    
+@php
+$class = '';
+
+if ($controller == 'TeamAthleticController') {
+$class = 'active';
+}
+@endphp
+
+<li class="nav-item">
+    <a href="{{ route('team_athletic.index') }}" class="nav-link {{ $class }}" style="padding-left: 50px">
+        <i class="fa fa-users nav-icon"></i>
+        <p>Representantes</p>
     </a>
 </li>
 @endcan

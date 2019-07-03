@@ -6,7 +6,7 @@
 
 @section('header-breadcrumbs')
 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-<li class="breadcrumb-item active">Centro Acadêmico</li>
+<li class="breadcrumb-item active">Atlética</li>
 <li class="breadcrumb-item active">Representantes</li>
 @endsection
 
@@ -15,7 +15,7 @@
 
     <div class="my-2">
 
-        <a href="{{ route('team_ca.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Novo Representante</a>
+        <a href="{{ route('team_athletic.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Novo Representante</a>
         
     </div>
 
@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($team_ca as $p)
+                    @foreach($team_athletic as $p)
 
                         <tr class="">
                             <td>{{$p->name}}</td>
@@ -38,11 +38,11 @@
                             <td>
                                 <div class="table-actions">
                                     @can('edit', $p)
-                                        <a href="{{ route('team_ca.edit', ['team_ca' => $p]) }}" class="btn btn-default btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                                        <a href="{{ route('team_athletic.edit', ['team_athletic' => $p]) }}" class="btn btn-default btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
                                     @endcan
 
                                     @can('destroy', $p)
-                                            {{ Html::deleteLink('Excluir', route('team_ca.destroy', ['team_ca' => $p]), ['button_class' => 'btn btn-danger btn-sm confirmable', 'icon' => 'trash']) }}
+                                            {{ Html::deleteLink('Excluir', route('team_athletic.destroy', ['team_athletic' => $p]), ['button_class' => 'btn btn-danger btn-sm confirmable', 'icon' => 'trash']) }}
                                     @endcan
                                 </div>
                             </td>

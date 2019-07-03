@@ -7,6 +7,7 @@ use App\AthleticData;
 use App\AthleticTeams;
 use App\LastPhotosAthletic;
 use App\NewsAthletic;
+use App\TeamAthletic;
 
 
 class HomeAthleticController 
@@ -17,11 +18,13 @@ class HomeAthleticController
     	$athletic_teams = AthleticTeams::all();
 		$last_photos_athletic = LastPhotosAthletic::orderBy('created_at','DESC')->limit(6)->get();
 		$news_athletic = NewsAthletic::orderBy('created_at','DESC')->limit(6)->get();
+        $team_athletic = TeamAthletic::all();
     	return view('atletica.home',[
     		'athletic_data'	=>	$athletic_data,
     		'athletic_teams'	=>	$athletic_teams,
     		'last_photos_athletic'	=>	$last_photos_athletic,
-    		'news_athletic'	=>	$news_athletic
+    		'news_athletic'	=>	$news_athletic,
+            'team_athletic' =>  $team_athletic
     	]);
     }
 
