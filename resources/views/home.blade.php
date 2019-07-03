@@ -40,7 +40,7 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html">
                     <!-- <img src="assets/img/demo/logo-navbar.png" alt=""> -->
-                    <span class="ms-logo ms-logo-inverse">EV</span>
+                    <img src="{{ asset('images/logos/logovassouras.png') }}" width="40px">
                     <span class="ms-title">Engenharias <strong>Vassouras</strong></span>
                 </a>
             </div>

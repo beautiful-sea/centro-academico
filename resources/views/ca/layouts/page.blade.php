@@ -160,6 +160,17 @@
 			</div>
 		</div>
 	</header>
+	<nav class="navbar navbar-expand-md  navbar-static ms-navbar ms-navbar-white hidden-md-down">
+	<div class="container container-full">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">
+				<!-- <img src="../assets/img/demo/logo-navbar.png" alt=""> -->
+				<span class="ms-logo animated zoomInDown animation-delay-5">CA</span>
+				<span class="ms-title">Centro <strong>Acadêmico</strong></span>
+			</a>
+		</div>
+	</div> <!-- container -->
+</nav>
 	@yield('content')
 	@endsection
 
