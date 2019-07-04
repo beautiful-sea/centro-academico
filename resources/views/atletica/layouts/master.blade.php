@@ -10,9 +10,9 @@
 	<meta name="description" content="Material Style Theme">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="{{asset('css/plugins.min.css')}}">
 
 	<link rel="stylesheet" href="{{asset('css/preload.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/plugins.min.css')}}">
 	<link rel="stylesheet" href="{{asset('css/style.bordo.min.css')}}">
 	<!--[if lt IE 9]>
 				<script src="../assets/js/html5shiv.min.js"></script>
@@ -25,10 +25,13 @@
 			@yield('body')
 			@yield('footer')
 
-			<script src="{{ asset('js/app.js') }}" ></script>
-			<script src="{{ asset('js/plugins.min.js') }}"></script>
-			<script src="{{ asset('js/app.min.js') }}" ></script>
-			<script src="{{ asset('js/index.js') }}"></script>
+			<script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('js/plugins.min.js') }}" type="text/javascript"></script>
+
+			<script src="{{ asset('js/lead-full.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('js/app.min.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('js/index.js') }}" type="text/javascript"></script>
+
 			<!--Start of Tawk.to Script-->
 			<script type="text/javascript">
 				var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

@@ -6,7 +6,7 @@
 
 	
 	<shopping-cart></shopping-cart>
-	<div class="ms-hero-page ms-hero-img-city2 ms-hero-bg-info mb-6">
+	<div style="margin-top: 40px" class="ms-hero-page ms-hero-img-city2 ms-hero-bg-info mb-6">
 		<div class="text-center color-white mt-6 mb-6 index-1">
 			<h1>Vitrine Online </h1>
 			<p class="lead lead-lg">Bem vindo a nossa vitrine online. Veja nossos produtos e aproveite para reservar o seu!
